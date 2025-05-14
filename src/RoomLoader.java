@@ -32,7 +32,8 @@ public class RoomLoader {
                     items.add(new Item(itemId, itemName, itemDescription));
                 }
 
-                Room room = new Room(roomId, name, description, exits, items);
+                //TODO implement the NPC class its null rn
+                Room room = new Room(roomId, name, description, exits, items, null);
                 rooms.put(roomId, room);
             }
         } catch (Exception e) {

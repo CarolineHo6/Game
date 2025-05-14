@@ -7,13 +7,15 @@ public class Room {
     private String description;
     private Map<String, String> exits; // direction → roomId
     private List<Item> items;
+    private NPC npc;
 
-    public Room(String id, String name, String description, Map<String, String> exits, List<Item> items) {
+    public Room(String id, String name, String description, Map<String, String> exits, List<Item> items, NPC npc) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.exits = exits;
         this.items = items;
+        this.npc = npc;
     }
 
     public String getId() {
@@ -54,6 +56,7 @@ public class Room {
             for (Item item : items) {
                 sb.append(item.getName()).append(", ");
             }
+            sb.append(npc.getName()).append(", ");
             // Remove trailing comma and space
             sb.setLength(sb.length() - 2);
             sb.append(".\n");
