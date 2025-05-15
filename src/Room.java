@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -9,9 +10,9 @@ public class Room {
     private String description;
     private Map<String, String> exits; // direction → roomId
     private List<Item> items;
-    private NPC npc;
+    private ArrayList<NPC> npc;
 
-    public Room(String id, String name, String description, Map<String, String> exits, List<Item> items, NPC npc) {
+    public Room(String id, String name, String description, Map<String, String> exits, List<Item> items, ArrayList<NPC> npc) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -58,7 +59,9 @@ public class Room {
             for (Item item : items) {
                 sb.append(item.getName()).append(", ");
             }
-            sb.append(npc.getName()).append(", ");
+            for (NPC npc : npc) {
+                sb.append(npc.getName()).append(", ");
+            }
             // Remove trailing comma and space
             sb.setLength(sb.length() - 2);
             sb.append(".\n");
