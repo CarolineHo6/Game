@@ -1,3 +1,4 @@
+package humans;
 import java.util.*;
  
 public class Enemies extends NPC {

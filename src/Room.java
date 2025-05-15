@@ -1,6 +1,8 @@
 import java.util.List;
 import java.util.Map;
 
+import humans.NPC;
+
 public class Room {
     private String id;
     private String name;

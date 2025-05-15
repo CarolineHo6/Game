@@ -1,3 +1,4 @@
+package humans;
 public class NPC {
     private String name;
     private String currentRoom;
