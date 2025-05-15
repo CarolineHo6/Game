@@ -5,8 +5,8 @@ public class Boss extends Enemies {
  
     private int stages;
  
-    public Boss(int h, int d, String n, int dr, int s) {
-        super(h, d, n, dr, n, n, n, n);
+    public Boss(int h, int d, String n, int dr, int s, String name, String currentRoom, String description, String talk) {
+        super(h, d, n, dr, name, currentRoom, description, talk);
         stages = s;
  
     }
