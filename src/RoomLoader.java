@@ -15,6 +15,8 @@ public class RoomLoader {
 
                 String name = roomData.get("name").getAsString();
                 String description = roomData.get("description").getAsString();
+                String floor = roomData.get("floor").getAsString();
+
 
                 Map<String, String> exits = new HashMap<>();
                 JsonObject exitsJson = roomData.getAsJsonObject("exits");
@@ -33,7 +35,7 @@ public class RoomLoader {
                 }
 
                 //TODO implement the NPC class its null rn
-                Room room = new Room(roomId, name, description, exits, items, null);
+                Room room = new Room(roomId, name, description, exits, items, null, floor);
                 rooms.put(roomId, room);
             }
         } catch (Exception e) {

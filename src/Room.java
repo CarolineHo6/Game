@@ -11,14 +11,16 @@ public class Room {
     private Map<String, String> exits; // direction → roomId
     private List<Item> items;
     private ArrayList<NPC> npc;
+    private String floor; 
 
-    public Room(String id, String name, String description, Map<String, String> exits, List<Item> items, ArrayList<NPC> npc) {
+    public Room(String id, String name, String description, Map<String, String> exits, List<Item> items, ArrayList<NPC> npc, String floor) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.exits = exits;
         this.items = items;
         this.npc = npc;
+        this.floor = floor;
     }
 
     public String getId() {
