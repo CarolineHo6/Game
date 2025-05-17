@@ -32,7 +32,8 @@ public class RoomLoader {
                     npc.add(new NPC(i.get("name").getAsString(), i.get("currentRoom").getAsString(), i.get("isHostile").getAsBoolean(), i.get("description").getAsString(), i.get("talk").getAsString()));
                 }
 
-                rooms.put(key, new Room(key, name, desc, exits, items, npc));
+                // TODO add floor stuff
+                rooms.put(key, new Room(key, name, desc, exits, items, npc, floor));
             }
         } catch (Exception e) {
             e.printStackTrace();
