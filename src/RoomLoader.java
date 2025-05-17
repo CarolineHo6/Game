@@ -14,6 +14,7 @@ public class RoomLoader {
                 JsonObject obj = data.getAsJsonObject(key);
                 String name = obj.get("name").getAsString();
                 String desc = obj.get("description").getAsString();
+                String floor = obj.get("floor").getAsString();
                 Map<String, String> exits = new HashMap<>();
                 JsonObject exitsJson = obj.getAsJsonObject("exits");
                 for (String dir : exitsJson.keySet()) {
