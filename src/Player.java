@@ -10,7 +10,7 @@ public class Player {
     public Player(String startingRoomId) {
         this.currentRoomId = startingRoomId;
         this.inventory = new ArrayList<>();
-        this.health = 100;
+        this.health = 5; //like 5 hearts
     }
 
     public String getCurrentRoomId() {
@@ -23,6 +23,10 @@ public class Player {
 
     public void addItem(Item item) {
         inventory.add(item);
+    }
+
+     public boolean hasItem(String itemName) {
+        return inventory.stream().anyMatch(i -> i.getName().equalsIgnoreCase(itemName));
     }
 
     public void removeItem(Item item) {

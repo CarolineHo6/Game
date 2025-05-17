@@ -1,40 +1,38 @@
 import java.io.FileReader;
 import java.util.*;
 import com.google.gson.*;
+import humans.NPC;
 
 public class RoomLoader {
     public Map<String, Room> loadRooms(String filePath) {
         Map<String, Room> rooms = new HashMap<>();
         try {
             Gson gson = new Gson();
-            JsonObject jsonObject = gson.fromJson(new FileReader(filePath), JsonObject.class);
+            JsonObject data = gson.fromJson(new FileReader(filePath), JsonObject.class);
 
-            for (Map.Entry<String, JsonElement> entry : jsonObject.entrySet()) {
-                String roomId = entry.getKey();
-                JsonObject roomData = entry.getValue().getAsJsonObject();
-
-                String name = roomData.get("name").getAsString();
-                String description = roomData.get("description").getAsString();
-
+            for (String key : data.keySet()) {
+                JsonObject obj = data.getAsJsonObject(key);
+                String name = obj.get("name").getAsString();
+                String desc = obj.get("description").getAsString();
                 Map<String, String> exits = new HashMap<>();
-                JsonObject exitsJson = roomData.getAsJsonObject("exits");
-                for (Map.Entry<String, JsonElement> exit : exitsJson.entrySet()) {
-                    exits.put(exit.getKey(), exit.getValue().getAsString());
+                JsonObject exitsJson = obj.getAsJsonObject("exits");
+                for (String dir : exitsJson.keySet()) {
+                    exits.put(dir, exitsJson.get(dir).getAsString());
                 }
-
                 List<Item> items = new ArrayList<>();
-                JsonArray itemsJson = roomData.getAsJsonArray("items");
-                for (JsonElement itemElement : itemsJson) {
-                    JsonObject itemObj = itemElement.getAsJsonObject();
-                    String itemId = itemObj.get("id").getAsString();
-                    String itemName = itemObj.get("name").getAsString();
-                    String itemDescription = itemObj.get("description").getAsString();
-                    items.add(new Item(itemId, itemName, itemDescription));
+                JsonArray itemArray = obj.getAsJsonArray("items");
+                for (JsonElement e : itemArray) {
+                    JsonObject i = e.getAsJsonObject();
+                    items.add(new Item(i.get("id").getAsString(), i.get("name").getAsString(), i.get("description").getAsString()));
+                }
+                List<NPC> npc = new ArrayList<>();
+                JsonArray npcArray = obj.getAsJsonObject("npc");
+                for (JsonElement n : npcArray) {
+                    JsonObject i = n.getAsJsonObject();
+                    npc.add(new NPC(i.get("name").getAsString(), i.get("currentRoom").getAsString(), i.get("isHostile").getAsBoolean(), i.get("description").getAsString(), i.get("talk").getAsString()));
                 }
 
-                //TODO implement the NPC class its null rn
-                Room room = new Room(roomId, name, description, exits, items, null);
-                rooms.put(roomId, room);
+                rooms.put(key, new Room(key, name, desc, exits, items, npc));
             }
         } catch (Exception e) {
             e.printStackTrace();
