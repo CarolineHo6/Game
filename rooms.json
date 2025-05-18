@@ -125,7 +125,7 @@
       "south": "gym",
       "east": "1F hallway2",
       "west": "IT",
-      "down": "2F staircase"
+      "north": "1F staircase"
     },
     "items": [],
     "floor": "1"
@@ -186,5 +186,94 @@
     },
     "items": [],
     "floor": "1"
+  },
+  "1F staircase": {
+    "name": "1F Staircase",
+    "description": "",
+    "exits": {
+      "south": "1F hallway1",
+      "up": "2F staircase"
+    },
+    "items": [],
+    "floor": "1"
+  },
+  "3F staircase": {
+    "name": "3F Staircase",
+    "description": "",
+    "exits": {
+      "down": "2F staircase",
+      "south": "3F hallway1"
+    },
+    "items": [],
+    "floor": "1"
+  },
+  "3F hallway1": {
+    "name": "3F Hallway 1",
+    "description": "",
+    "exits": {
+      "north": "3F staircase",
+      "south": "compsci room",
+      "east": "3F hallway2",
+      "west": "Gr.9 common area"
+    },
+    "items": [],
+    "floor": "3"
+  },
+  "3F hallway2": {
+    "name": "3F Hallway 2",
+    "description": "",
+    "exits": {
+      "north": "math lab",
+      "south": "principle's office",
+      "east": "gr.10 common area",
+      "west": "3F hallway1"
+    },
+    "items": [],
+    "floor": "3"
+  },
+  "gr.9 common area": {
+    "name": "gr.9 Common Area",
+    "description": "",
+    "exits": {
+      "east": "3F hallway1"
+    },
+    "items": [],
+    "floor": "3"
+  },
+  "compsci room": {
+    "name": "Comp Sci Classroom",
+    "description": "",
+    "exits": {
+      "north": "3F hallway1"
+    },
+    "items": [],
+    "floor": "3"
+  },
+  "math lab": {
+    "name": "Math Lab",
+    "description": "",
+    "exits": {
+      "south": "3F hallway2"
+    },
+    "items": [],
+    "floor": "3"
+  },
+  "principle's office": {
+    "name": "Principle's Office",
+    "description": "",
+    "exits": {
+      "north": "3F hallway2"
+    },
+    "items": [],
+    "floor": "3"
+  },
+  "gr.10 common area": {
+    "name": "Gr.10 Common Area",
+    "description": "",
+    "exits": {
+      "west": "3F hallway2"
+    },
+    "items": [],
+    "floor": "3"
   }
 }
