@@ -10,10 +10,11 @@ public class Room {
     private String description;
     private Map<String, String> exits; // direction → roomId
     private List<Item> items;
-    private ArrayList<NPC> npc;
-    private String floor; 
+    private static ArrayList<NPC> npc;
+    private String floor;
 
-    public Room(String id, String name, String description, Map<String, String> exits, List<Item> items, ArrayList<NPC> npc, String floor) {
+    public Room(String id, String name, String description, Map<String, String> exits, List<Item> items,
+            ArrayList<NPC> npc, String floor) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -49,6 +50,19 @@ public class Room {
 
     public void addItem(Item item) {
         items.add(item);
+    }
+
+    public NPC randomGenerateMonster() {
+        int r = (int) (Math.random() * 2);
+        if (npc.size() != 0 && r == 1) {
+            int x = (int) (Math.random() * npc.size());
+            NPC m = npc.get(x);
+            npc.remove(x);
+            return m;
+        } else {
+            return null;
+        }
+
     }
 
     public String getLongDescription() {

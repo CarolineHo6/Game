@@ -29,7 +29,8 @@ public class CommandParser {
             if (decision.equals("Fight") || decision.equals("fight")) {
 
                 while (true) {
-                    System.out.println(x.getDescription());
+                    monster.stats();
+                    player.stats();
                     System.out.println("Please select your weapon");
                     System.out.print("Inventory: ");
                     ArrayList<Item> pop = player.getInventory();
