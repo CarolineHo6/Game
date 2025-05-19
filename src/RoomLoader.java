@@ -24,17 +24,20 @@ public class RoomLoader {
                 JsonArray itemArray = obj.getAsJsonArray("items");
                 for (JsonElement e : itemArray) {
                     JsonObject i = e.getAsJsonObject();
-                    items.add(new Item(i.get("id").getAsString(), i.get("name").getAsString(), i.get("description").getAsString()));
+                    items.add(new Item(i.get("id").getAsString(), i.get("name").getAsString(),
+                            i.get("description").getAsString()));
                 }
                 List<NPC> npc = new ArrayList<>();
                 JsonArray npcArray = obj.getAsJsonObject("npc");
                 for (JsonElement n : npcArray) {
                     JsonObject i = n.getAsJsonObject();
-                    npc.add(new NPC(i.get("name").getAsString(), i.get("currentRoom").getAsString(), i.get("isHostile").getAsBoolean(), i.get("description").getAsString(), i.get("talk").getAsString()));
+                    npc.add(new NPC(i.get("name").getAsString(), i.get("currentRoom").getAsString(),
+                            i.get("isHostile").getAsBoolean(), i.get("description").getAsString(),
+                            i.get("talk").getAsString()));
                 }
 
                 // TODO add floor stuff
-                rooms.put(key, new Room(key, name, desc, exits, items, npc, floor));
+                rooms.put(key, new Room(key, name, desc, exits, items, npc, floogit r));
             }
         } catch (Exception e) {
             e.printStackTrace();

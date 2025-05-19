@@ -9,7 +9,7 @@ public class Room {
     private String name;
     private String description;
     private Map<String, String> exits; // direction → roomId
-    private List<Item> items;
+    private static List<Item> items;
     private static ArrayList<NPC> npc;
     private String floor;
 
