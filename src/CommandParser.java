@@ -5,7 +5,7 @@ import humans.NPC;
 
 public class CommandParser {
 
-    public boolean parse(String input, Player player, Map<String, Room> rooms) {
+    public static boolean parse(String input, Player player, Map<String, Room> rooms) {
         String[] words = input.trim().toLowerCase().split("\\s+");
         if (words.length == 0) {
             System.out.println("Please enter a command.");

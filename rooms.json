@@ -51,7 +51,7 @@
   },
   "cafeteria": {
     "name": "Cafeteria",
-    "description": "",
+    "description": "You enter a large room that smells of food. You see rows of tables and chairs that resemble a jail cafeteria. There is a designated seat, that looks rather large, for someone named Caitlin.",
     "exits": {
       "south": "hallway1"
     },
