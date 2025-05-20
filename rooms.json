@@ -1,5 +1,6 @@
 {
   "entrance": {
+    "id": "entrance",
     "name": "Entrance Hall",
     "description": "You are standing in the main entrance hall, where sunlight spills through tall glass doors and reflects off the smooth tile floor. The space feels open and busy—students pass through, voices low and hurried. To the west, a wide doorway leads to the theatre. To the east, a hallway stretches toward the cafeteria and library. Straight ahead, a staircase descends to the lower floor. Artwork and announcements line the walls, giving the space a lived-in feel.",
     "exits": {
@@ -14,9 +15,11 @@
         "description": "A small rusty key."
       }
     ],
+    "npc": [],
     "floor": "2"
   },
   "theatre": {
+    "id": "theatre",
     "name": "Theatre",
     "description": "You enter a dim, quiet space lined with rows of cushioned seats facing a closed stage. Thick red curtains drape the front, and the faint scent of paint and wood lingers. Shadows stretch backstage, where props and sets rest unseen. To the east is the entrance hall. A hallway extends south, leading deeper into the arts wing.",
     "exits": {
@@ -24,9 +27,11 @@
       "south": "hallway2"
     },
     "items": [],
+    "npc": [],
     "floor": "2"
   },
   "2F staircase": {
+    "id": "2Fstaircase",
     "name": "Central Staircase",
     "description": "A spiraling staircase winds between floors, enclosed in smooth concrete and metal railings. Your footsteps echo with each turn. Cool air drifts from below, and warm light filters from the floor above. This central stairwell connects all three levels—up to the third floor, down to the lower level, and north back to the entrance hall.",
     "exits": {
@@ -35,9 +40,11 @@
       "north": "entrance hall"
     },
     "items": [],
+    "npc": [],
     "floor": "2"
   },
   "hallway1": {
+    "id": "hallway1",
     "name": "Hallway 1",
     "description": "This wide hallway runs east to west, connecting key parts of the main floor. To the north, large windows reveal the busy cafeteria, filled with motion and conversation. To the south, a glass door leads into the quiet library. At the far east end, an exit opens to the outside. Behind you to the west lies the entrance hall, where students come and go throughout the day.",
     "exits": {
@@ -47,6 +54,14 @@
       "west": "entrance hall"
     },
     "items": [],
+    "npc": [{
+      "name": "caitlin",
+      "currentToom": "entrance",
+      "isHostile": false,
+      "description": "A person that resembles a sphere. She is holding a snack in her hand while shoving some more food into her mouth. Its rather disgusting...",
+      "talk": "GIMME FOOD. I WANT FOOD",
+      "id": "person1"
+    }],
     "floor": "2"
   },
   "cafeteria": {
@@ -56,6 +71,7 @@
       "south": "hallway1"
     },
     "items": [],
+    "npc": [],
     "floor": "2"
   },
   "library": {
@@ -66,6 +82,7 @@
       "south": "hallway3"
     },
     "items": [],
+    "npc": [],
     "floor": "2"
   },
   "hallway3": {
@@ -78,6 +95,7 @@
       "west": "drama room"
     },
     "items": [],
+    "npc": [],
     "floor": "2"
   },
   "music room": {
@@ -87,6 +105,7 @@
       "west": "hallway3"
     },
     "items": [],
+    "npc": [],
     "floor": "2"
   },
   "gr.11 common area": {
@@ -96,6 +115,7 @@
       "north": "hallway3"
     },
     "items": [],
+    "npc": [],
     "floor": "2"
   },
   "drama room": {
@@ -106,6 +126,7 @@
       "east": "hallway3"
     },
     "items": [],
+    "npc": [],
     "floor": "2"
   },
   "hallway2": {
@@ -116,6 +137,7 @@
       "south": "drama room"
     },
     "items": [],
+    "npc": [],
     "floor": "2"
   },
   "1F hallway1": {
@@ -128,6 +150,7 @@
       "north": "1F staircase"
     },
     "items": [],
+    "npc": [],
     "floor": "1"
   },
   "gym": {
@@ -137,6 +160,7 @@
       "north": "1F hallway1"
     },
     "items": [],
+    "npc": [],
     "floor": "1"
   },
   "IT": {
@@ -146,6 +170,7 @@
       "east": "1F hallway1"
     },
     "items": [],
+    "npc": [],
     "floor": "1"
   },
   "1F hallway2": {
@@ -158,6 +183,7 @@
       "west": "1F hallway1"
     },
     "items": [],
+    "npc": [],
     "floor": "1"
   },
   "science lab": {
@@ -167,6 +193,7 @@
       "north": "1F hallway2"
     },
     "items": [],
+    "npc": [],
     "floor": "1"
   },
   "gr.12 common area": {
@@ -176,6 +203,7 @@
       "west": "1F hallway2"
     },
     "items": [],
+    "npc": [],
     "floor": "1"
   },
   "classroom": {
@@ -185,6 +213,7 @@
       "south": "1F hallway2"
     },
     "items": [],
+    "npc": [],
     "floor": "1"
   },
   "1F staircase": {
@@ -195,6 +224,7 @@
       "up": "2F staircase"
     },
     "items": [],
+    "npc": [],
     "floor": "1"
   },
   "3F staircase": {
@@ -205,6 +235,7 @@
       "south": "3F hallway1"
     },
     "items": [],
+    "npc": [],
     "floor": "1"
   },
   "3F hallway1": {
@@ -217,6 +248,7 @@
       "west": "Gr.9 common area"
     },
     "items": [],
+    "npc": [],
     "floor": "3"
   },
   "3F hallway2": {
@@ -229,6 +261,7 @@
       "west": "3F hallway1"
     },
     "items": [],
+    "npc": [],
     "floor": "3"
   },
   "gr.9 common area": {
@@ -238,6 +271,7 @@
       "east": "3F hallway1"
     },
     "items": [],
+    "npc": [],
     "floor": "3"
   },
   "compsci room": {
@@ -247,6 +281,7 @@
       "north": "3F hallway1"
     },
     "items": [],
+    "npc": [],
     "floor": "3"
   },
   "math lab": {
@@ -256,6 +291,7 @@
       "south": "3F hallway2"
     },
     "items": [],
+    "npc": [],
     "floor": "3"
   },
   "principle's office": {
@@ -265,6 +301,7 @@
       "north": "3F hallway2"
     },
     "items": [],
+    "npc": [],
     "floor": "3"
   },
   "gr.10 common area": {
@@ -274,6 +311,7 @@
       "west": "3F hallway2"
     },
     "items": [],
+    "npc": [],
     "floor": "3"
   }
 }
