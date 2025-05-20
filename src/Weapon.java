@@ -1,31 +1,30 @@
-public class Weapon extends Item{
-    private int damage;
+
+import java.util.*;
+
+public class Weapon extends Item {
+    private int attack;
     private int crit;
-    private boolean isCrit;
-    
+    private boolean isCrit; 
 
-    public Weapon(int damage, int crit){
-        super(id, name, description)
-        this.damage = damage;
-        this.crit = crit; 
-        this.isCrit = false;
+    public Weapon(String id, String name, String description, int attack, int crit) {
+        super(id, name, description);
+        this.attack = attack;
+        isCrit = false;
     }
 
-    public int getDamage(){
-        return damage;
-    
+    public boolean isWeapon() {
+        return true;
     }
 
-    public String attack(){
+    public int getAttack() {
         if (Math.random() < 0.05)
         {
-            isCrit = true;
-
-            if(isCrit)
-                return "You did" + (damage + crit) + "damage";
+                isCrit = true;
         }
-        return "You did" + damage + "damage";
 
-
+        if (isCrit)
+            return attack + crit;
+        return attack;
     }
+
 }

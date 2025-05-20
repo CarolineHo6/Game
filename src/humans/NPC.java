@@ -1,16 +1,20 @@
+package humans;
+
 public class NPC {
     private String name;
     private String currentRoom;
     private boolean isHostile;
     private String description;
     private String talk;
+    private String id;
 
-    public NPC(String name, String currentRoom, boolean isHostile, String description, String talk) {
+    public NPC(String name, String currentRoom, boolean isHostile, String description, String talk, String id) {
         this.name = name;
         this.currentRoom = currentRoom;
         this.isHostile = isHostile;
         this.description = description;
         this.talk = talk;
+        this.id = id;
     }
 
     public String getDescription() {
@@ -36,6 +40,5 @@ public class NPC {
     public String getName() {
         return name;
     }
-
 
 }

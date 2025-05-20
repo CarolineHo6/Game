@@ -13,6 +13,18 @@ public class Game {
         commandParser = new CommandParser();
     }
 
+    public String processCommand(String input) {
+        return CommandParser.parse(input, player, rooms);
+    }
+
+    public Player getPlayer() {
+        return player;
+    }
+
+    public Room getCurrentRoom() {
+        return rooms.get(player.getCurrentRoomId());
+    }
+
     public void start() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Welcome to the Text Adventure Game!");

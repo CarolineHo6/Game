@@ -1,21 +1,27 @@
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+
+import humans.NPC;
 
 public class Room {
     private String id;
     private String name;
     private String description;
     private Map<String, String> exits; // direction → roomId
-    private List<Item> items;
-    private NPC npc;
+    private static List<Item> items;
+    private static ArrayList<NPC> npc;
+    private String floor;
 
-    public Room(String id, String name, String description, Map<String, String> exits, List<Item> items, NPC npc) {
+    public Room(String id, String name, String description, Map<String, String> exits, List<Item> items,
+            ArrayList<NPC> npc, String floor) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.exits = exits;
         this.items = items;
         this.npc = npc;
+        this.floor = floor;
     }
 
     public String getId() {
@@ -46,6 +52,19 @@ public class Room {
         items.add(item);
     }
 
+    public NPC randomGenerateMonster() {
+        int r = (int) (Math.random() * 2);
+        if (npc.size() != 0 && r == 1) {
+            int x = (int) (Math.random() * npc.size());
+            NPC m = npc.get(x);
+            npc.remove(x);
+            return m;
+        } else {
+            return null;
+        }
+
+    }
+
     public String getLongDescription() {
         StringBuilder sb = new StringBuilder();
         sb.append(name).append("\n");
@@ -56,7 +75,9 @@ public class Room {
             for (Item item : items) {
                 sb.append(item.getName()).append(", ");
             }
-            sb.append(npc.getName()).append(", ");
+            for (NPC npc : npc) {
+                sb.append(npc.getName()).append(", ");
+            }
             // Remove trailing comma and space
             sb.setLength(sb.length() - 2);
             sb.append(".\n");

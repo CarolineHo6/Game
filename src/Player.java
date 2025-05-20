@@ -3,13 +3,19 @@ import java.util.List;
 
 public class Player {
     private String currentRoomId;
-    private List<Item> inventory;
+    private ArrayList<Item> inventory;
     private int health;
+    private int attack;
 
     public Player(String startingRoomId) {
         this.currentRoomId = startingRoomId;
         this.inventory = new ArrayList<>();
-        this.health = 100;
+        this.health = 5; // like 5 hearts
+        this.attack = 2; // 2 attack
+    }
+
+    public void stats() {
+        System.out.println("Health: " + health + "Attack: " + attack);
     }
 
     public String getCurrentRoomId() {
@@ -24,11 +30,19 @@ public class Player {
         inventory.add(item);
     }
 
+    public boolean hasItem(String itemName) {
+        return inventory.stream().anyMatch(i -> i.getName().equalsIgnoreCase(itemName));
+    }
+
+    public int getAttack() {
+        return attack;
+    }
+
     public void removeItem(Item item) {
         inventory.remove(item);
     }
 
-    public List<Item> getInventory() {
+    public ArrayList<Item> getInventory() {
         return inventory;
     }
 

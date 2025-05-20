@@ -1,3 +1,5 @@
+import java.util.*;
+
 public class Item {
     private String id;
     private String name;
@@ -17,7 +19,17 @@ public class Item {
         return name;
     }
 
+    public boolean isWeapon() {
+        return false;
+    }
+
     public String getDescription() {
         return description;
+    }
+
+    public int getAttack() {
+        // fix later
+
+        return 0;
     }
 }
