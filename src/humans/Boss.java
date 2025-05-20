@@ -17,7 +17,6 @@ public class Boss extends Enemies {
         super.setHealth(addHealth);
         super.setDamage(addDamage);
         stages--;
-
     }
 
     public int getStages() {

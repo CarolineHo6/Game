@@ -62,7 +62,6 @@ public class Room {
         } else {
             return null;
         }
-
     }
 
     public String getLongDescription() {

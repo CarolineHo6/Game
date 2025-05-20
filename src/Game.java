@@ -13,7 +13,7 @@ public class Game {
         commandParser = new CommandParser();
     }
 
-    public String processCommand(String input) {
+    public boolean processCommand(String input) {
         return CommandParser.parse(input, player, rooms);
     }
 

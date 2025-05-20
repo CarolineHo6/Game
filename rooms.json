@@ -1,40 +1,318 @@
 {
-    "entrance": {
-      "name": "Entrance Hall",
-      "description": "You are in a grand entrance hall. A door leads north.",
-      "exits": {
-        "north": "library"
-      },
-      "items": [
-        {
-          "id": "key1",
-          "name": "Key",
-          "description": "A small rusty key."
-        }
-      ]
+  "entrance": {
+    "id": "entrance",
+    "name": "Entrance Hall",
+    "description": "You are standing in the main entrance hall, where sunlight spills through tall glass doors and reflects off the smooth tile floor. The space feels open and busy—students pass through, voices low and hurried. To the west, a wide doorway leads to the theatre. To the east, a hallway stretches toward the cafeteria and library. Straight ahead, a staircase descends to the lower floor. Artwork and announcements line the walls, giving the space a lived-in feel.",
+    "exits": {
+      "south": "staircase",
+      "west": "theatre",
+      "east": "hallway1"
     },
-    "library": {
-      "name": "Library",
-      "description": "Books line the walls. It's quiet.",
-      "exits": {
-        "south": "entrance"
-      },
-      "items": []
-    }
+    "items": [
+      {
+        "id": "key1",
+        "name": "Key",
+        "description": "A small rusty key."
+      }
+    ],
+    "npc": [],
+    "floor": "2"
+  },
+  "theatre": {
+    "id": "theatre",
+    "name": "Theatre",
+    "description": "You enter a dim, quiet space lined with rows of cushioned seats facing a closed stage. Thick red curtains drape the front, and the faint scent of paint and wood lingers. Shadows stretch backstage, where props and sets rest unseen. To the east is the entrance hall. A hallway extends south, leading deeper into the arts wing.",
+    "exits": {
+      "east": "entrance",
+      "south": "hallway2"
+    },
+    "items": [],
+    "npc": [],
+    "floor": "2"
+  },
+  "2F staircase": {
+    "id": "2Fstaircase",
+    "name": "Central Staircase",
+    "description": "A spiraling staircase winds between floors, enclosed in smooth concrete and metal railings. Your footsteps echo with each turn. Cool air drifts from below, and warm light filters from the floor above. This central stairwell connects all three levels—up to the third floor, down to the lower level, and north back to the entrance hall.",
+    "exits": {
+      "up": "3F hallway",
+      "down": "1F hallway",
+      "north": "entrance hall"
+    },
+    "items": [],
+    "npc": [],
+    "floor": "2"
+  },
+  "hallway1": {
+    "id": "hallway1",
+    "name": "Hallway 1",
+    "description": "This wide hallway runs east to west, connecting key parts of the main floor. To the north, large windows reveal the busy cafeteria, filled with motion and conversation. To the south, a glass door leads into the quiet library. At the far east end, an exit opens to the outside. Behind you to the west lies the entrance hall, where students come and go throughout the day.",
+    "exits": {
+      "north": "cafeteria",
+      "south": "library",
+      "east": "east exit",
+      "west": "entrance hall"
+    },
+    "items": [],
+    "npc": [{
+      "name": "caitlin",
+      "currentToom": "entrance",
+      "isHostile": false,
+      "description": "A person that resembles a sphere. She is holding a snack in her hand while shoving some more food into her mouth. Its rather disgusting...",
+      "talk": "GIMME FOOD. I WANT FOOD",
+      "id": "person1"
+    }],
+    "floor": "2"
+  },
+  "cafeteria": {
+    "name": "Cafeteria",
+    "description": "You enter a large room that smells of food. You see rows of tables and chairs that resemble a jail cafeteria. There is a designated seat, that looks rather large, for someone named Caitlin.",
+    "exits": {
+      "south": "hallway1"
+    },
+    "items": [],
+    "npc": [],
+    "floor": "2"
+  },
+  "library": {
+    "name": "Learning Commons",
+    "description": "Books line the walls. It's quiet.",
+    "exits": {
+      "north": "hallway1",
+      "south": "hallway3"
+    },
+    "items": [],
+    "npc": [],
+    "floor": "2"
   },
   
   "cafeteria" :  {
     "name" : "Cafeteria",
     "descripion": "Remains of scavenged food lies on the ground.",
     "exits": {
-      "south" : "hallway"
-
+      "north": "library",
+      "south": "gr.11 Common Area",
+      "east": "music room",
+      "west": "drama room"
     },
-    "items": [
-      {
-        "id": "bKnife",
-        "name": "Butter Knife",
-        "description": "A dull knife used for butter."
-      }
-    ]
+    "items": [],
+    "npc": [],
+    "floor": "2"
+  },
+  "music room": {
+    "name": "Music Room",
+    "description": "",
+    "exits": {
+      "west": "hallway3"
+    },
+    "items": [],
+    "npc": [],
+    "floor": "2"
+  },
+  "gr.11 common area": {
+    "name": "Gr.11 Common Area",
+    "description": "",
+    "exits": {
+      "north": "hallway3"
+    },
+    "items": [],
+    "npc": [],
+    "floor": "2"
+  },
+  "drama room": {
+    "name": "Drama Room",
+    "description": "",
+    "exits": {
+      "north": "hallway2",
+      "east": "hallway3"
+    },
+    "items": [],
+    "npc": [],
+    "floor": "2"
+  },
+  "hallway2": {
+    "name": "Hallway 2",
+    "description": "",
+    "exits": {
+      "north": "theatre",
+      "south": "drama room"
+    },
+    "items": [],
+    "npc": [],
+    "floor": "2"
+  },
+  "1F hallway1": {
+    "name": "1F Hallway 1",
+    "description": "",
+    "exits": {
+      "south": "gym",
+      "east": "1F hallway2",
+      "west": "IT",
+      "north": "1F staircase"
+    },
+    "items": [],
+    "npc": [],
+    "floor": "1"
+  },
+  "gym": {
+    "name": "Gym",
+    "description": "",
+    "exits": {
+      "north": "1F hallway1"
+    },
+    "items": [],
+    "npc": [],
+    "floor": "1"
+  },
+  "IT": {
+    "name": "IT Department",
+    "description": "",
+    "exits": {
+      "east": "1F hallway1"
+    },
+    "items": [],
+    "npc": [],
+    "floor": "1"
+  },
+  "1F hallway2": {
+    "name": "1F Hallway 2",
+    "description": "",
+    "exits": {
+      "north": "classroom",
+      "south": "science lab",
+      "east": "gr.12 Common Area",
+      "west": "1F hallway1"
+    },
+    "items": [],
+    "npc": [],
+    "floor": "1"
+  },
+  "science lab": {
+    "name": "Science Labratory",
+    "description": "",
+    "exits": {
+      "north": "1F hallway2"
+    },
+    "items": [],
+    "npc": [],
+    "floor": "1"
+  },
+  "gr.12 common area": {
+    "name": "Gr.12 Common Area",
+    "description": "",
+    "exits": {
+      "west": "1F hallway2"
+    },
+    "items": [],
+    "npc": [],
+    "floor": "1"
+  },
+  "classroom": {
+    "name": "Classroom",
+    "description": "",
+    "exits": {
+      "south": "1F hallway2"
+    },
+    "items": [],
+    "npc": [],
+    "floor": "1"
+  },
+  "1F staircase": {
+    "name": "1F Staircase",
+    "description": "",
+    "exits": {
+      "south": "1F hallway1",
+      "up": "2F staircase"
+    },
+    "items": [],
+    "npc": [],
+    "floor": "1"
+  },
+  "3F staircase": {
+    "name": "3F Staircase",
+    "description": "",
+    "exits": {
+      "down": "2F staircase",
+      "south": "3F hallway1"
+    },
+    "items": [],
+    "npc": [],
+    "floor": "1"
+  },
+  "3F hallway1": {
+    "name": "3F Hallway 1",
+    "description": "",
+    "exits": {
+      "north": "3F staircase",
+      "south": "compsci room",
+      "east": "3F hallway2",
+      "west": "Gr.9 common area"
+    },
+    "items": [],
+    "npc": [],
+    "floor": "3"
+  },
+  "3F hallway2": {
+    "name": "3F Hallway 2",
+    "description": "",
+    "exits": {
+      "north": "math lab",
+      "south": "principle's office",
+      "east": "gr.10 common area",
+      "west": "3F hallway1"
+    },
+    "items": [],
+    "npc": [],
+    "floor": "3"
+  },
+  "gr.9 common area": {
+    "name": "gr.9 Common Area",
+    "description": "",
+    "exits": {
+      "east": "3F hallway1"
+    },
+    "items": [],
+    "npc": [],
+    "floor": "3"
+  },
+  "compsci room": {
+    "name": "Comp Sci Classroom",
+    "description": "",
+    "exits": {
+      "north": "3F hallway1"
+    },
+    "items": [],
+    "npc": [],
+    "floor": "3"
+  },
+  "math lab": {
+    "name": "Math Lab",
+    "description": "",
+    "exits": {
+      "south": "3F hallway2"
+    },
+    "items": [],
+    "npc": [],
+    "floor": "3"
+  },
+  "principle's office": {
+    "name": "Principle's Office",
+    "description": "",
+    "exits": {
+      "north": "3F hallway2"
+    },
+    "items": [],
+    "npc": [],
+    "floor": "3"
+  },
+  "gr.10 common area": {
+    "name": "Gr.10 Common Area",
+    "description": "",
+    "exits": {
+      "west": "3F hallway2"
+    },
+    "items": [],
+    "npc": [],
+    "floor": "3"
   }
+}
