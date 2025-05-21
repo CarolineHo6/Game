@@ -7,7 +7,7 @@ public class Weapon extends Item {
     private boolean isCrit; 
 
     public Weapon(String id, String name, String description, int attack, int crit) {
-        super(id, name, description);
+        super(id, name, description, isWeapon);
         this.attack = attack;
         isCrit = false;
     }

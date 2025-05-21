@@ -4,11 +4,13 @@ public class Item {
     private String id;
     private String name;
     private String description;
+    private boolean isWeapon;
 
-    public Item(String id, String name, String description) {
+    public Item(String id, String name, String description, boolean isWeapon) {
         this.id = id;
         this.name = name;
         this.description = description;
+        this.isWeapon = isWeapon;
     }
 
     public String getId() {

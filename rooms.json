@@ -2,7 +2,7 @@
   "entrance": {
     "id": "entrance",
     "name": "Entrance Hall",
-    "description": "You are standing in the main entrance hall, where sunlight spills through tall glass doors and reflects off the smooth tile floor. The space feels open and busy—students pass through, voices low and hurried. To the west, a wide doorway leads to the theatre. To the east, a hallway stretches toward the cafeteria and library. Straight ahead, a staircase descends to the lower floor. Artwork and announcements line the walls, giving the space a lived-in feel.",
+    "description": "You are standing in the main entrance hall, where sunlight spills through tall glass doors and reflects off the smooth tile floor. To the west, a wide doorway leads to the theatre. To the east, a hallway stretches toward the cafeteria and library. Straight ahead, a staircase descends to the lower floor.",
     "exits": {
       "south": "staircase",
       "west": "theatre",
@@ -46,7 +46,7 @@
   "hallway1": {
     "id": "hallway1",
     "name": "Hallway 1",
-    "description": "This wide hallway runs east to west, connecting key parts of the main floor. To the north, large windows reveal the busy cafeteria, filled with motion and conversation. To the south, a glass door leads into the quiet library. At the far east end, an exit opens to the outside. Behind you to the west lies the entrance hall, where students come and go throughout the day.",
+    "description": "This wide hallway runs east to west, connecting key parts of the main floor. To the north, large windows reveal the cafeteria. To the south, a glass door leads into the quiet library. At the far east end, an exit opens to the outside. Behind you to the west lies the entrance hall.",
     "exits": {
       "north": "cafeteria",
       "south": "library",
@@ -56,7 +56,7 @@
     "items": [],
     "npc": [{
       "name": "caitlin",
-      "currentToom": "entrance",
+      "currentRoom": "entrance",
       "isHostile": false,
       "description": "A person that resembles a sphere. She is holding a snack in her hand while shoving some more food into her mouth. Its rather disgusting...",
       "talk": "GIMME FOOD. I WANT FOOD",
@@ -76,7 +76,7 @@
   },
   "library": {
     "name": "Learning Commons",
-    "description": "Books line the walls. It's quiet.",
+    "description": "Books line the walls, and tables are arranged around the large space. It's quiet.",
     "exits": {
       "north": "hallway1",
       "south": "hallway3"
@@ -86,9 +86,9 @@
     "floor": "2"
   },
   
-  "cafeteria" :  {
-    "name" : "Cafeteria",
-    "descripion": "Remains of scavenged food lies on the ground.",
+  "hallway3" :  {
+    "name" : "hallway3",
+    "descripion": "Remains of scavenged food lies on the ground. There are rooms in all four directions.",
     "exits": {
       "north": "library",
       "south": "gr.11 Common Area",
@@ -101,7 +101,7 @@
   },
   "music room": {
     "name": "Music Room",
-    "description": "",
+    "description": "There are rows of plastic chairs and music stands. Piles of messy sheet music are stacked on a table to the side. A tuba seems to have angered someone, and is laying destroyed in the corner.",
     "exits": {
       "west": "hallway3"
     },
@@ -111,7 +111,7 @@
   },
   "gr.11 common area": {
     "name": "Gr.11 Common Area",
-    "description": "",
+    "description": "Sofas are arranged against the walls, and there seems to be a back door that was boarded up some time ago. There is a suspicious stain on the ground.",
     "exits": {
       "north": "hallway3"
     },
@@ -121,18 +121,22 @@
   },
   "drama room": {
     "name": "Drama Room",
-    "description": "",
+    "description": "There are overturned tables, chairs, and racks of costumes. Looks like the theater kids just had their production of The Three Musketeers in here.",
     "exits": {
       "north": "hallway2",
       "east": "hallway3"
     },
-    "items": [],
+    "items": [{
+      "id":"sword1",
+      "description": "A flimsy metal sword used for various plays",
+      ""
+    }],
     "npc": [],
     "floor": "2"
   },
   "hallway2": {
     "name": "Hallway 2",
-    "description": "",
+    "description": "Lockers line both walls. There are doors leading both to the north and the south.",
     "exits": {
       "north": "theatre",
       "south": "drama room"
@@ -143,7 +147,7 @@
   },
   "1F hallway1": {
     "name": "1F Hallway 1",
-    "description": "",
+    "description": "The lower level is musty and dank. A staircase leads up, and the dark hallway continues to the east. There are two double doors to the south and west.",
     "exits": {
       "south": "gym",
       "east": "1F hallway2",
@@ -156,7 +160,7 @@
   },
   "gym": {
     "name": "Gym",
-    "description": "",
+    "description": "A large variety of round objects are strewn across the floor: dodgeballs, basketballs, tennis balls, a human head...",
     "exits": {
       "north": "1F hallway1"
     },
@@ -166,7 +170,7 @@
   },
   "IT": {
     "name": "IT Department",
-    "description": "",
+    "description": "You are faced with a pile of smashed computers and a whole bunch of scary looking wires.",
     "exits": {
       "east": "1F hallway1"
     },
@@ -176,7 +180,7 @@
   },
   "1F hallway2": {
     "name": "1F Hallway 2",
-    "description": "",
+    "description": "The hallway continues west. There are doors to the north and south, and an area to the east.",
     "exits": {
       "north": "classroom",
       "south": "science lab",
@@ -189,7 +193,7 @@
   },
   "science lab": {
     "name": "Science Labratory",
-    "description": "",
+    "description": "Ah, so that's where the smell's coming from.",
     "exits": {
       "north": "1F hallway2"
     },
@@ -199,7 +203,7 @@
   },
   "gr.12 common area": {
     "name": "Gr.12 Common Area",
-    "description": "",
+    "description": "There are chairs and tables scattered around the space.",
     "exits": {
       "west": "1F hallway2"
     },
@@ -209,7 +213,7 @@
   },
   "classroom": {
     "name": "Classroom",
-    "description": "",
+    "description": "It's a classroom. Not much to see here. Oh, don't mind the severed hand on that desk over there.",
     "exits": {
       "south": "1F hallway2"
     },
@@ -219,7 +223,7 @@
   },
   "1F staircase": {
     "name": "1F Staircase",
-    "description": "",
+    "description": "The stairwell is dark without any natural light. A ray of sunlight streams in from above where the stairs continue upwards. A door leads to the lower level to the south.",
     "exits": {
       "south": "1F hallway1",
       "up": "2F staircase"
@@ -230,7 +234,7 @@
   },
   "3F staircase": {
     "name": "3F Staircase",
-    "description": "",
+    "description": "You are at the top. There's a door that leads to the rest of the 3rd floor, and the staircase winds down.",
     "exits": {
       "down": "2F staircase",
       "south": "3F hallway1"
@@ -241,7 +245,7 @@
   },
   "3F hallway1": {
     "name": "3F Hallway 1",
-    "description": "",
+    "description": "The hallway continues east, with 2 rooms to the south and west. The staircase is at the north.",
     "exits": {
       "north": "3F staircase",
       "south": "compsci room",
@@ -254,7 +258,7 @@
   },
   "3F hallway2": {
     "name": "3F Hallway 2",
-    "description": "",
+    "description": "The hallway continues west, with rooms in all three other directions.",
     "exits": {
       "north": "math lab",
       "south": "principle's office",
@@ -267,7 +271,7 @@
   },
   "gr.9 common area": {
     "name": "gr.9 Common Area",
-    "description": "",
+    "description": "Couches line the walls of the small space. Snacks and garbage cover eavery inch of the carpeted floor.",
     "exits": {
       "east": "3F hallway1"
     },
@@ -277,7 +281,7 @@
   },
   "compsci room": {
     "name": "Comp Sci Classroom",
-    "description": "",
+    "description": "It's just a regular classroom, except on the board there is a lesson on Arraylists. A man sits at the table in front of the board, typing menacingly.",
     "exits": {
       "north": "3F hallway1"
     },
@@ -287,7 +291,7 @@
   },
   "math lab": {
     "name": "Math Lab",
-    "description": "",
+    "description": "Red marks cover the glass walls along with the various math equations, but otherwise everything is surprisingly well kept. A man stands behind a desk.",
     "exits": {
       "south": "3F hallway2"
     },
@@ -297,7 +301,7 @@
   },
   "principle's office": {
     "name": "Principle's Office",
-    "description": "",
+    "description": "It's dark and scary in here.",
     "exits": {
       "north": "3F hallway2"
     },
@@ -307,7 +311,7 @@
   },
   "gr.10 common area": {
     "name": "Gr.10 Common Area",
-    "description": "",
+    "description": "Couches are arranged around a small Christmas tree in the middle. It looks sad.",
     "exits": {
       "west": "3F hallway2"
     },
