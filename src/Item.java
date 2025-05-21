@@ -4,11 +4,13 @@ public class Item {
     private String id;
     private String name;
     private String description;
+    private int heal;
 
-    public Item(String id, String name, String description) {
+    public Item(String id, String name, String description, int heal) {
         this.id = id;
         this.name = name;
         this.description = description;
+        this.heal = heal;
     }
 
     public String getId() {
@@ -31,5 +33,9 @@ public class Item {
         // fix later
 
         return 0;
+    }
+
+    public int getHeal() {
+        return heal;
     }
 }
