@@ -15,7 +15,12 @@
         "description": "A small rusty key."
       }
     ],
-    "npc": [],
+    "npc": [{
+        "id": "key1",
+        "name": "Key",
+        "description": "A small rusty key.",
+        "type":"boss"
+      }],
     "floor": "2"
   },
   "theatre": {

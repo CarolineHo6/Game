@@ -31,6 +31,7 @@ public class RoomLoader {
                 JsonArray npcArray = obj.getAsJsonArray("npc");
                 for (JsonElement n : npcArray) {
                     JsonObject i = n.getAsJsonObject();
+                    // TODO add if statement for type
                     npc.add(new NPC(i.get("name").getAsString(), i.get("currentRoom").getAsString(),
                             i.get("isHostile").getAsBoolean(), i.get("description").getAsString(),
                             i.get("talk").getAsString(), i.get("id").getAsString()));

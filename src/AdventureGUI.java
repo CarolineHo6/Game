@@ -3,10 +3,11 @@ import java.awt.*;
 
 public class AdventureGUI {
     private JFrame frame;
-    private JTextArea outputArea;
+    private static JTextArea outputArea;
     private JTextField inputField;
     private JLabel imageLabel;
     private Game game;
+    private AdventureGUI gui;
 
     public AdventureGUI(Game game) {
         this.game = game;
@@ -49,17 +50,23 @@ public class AdventureGUI {
         updateRoomDisplay();
     }
 
+    public String getInput(){
+        String input = inputField.getText().trim();
+        inputField.setText("");
+        return input;
+    }
+
     private void handleInput() {
         String input = inputField.getText().trim();
         inputField.setText("");
         if (!input.isEmpty()) {
             printText("> " + input);
-            printText(game.processCommand(input));
+            boolean result = game.processCommand(this, input);
             updateRoomDisplay();
         }
     }
 
-    private void printText(String text) {
+    public static void printText(String text) {
         outputArea.append(text + "\n");
     }
 
