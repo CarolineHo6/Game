@@ -4,13 +4,19 @@ public class Item {
     private String id;
     private String name;
     private String description;
-    private int heal;
+    private int addHeart;
 
-    public Item(String id, String name, String description, int heal) {
+    public Item(String id, String name, String description) {
         this.id = id;
         this.name = name;
         this.description = description;
-        this.heal = heal;
+    }
+
+    public Item(String id, String name, String description, int addHeart) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.addHeart = addHeart;
     }
 
     public String getId() {
@@ -35,7 +41,7 @@ public class Item {
         return 0;
     }
 
-    public int getHeal() {
-        return heal;
+    public int getAddHeart() {
+        return addHeart;
     }
 }

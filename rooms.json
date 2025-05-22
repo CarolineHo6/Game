@@ -15,7 +15,12 @@
         "description": "A small rusty key."
       }
     ],
-    "npc": [],
+    "npc": [{
+        "id": "key1",
+        "name": "Key",
+        "description": "A small rusty key.",
+        "type":"boss"
+      }],
     "floor": "2"
   },
   "theatre": {
@@ -126,7 +131,10 @@
       "north": "hallway2",
       "east": "hallway3"
     },
-    "items": [],
+    "items": [{
+      "id":"sword1",
+      "description": "A flimsy metal sword used for various plays"
+    }],
     "npc": [],
     "floor": "2"
   },
