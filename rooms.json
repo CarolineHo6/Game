@@ -128,8 +128,7 @@
     },
     "items": [{
       "id":"sword1",
-      "description": "A flimsy metal sword used for various plays",
-      ""
+      "description": "A flimsy metal sword used for various plays"
     }],
     "npc": [],
     "floor": "2"
