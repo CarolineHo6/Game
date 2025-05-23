@@ -41,6 +41,7 @@ public class Enemies extends NPC {
         return name;
     }
 
+    // dodges attack if two numbers equal
     public boolean ifDodge() {
 
         int x = (int) (Math.random() * dodgeRange);
