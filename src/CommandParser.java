@@ -168,6 +168,7 @@ public class CommandParser {
                 // do something?
                 return false;
             case "talk":
+            //check if this works pls
                 if (words.length < 2) {
                     AdventureGUI.printText("talk to who?");
                 } else {
@@ -182,9 +183,38 @@ public class CommandParser {
                     if (npcToTalk != null) {
                         AdventureGUI.printText(npcToTalk.getTalk());
                     } else {
-                        AdventureGUI.printText("There is no " + npcName + " here.");
+                        AdventureGUI.printText("There is no " + npcName + " here");
                     }
                 }
+                return false;
+            case "use":
+            // check if this works pls
+                if (words.length < 2) {
+                    AdventureGUI.printText("use what?");
+                } else {
+                    String itemName = words[1];
+                    Item itemToUse = null;
+                    for (Item item : player.getInventory()) {
+                        if (item.getName().equalsIgnoreCase(itemName)) {
+                            itemToUse = item;
+                            break;
+                        }
+                    }
+                    if (itemToUse != null) {
+                        int addHeart = itemToUse.getAddHeart();
+                        if (addHeart != 0) {
+                            player.setHealth(player.getHealth() + addHeart);
+                            AdventureGUI.printText("Your health increased by " + addHeart);
+                        }
+                        // add case for key unlocking door
+                        else {
+                            AdventureGUI.printText("You can't use that item");
+                        }
+                    } else {
+                        AdventureGUI.printText("You don't have that item");
+                    }
+                }
+                return false;
 
             default:
                 AdventureGUI.printText("I don't understand that command.");
