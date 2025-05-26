@@ -3,6 +3,8 @@ import java.util.*;
 import com.google.gson.*;
 import humans.NPC;
 import items.Item;
+import items.Potions;
+import items.Weapon;
 import humans.Enemies;
 import humans.Boss;
 
@@ -29,8 +31,16 @@ public class RoomLoader {
                 JsonArray itemArray = obj.getAsJsonArray("items");
                 for (JsonElement e : itemArray) {
                     JsonObject i = e.getAsJsonObject();
-                    items.add(new Item(i.get("id").getAsString(), i.get("name").getAsString(),
-                            i.get("description").getAsString(), i.get("type").getAsString()));
+                    if (i.get("type").getAsString().equals("item")) {
+                        items.add(new Item(i.get("id").getAsString(), i.get("name").getAsString(),
+                                i.get("description").getAsString(), i.get("type").getAsString()));
+                    } else if (i.get("type").getAsString().equals("potion")) {
+                        items.add(new Potions(i.get("id").getAsString(), i.get("name").getAsString(),
+                                i.get("description").getAsString(), i.get("type").getAsString(), i.get("health").getAsInt()));
+                    } else if (i.get("type").getAsString().equals("weapon")) {
+                        items.add(new Weapon(i.get("id").getAsString(), i.get("name").getAsString(),
+                                i.get("description").getAsString(), i.get("type").getAsString(), i.get("attack").getAsInt(), i.get("crit").getAsInt()));
+                    }
                 }
 
                 // NPC array creation
