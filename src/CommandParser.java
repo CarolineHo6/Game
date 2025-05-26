@@ -2,6 +2,8 @@ import java.util.*;
 
 import humans.Enemies;
 import humans.NPC;
+import items.Item;
+import items.Potions;
 
 public class CommandParser {
 
@@ -15,7 +17,7 @@ public class CommandParser {
         String command = words[0];
         Room currentRoom = rooms.get(player.getCurrentRoomId());
         // assume only 1 npc per room?
-        Enemies monster = (Enemies) currentRoom.getNPCs().get(0); //actually idk what im doing
+        Enemies monster = (Enemies) currentRoom.getNPCs().get(0); // actually idk what im doing
 
         if (monster != null && monster.getIsHostility() == true) {
 
@@ -47,12 +49,18 @@ public class CommandParser {
                     int index = pop.indexOf(selection);
                     Item w = pop.get(index);
 
-                    if (monster.getHealth() <= w.getAttack()) {
-                        AdventureGUI.printText("You have defeated the monster");
-                        return false;
+                    if (monster.ifDodge()) {
+                        AdventureGUI.printText("The monster has dodge your attack");
                     } else {
 
-                        monster.setHealth(monster.getHealth() - monster.getDamage());
+                        if (monster.getHealth() <= w.getAttack()) {
+                            AdventureGUI.printText("You have defeated the monster");
+                            return false;
+                        } else {
+
+                            monster.setHealth(monster.getHealth() - monster.getDamage());
+
+                        }
 
                     }
 
@@ -168,7 +176,7 @@ public class CommandParser {
                 // do something?
                 return false;
             case "talk":
-            //check if this works pls
+                // check if this works pls
                 if (words.length < 2) {
                     AdventureGUI.printText("talk to who?");
                 } else {
@@ -188,18 +196,20 @@ public class CommandParser {
                 }
                 return false;
             case "use":
-            // check if this works pls
+                // check if this works pls
                 if (words.length < 2) {
                     AdventureGUI.printText("use what?");
                 } else {
                     String itemName = words[1];
                     Item itemToUse = null;
+                    Potions potionToUse = null;
                     for (Item item : player.getInventory()) {
-                        if (item.getName().equalsIgnoreCase(itemName)) {
+                        if (item.getName().equalsIgnoreCase(itemName) && item instanceof Potions) {
                             itemToUse = item;
                             break;
                         }
                     }
+
                     if (itemToUse != null) {
                         int addHeart = itemToUse.getAddHeart();
                         if (addHeart != 0) {

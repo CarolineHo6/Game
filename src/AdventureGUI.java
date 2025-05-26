@@ -50,7 +50,7 @@ public class AdventureGUI {
         updateRoomDisplay();
     }
 
-    public String getInput(){
+    public String getInput() {
         String input = inputField.getText().trim();
         inputField.setText("");
         return input;

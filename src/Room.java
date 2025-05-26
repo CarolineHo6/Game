@@ -3,6 +3,7 @@ import java.util.List;
 import java.util.Map;
 
 import humans.NPC;
+import items.Item;
 
 public class Room {
     private String id;
