@@ -14,9 +14,10 @@ public class CommandParser {
 
         String command = words[0];
         Room currentRoom = rooms.get(player.getCurrentRoomId());
-        Enemies monster = (Enemies) currentRoom.randomGenerateMonster();
+        // assume only 1 npc per room?
+        Enemies monster = (Enemies) currentRoom.getNPCs().get(0); //actually idk what im doing
 
-        if (monster != null && currentRoom.randomGenerateMonster().getIsHostility() == true) {
+        if (monster != null && monster.getIsHostility() == true) {
 
             AdventureGUI.printText("Would you like to fight the monster?");
 
@@ -165,6 +166,54 @@ public class CommandParser {
                     return true;
                 }
                 // do something?
+                return false;
+            case "talk":
+            //check if this works pls
+                if (words.length < 2) {
+                    AdventureGUI.printText("talk to who?");
+                } else {
+                    String npcName = words[2];
+                    NPC npcToTalk = null;
+                    for (NPC npc : currentRoom.getNPCs()) {
+                        if (npc.getName().equalsIgnoreCase(npcName)) {
+                            npcToTalk = npc;
+                            break;
+                        }
+                    }
+                    if (npcToTalk != null) {
+                        AdventureGUI.printText(npcToTalk.getTalk());
+                    } else {
+                        AdventureGUI.printText("There is no " + npcName + " here");
+                    }
+                }
+                return false;
+            case "use":
+            // check if this works pls
+                if (words.length < 2) {
+                    AdventureGUI.printText("use what?");
+                } else {
+                    String itemName = words[1];
+                    Item itemToUse = null;
+                    for (Item item : player.getInventory()) {
+                        if (item.getName().equalsIgnoreCase(itemName)) {
+                            itemToUse = item;
+                            break;
+                        }
+                    }
+                    if (itemToUse != null) {
+                        int addHeart = itemToUse.getAddHeart();
+                        if (addHeart != 0) {
+                            player.setHealth(player.getHealth() + addHeart);
+                            AdventureGUI.printText("Your health increased by " + addHeart);
+                        }
+                        // add case for key unlocking door
+                        else {
+                            AdventureGUI.printText("You can't use that item");
+                        }
+                    } else {
+                        AdventureGUI.printText("You don't have that item");
+                    }
+                }
                 return false;
 
             default:
