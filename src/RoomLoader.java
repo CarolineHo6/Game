@@ -29,20 +29,25 @@ public class RoomLoader {
                     items.add(new Item(i.get("id").getAsString(), i.get("name").getAsString(),
                             i.get("description").getAsString()));
                 }
-                ArrayList<NPC> npc = new ArrayList<>();
+                ArrayList<NPC> npc = new ArrayList<NPC>();
                 JsonArray npcArray = obj.getAsJsonArray("npc");
                 for (JsonElement n : npcArray) {
                     JsonObject i = n.getAsJsonObject();
                     // TODO add if statement for type
-                    if (i.get("id").getAsString().equals("NPC")) {
+                    if (i.get("type").getAsString().equals("NPC")) {
                         npc.add(new NPC(i.get("name").getAsString(), i.get("currentRoom").getAsString(),
                                 i.get("isHostile").getAsBoolean(), i.get("description").getAsString(),
-                                i.get("talk").getAsString(), i.get("id").getAsString()));
-                    } else if (i.get("id").getAsString().equals("Enemy")) {
+                                i.get("talk").getAsString(), i.get("id").getAsString(), i.get("type").getAsString()));
+                    } else if (i.get("type").getAsString().equals("Enemy")) {
                         npc.add(new Enemies(i.get("health").getAsInt(), i.get("damage").getAsInt(), 
                         i.get("dodgeRange").getAsInt(), i.get("name").getAsString(), 
                         i.get("currentRoom").getAsString(), i.get("description").getAsString(), 
-                        i.get("talk").getAsString(), i.get("id").getAsString()));
+                        i.get("talk").getAsString(), i.get("id").getAsString(), i.get("type").getAsString()));
+                    } else if (i.get("type").getAsString().equals("Boss")) {
+                        npc.add(new Boss(i.get("h").getAsInt(), i.get("d").getAsInt(), 
+                        i.get("dr").getAsInt(), i.get("stages").getAsInt(), i.get("name").getAsString(), 
+                        i.get("currentRoom").getAsString(), i.get("description").getAsString(), 
+                        i.get("talk").getAsString(), i.get("id").getAsString(), i.get("type").getAsString()));
                     }
                 }
 

@@ -7,14 +7,16 @@ public class NPC {
     private String description;
     private String talk;
     private String id;
+    private String type;
 
-    public NPC(String name, String currentRoom, boolean isHostile, String description, String talk, String id) {
+    public NPC(String name, String currentRoom, boolean isHostile, String description, String talk, String id, String type) {
         this.name = name;
         this.currentRoom = currentRoom;
         this.isHostile = isHostile;
         this.description = description;
         this.talk = talk;
         this.id = id;
+        this.type = type;
     }
 
     public String getDescription() {

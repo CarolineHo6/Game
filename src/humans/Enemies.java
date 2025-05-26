@@ -9,8 +9,8 @@ public class Enemies extends NPC {
     private int dodgeRange;
 
     public Enemies(int h, int d, int dr, String name, String currentRoom, String description, String talk,
-            String id) {
-        super(name, currentRoom, true, description, talk, id);
+            String id, String type) {
+        super(name, currentRoom, true, description, talk, id, type);
         health = h;
         damage = d;
         this.name = name;
