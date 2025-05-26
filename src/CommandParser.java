@@ -49,12 +49,18 @@ public class CommandParser {
                     int index = pop.indexOf(selection);
                     Item w = pop.get(index);
 
-                    if (monster.getHealth() <= w.getAttack()) {
-                        AdventureGUI.printText("You have defeated the monster");
-                        return false;
+                    if (monster.ifDodge()) {
+                        AdventureGUI.printText("The monster has dodge your attack");
                     } else {
 
-                        monster.setHealth(monster.getHealth() - monster.getDamage());
+                        if (monster.getHealth() <= w.getAttack()) {
+                            AdventureGUI.printText("You have defeated the monster");
+                            return false;
+                        } else {
+
+                            monster.setHealth(monster.getHealth() - monster.getDamage());
+
+                        }
 
                     }
 
