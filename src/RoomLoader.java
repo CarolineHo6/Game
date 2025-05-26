@@ -2,6 +2,7 @@ import java.io.FileReader;
 import java.util.*;
 import com.google.gson.*;
 import humans.NPC;
+import items.Item;
 import humans.Enemies;
 import humans.Boss;
 
@@ -22,18 +23,23 @@ public class RoomLoader {
                 for (String dir : exitsJson.keySet()) {
                     exits.put(dir, exitsJson.get(dir).getAsString());
                 }
+
+                // Items array creation
                 List<Item> items = new ArrayList<>();
                 JsonArray itemArray = obj.getAsJsonArray("items");
                 for (JsonElement e : itemArray) {
                     JsonObject i = e.getAsJsonObject();
                     items.add(new Item(i.get("id").getAsString(), i.get("name").getAsString(),
-                            i.get("description").getAsString()));
+                            i.get("description").getAsString(), i.get("type").getAsString()));
                 }
+
+                // NPC array creation
                 ArrayList<NPC> npc = new ArrayList<NPC>();
                 JsonArray npcArray = obj.getAsJsonArray("npc");
                 for (JsonElement n : npcArray) {
                     JsonObject i = n.getAsJsonObject();
-                    // TODO add if statement for type
+
+                    // Making diff objects based on what "type" they are
                     if (i.get("type").getAsString().equals("NPC")) {
                         npc.add(new NPC(i.get("name").getAsString(), i.get("currentRoom").getAsString(),
                                 i.get("isHostile").getAsBoolean(), i.get("description").getAsString(),
@@ -51,6 +57,7 @@ public class RoomLoader {
                     }
                 }
 
+                // Making the acc room
                 rooms.put(key, new Room(key, name, desc, exits, items, npc, floor));
             }
         } catch (Exception e) {

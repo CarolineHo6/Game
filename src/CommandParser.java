@@ -2,6 +2,8 @@ import java.util.*;
 
 import humans.Enemies;
 import humans.NPC;
+import items.Item;
+import items.Potions;
 
 public class CommandParser {
 
@@ -194,14 +196,15 @@ public class CommandParser {
                 } else {
                     String itemName = words[1];
                     Item itemToUse = null;
+                    Potions potionToUse = null;
                     for (Item item : player.getInventory()) {
                         if (item.getName().equalsIgnoreCase(itemName)) {
                             itemToUse = item;
                             break;
                         }
                     }
-                    if (itemToUse != null) {
-                        int addHeart = itemToUse.getAddHeart();
+                    if (potionToUse != null) {
+                        int addHeart = potionToUse.getAddHeart();
                         if (addHeart != 0) {
                             player.setHealth(player.getHealth() + addHeart);
                             AdventureGUI.printText("Your health increased by " + addHeart);

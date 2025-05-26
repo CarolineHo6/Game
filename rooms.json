@@ -60,7 +60,8 @@
       "isHostile": false,
       "description": "A person that resembles a sphere. She is holding a snack in her hand while shoving some more food into her mouth. Its rather disgusting...",
       "talk": "GIMME FOOD. I WANT FOOD",
-      "id": "person1"
+      "id": "person1",
+      "type": "NPC"
     }],
     "floor": "2"
   },

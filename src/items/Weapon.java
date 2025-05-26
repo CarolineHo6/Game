@@ -1,3 +1,4 @@
+package items;
 
 import java.util.*;
 
@@ -7,8 +8,8 @@ public class Weapon extends Item {
     private boolean isCrit;
     private boolean isBroken;
 
-    public Weapon(String id, String name, String description, int attack, int crit) {
-        super(id, name, description, 0);
+    public Weapon(String id, String name, String description, String type, int attack, int crit) {
+        super(id, name, description, type);
         this.attack = attack;
         isCrit = false;
         isBroken = false;
