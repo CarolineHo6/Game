@@ -45,15 +45,15 @@ public class RoomLoader {
                                 i.get("isHostile").getAsBoolean(), i.get("description").getAsString(),
                                 i.get("talk").getAsString(), i.get("id").getAsString(), i.get("type").getAsString()));
                     } else if (i.get("type").getAsString().equals("Enemy")) {
-                        npc.add(new Enemies(i.get("health").getAsInt(), i.get("damage").getAsInt(), 
-                        i.get("dodgeRange").getAsInt(), i.get("name").getAsString(), 
-                        i.get("currentRoom").getAsString(), i.get("description").getAsString(), 
-                        i.get("talk").getAsString(), i.get("id").getAsString(), i.get("type").getAsString()));
+                        npc.add(new Enemies(i.get("health").getAsInt(), i.get("damage").getAsInt(),
+                                i.get("dodgeRange").getAsInt(), i.get("name").getAsString(),
+                                i.get("currentRoom").getAsString(), i.get("description").getAsString(),
+                                i.get("talk").getAsString(), i.get("id").getAsString(), i.get("type").getAsString()));
                     } else if (i.get("type").getAsString().equals("Boss")) {
-                        npc.add(new Boss(i.get("h").getAsInt(), i.get("d").getAsInt(), 
-                        i.get("dr").getAsInt(), i.get("stages").getAsInt(), i.get("name").getAsString(), 
-                        i.get("currentRoom").getAsString(), i.get("description").getAsString(), 
-                        i.get("talk").getAsString(), i.get("id").getAsString(), i.get("type").getAsString()));
+                        npc.add(new Boss(i.get("h").getAsInt(), i.get("d").getAsInt(),
+                                i.get("dr").getAsInt(), i.get("stages").getAsInt(), i.get("name").getAsString(),
+                                i.get("currentRoom").getAsString(), i.get("description").getAsString(),
+                                i.get("talk").getAsString(), i.get("id").getAsString(), i.get("type").getAsString()));
                     }
                 }
 

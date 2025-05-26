@@ -17,7 +17,7 @@ public class CommandParser {
         String command = words[0];
         Room currentRoom = rooms.get(player.getCurrentRoomId());
         // assume only 1 npc per room?
-        Enemies monster = (Enemies) currentRoom.getNPCs().get(0); //actually idk what im doing
+        Enemies monster = (Enemies) currentRoom.getNPCs().get(0); // actually idk what im doing
 
         if (monster != null && monster.getIsHostility() == true) {
 
@@ -170,7 +170,7 @@ public class CommandParser {
                 // do something?
                 return false;
             case "talk":
-            //check if this works pls
+                // check if this works pls
                 if (words.length < 2) {
                     AdventureGUI.printText("talk to who?");
                 } else {
@@ -190,7 +190,7 @@ public class CommandParser {
                 }
                 return false;
             case "use":
-            // check if this works pls
+                // check if this works pls
                 if (words.length < 2) {
                     AdventureGUI.printText("use what?");
                 } else {
@@ -198,13 +198,14 @@ public class CommandParser {
                     Item itemToUse = null;
                     Potions potionToUse = null;
                     for (Item item : player.getInventory()) {
-                        if (item.getName().equalsIgnoreCase(itemName)) {
+                        if (item.getName().equalsIgnoreCase(itemName) && item instanceof Potions) {
                             itemToUse = item;
                             break;
                         }
                     }
-                    if (potionToUse != null) {
-                        int addHeart = potionToUse.getAddHeart();
+
+                    if (itemToUse != null) {
+                        int addHeart = itemToUse.getAddHeart();
                         if (addHeart != 0) {
                             player.setHealth(player.getHealth() + addHeart);
                             AdventureGUI.printText("Your health increased by " + addHeart);

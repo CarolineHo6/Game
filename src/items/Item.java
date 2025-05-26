@@ -1,4 +1,5 @@
 package items;
+
 import java.util.*;
 
 public class Item {
@@ -12,6 +13,10 @@ public class Item {
         this.name = name;
         this.description = description;
         this.type = type;
+    }
+
+    public int getAddHeart() {
+        return 0;
     }
 
     public String getId() {
