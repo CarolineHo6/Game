@@ -44,6 +44,10 @@ public class Room {
         return items;
     }
 
+    public List<NPC> getNPCs() {
+        return npc;
+    }
+
     public void removeItem(Item item) {
         items.remove(item);
     }
@@ -52,6 +56,7 @@ public class Room {
         items.add(item);
     }
 
+    // remove?
     public NPC randomGenerateMonster() {
         int r = (int) (Math.random() * 2);
         if (npc.size() != 0 && r == 1) {
