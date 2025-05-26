@@ -31,6 +31,8 @@ public class RoomLoader {
                 JsonArray itemArray = obj.getAsJsonArray("items");
                 for (JsonElement e : itemArray) {
                     JsonObject i = e.getAsJsonObject();
+
+                    // diff types of items
                     if (i.get("type").getAsString().equals("item")) {
                         items.add(new Item(i.get("id").getAsString(), i.get("name").getAsString(),
                                 i.get("description").getAsString(), i.get("type").getAsString()));
