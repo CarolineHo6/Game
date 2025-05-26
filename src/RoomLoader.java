@@ -2,6 +2,8 @@ import java.io.FileReader;
 import java.util.*;
 import com.google.gson.*;
 import humans.NPC;
+import humans.Enemies;
+import humans.Boss;
 
 public class RoomLoader {
     public Map<String, Room> loadRooms(String filePath) {
@@ -32,9 +34,16 @@ public class RoomLoader {
                 for (JsonElement n : npcArray) {
                     JsonObject i = n.getAsJsonObject();
                     // TODO add if statement for type
-                    npc.add(new NPC(i.get("name").getAsString(), i.get("currentRoom").getAsString(),
-                            i.get("isHostile").getAsBoolean(), i.get("description").getAsString(),
-                            i.get("talk").getAsString(), i.get("id").getAsString()));
+                    if (i.get("id").getAsString().equals("NPC")) {
+                        npc.add(new NPC(i.get("name").getAsString(), i.get("currentRoom").getAsString(),
+                                i.get("isHostile").getAsBoolean(), i.get("description").getAsString(),
+                                i.get("talk").getAsString(), i.get("id").getAsString()));
+                    } else if (i.get("id").getAsString().equals("Enemy")) {
+                        npc.add(new Enemies(i.get("health").getAsInt(), i.get("damage").getAsInt(), 
+                        i.get("dodgeRange").getAsInt(), i.get("name").getAsString(), 
+                        i.get("currentRoom").getAsString(), i.get("description").getAsString(), 
+                        i.get("talk").getAsString(), i.get("id").getAsString()));
+                    }
                 }
 
                 rooms.put(key, new Room(key, name, desc, exits, items, npc, floor));
