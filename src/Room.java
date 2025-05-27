@@ -27,6 +27,20 @@ public class Room {
         this.floor = floor;
         this.isLocked = isLocked;
         this.keyID = keyID;
+            }
+
+
+     public Room(String id, String name, String description, Map<String, String> exits, List<Item> items,
+            ArrayList<NPC> npc, String floor) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.exits = exits;
+        this.items = items;
+        this.npc = npc;
+        this.floor = floor;
+        this.isLocked = false;
+        this.keyID = "";
 
     }
 
