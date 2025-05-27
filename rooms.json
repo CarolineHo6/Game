@@ -52,7 +52,7 @@
     "exits": {
       "north": "cafeteria",
       "south": "library",
-      "east": "east exit",
+      "east": "exit",
       "west": "entrance hall"
     },
     "items": [],
@@ -389,5 +389,15 @@
     "items": [],
     "npc": [],
     "floor": "3"
+  },
+  "exit": {
+    "name": "Exit",
+    "description":"You pull open the heavy metal door, and with a rush of air and light, you step into freedom—it's over.",
+    "exits": {},
+    "items": [],
+    "npc": [],
+    "floor": "2",
+    "isLocked": true,
+    "KeyID": ""
   }
 }
