@@ -1,10 +1,6 @@
 import java.util.*;
-
-import humans.Enemies;
-import humans.NPC;
-import items.Item;
-import items.Potions;
-import items.Key;
+import humans.*;
+import items.*;
 
 public class CommandParser {
 
@@ -254,9 +250,14 @@ public class CommandParser {
                 
                 if (keyToUse.getId().equals(roomToOpen.getKeyID())) {
                     roomToOpen.setIsLocked(false);
+                    keyToUse.used();
                     AdventureGUI.printText("You unlocked the " + targetRoom + "!");
                 } else {
                     AdventureGUI.printText("That key doesn't seem to fit this door...");
+                }
+
+                if (keyToUse.getUsed() == true) {
+                    player.removeItem(keyToUse);
                 }
                 
             }

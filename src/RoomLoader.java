@@ -39,9 +39,12 @@ public class RoomLoader {
                                 i.get("description").getAsString(), i.get("type").getAsString(), i.get("health").getAsInt()));
                     } else if (i.get("type").getAsString().equals("weapon")) {
                         items.add(new Weapon(i.get("id").getAsString(), i.get("name").getAsString(),
-                                i.get("description").getAsString(), i.get("type").getAsString(), i.get("attack").getAsInt(), i.get("crit").getAsInt()));
+                                i.get("description").getAsString(), i.get("type").getAsString(), 
+                                i.get("attack").getAsInt(), i.get("crit").getAsInt()));
                     } else if (i.get("type").getAsString().equals("key")) {
-                        items.add(new Key(i.get("id").getAsString(), i.get("name").getAsString(), i.get("description").getAsString(), i.get("type").getAsString(), i.get("room").getAsString()));
+                        items.add(new Key(i.get("id").getAsString(), i.get("name").getAsString(), 
+                                i.get("description").getAsString(), i.get("type").getAsString(), 
+                                i.get("room").getAsString(), i.get("used").getAsBoolean()));
                     }
                 }
 
