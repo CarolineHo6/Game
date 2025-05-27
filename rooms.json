@@ -145,7 +145,9 @@
     "items": [{
       "id":"sword1",
       "name":"Play Sword",
-      "description": "A flimsy metal sword used for various plays"
+      "description": "A flimsy metal sword used for various plays",
+      "attack": 1,
+      "crit" : 0
     }],
     "npc": [],
     "floor": "2"
@@ -338,7 +340,7 @@
       "description":"Average white man turned zombie, he will stop at nothing to eat your brains",
       "talk":"DID YOU COMMIT YOUR CODE TO GITHUB??",
       "id":"final boss",
-      "health":10,
+      "health":50,
       "damage":3,
       "dodgerange":2,
       "type": "Boss"
