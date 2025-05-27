@@ -1,5 +1,4 @@
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 
 public class Game {
     private Map<String, Room> rooms;

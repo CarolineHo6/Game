@@ -1,10 +1,6 @@
 import java.util.*;
-
-import humans.Enemies;
-import humans.NPC;
-import items.Item;
-import items.Potions;
-import items.Keys;
+import humans.*;
+import items.*;
 
 public class CommandParser {
 
@@ -21,6 +17,8 @@ public class CommandParser {
         Enemies monster = (Enemies) currentRoom.getNPCs().get(0); // actually idk what im doing
 
         if (monster != null && monster.getIsHostility() == true) {
+
+            AdventureGUI.printText("A monster has appeared");
 
             AdventureGUI.printText("Would you like to fight the monster?");
 
@@ -170,11 +168,11 @@ public class CommandParser {
                 return false;
             case "quit":
                 // TODO make a confirmation and add a scanner
-                Scanner sc = new Scanner(System.in);
 
                 AdventureGUI.printText("Are you sure?");
                 AdventureGUI.printText("Please return yes or no");
-                String in = sc.nextLine();
+                AdventureGUI.printText("> ");
+                String in = gui.getInput();
 
                 if (in.equals("yes") || in.equals("Yes")) {
                     AdventureGUI.printText("BYE!");
@@ -220,8 +218,7 @@ public class CommandParser {
                         if (addHeart != 0) {
                             player.setHealth(player.getHealth() + addHeart);
                             AdventureGUI.printText("Your health increased by " + addHeart);
-                        }
-                        else {
+                        } else {
                             AdventureGUI.printText("You can't use that item");
                         }
                     } else {
@@ -229,38 +226,87 @@ public class CommandParser {
                     }
                 }
                 return false;
+
             case "open":
-                //Please double check - supposed to use the key to open door 
+                // Please double check - supposed to use the key to open door
                 if (words.length < 2) {
                     AdventureGUI.printText("open what?");
                 } else {
                     String targetRoom = words[1];
                     Room roomToOpen = rooms.get(targetRoom);
-                if(roomToOpen == null){
-                    AdventureGUI.printText("There is no room called " + targetRoom + ".");
-                }
-                           
-                String keyName = words[3];
-                Keys keyToUse = null;
-                for (Item item : player.getInventory()) {
-                    if (item.getName().equalsIgnoreCase(keyName) && item instanceof Keys) {
-                        keyToUse = (Keys) item;
-                        break;
+                    if (roomToOpen == null) {
+                        AdventureGUI.printText("There is no room called " + targetRoom + ".");
+                    }
+
+                    if (currentRoom.isRiddle()) {
+                        AdventureGUI.printText("This room has a riddle you must solve it to enter");
+                        AdventureGUI.printText("Would you like to anwser the riddle? Please anwser yes or no");
+                        AdventureGUI.printText("> ");
+                        String response = gui.getInput();
+
+                        if (response.equalsIgnoreCase("yes")) {
+
+                            String[] riddle = currentRoom.generateRandomRiddle().split(" ");
+
+                            AdventureGUI.printText(riddle[0]);
+
+                            while (true) {
+                                AdventureGUI.printText("Please respond with the right anwser");
+                                AdventureGUI.printText("> ");
+
+                                String res = gui.getInput(); // response
+
+                                if (res.equals(riddle[1])) {
+                                    AdventureGUI.printText("congradulations, you may enter the room now");
+                                    break;
+                                } else {
+
+                                    AdventureGUI.printText("Wrong");
+                                    AdventureGUI.printText(riddle[0]);
+                                    AdventureGUI.printText("Would you like to try again? please input");
+                                    res = gui.getInput();
+                                    if (res.equalsIgnoreCase("yes")) {
+                                        return true;
+                                    } else if (res.equalsIgnoreCase("no")) {
+                                        return false;
+                                    }
+                                }
+                            }
+                            return false;
+                        }
+                        else {
+                            AdventureGUI.printText("You have chosen not to solve the riddle");
+                            // TODO more??
+                            return false;
+                        }
+                    } else {
+                        // riddle ill fix later - daisy
+                        String keyName = words[3];
+                        Key keyToUse = null;
+                        for (Item item : player.getInventory()) {
+                            if (item.getName().equalsIgnoreCase(keyName) && item instanceof Key) {
+                                keyToUse = (Key) item;
+                                break;
+                            }
+                        }
+                        if (keyToUse == null) {
+                            AdventureGUI.printText("You don't have a key named " + keyName + ".");
+                        }
+
+                        if (keyToUse.getId().equals(roomToOpen.getKeyID())) {
+                            roomToOpen.setIsLocked(false);
+                            keyToUse.used();
+                            AdventureGUI.printText("You unlocked the " + targetRoom + "!");
+                        } else {
+                            AdventureGUI.printText("That key doesn't seem to fit this door...");
+                        }
+
+                        if (keyToUse.getUsed() == true) {
+                            player.removeItem(keyToUse);
+                        }
                     }
                 }
-                if(keyToUse == null){
-                    AdventureGUI.printText("You don't have a key named " + keyName + ".");
-                }
-                
-                if (keyToUse.getId().equals(roomToOpen.getKeyID())) {
-                    roomToOpen.setIsLocked(false);
-                    AdventureGUI.printText("You unlocked the " + targetRoom + "!");
-                } else {
-                    AdventureGUI.printText("That key doesn't seem to fit this door...");
-                }
-                
-            }
-            return false;
+                return false;
 
             default:
                 AdventureGUI.printText("I don't understand that command.");
@@ -268,4 +314,3 @@ public class CommandParser {
         }
     }
 }
-

@@ -1,12 +1,8 @@
 import java.io.FileReader;
 import java.util.*;
 import com.google.gson.*;
-import humans.NPC;
-import items.Item;
-import items.Potions;
-import items.Weapon;
-import humans.Enemies;
-import humans.Boss;
+import items.*;
+import humans.*;
 
 public class RoomLoader {
     public Map<String, Room> loadRooms(String filePath) {
@@ -33,6 +29,8 @@ public class RoomLoader {
                 JsonArray itemArray = obj.getAsJsonArray("items");
                 for (JsonElement e : itemArray) {
                     JsonObject i = e.getAsJsonObject();
+
+                    // diff types of items
                     if (i.get("type").getAsString().equals("item")) {
                         items.add(new Item(i.get("id").getAsString(), i.get("name").getAsString(),
                                 i.get("description").getAsString(), i.get("type").getAsString()));
@@ -41,7 +39,12 @@ public class RoomLoader {
                                 i.get("description").getAsString(), i.get("type").getAsString(), i.get("health").getAsInt()));
                     } else if (i.get("type").getAsString().equals("weapon")) {
                         items.add(new Weapon(i.get("id").getAsString(), i.get("name").getAsString(),
-                                i.get("description").getAsString(), i.get("type").getAsString(), i.get("attack").getAsInt(), i.get("crit").getAsInt()));
+                                i.get("description").getAsString(), i.get("type").getAsString(), 
+                                i.get("attack").getAsInt(), i.get("crit").getAsInt()));
+                    } else if (i.get("type").getAsString().equals("key")) {
+                        items.add(new Key(i.get("id").getAsString(), i.get("name").getAsString(), 
+                                i.get("description").getAsString(), i.get("type").getAsString(), 
+                                i.get("room").getAsString(), i.get("used").getAsBoolean()));
                     }
                 }
 
