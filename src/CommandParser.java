@@ -4,6 +4,7 @@ import humans.Enemies;
 import humans.NPC;
 import items.Item;
 import items.Potions;
+import items.Keys;
 
 public class CommandParser {
 
@@ -89,10 +90,16 @@ public class CommandParser {
                     // Room currentRoom = rooms.get(player.getCurrentRoomId());
                     String nextRoomId = currentRoom.getExits().get(direction);
                     if (nextRoomId != null) {
-                        player.setCurrentRoomId(nextRoomId);
-                        AdventureGUI.printText("You move " + direction + ".");
-                        currentRoom = rooms.get(player.getCurrentRoomId());
-                        AdventureGUI.printText(currentRoom.getLongDescription());
+                        Room nextRoom = rooms.get(nextRoomId);
+                        if (nextRoom.getIsLocked()) {
+                            AdventureGUI.printText("That room seems to be locked.");
+
+                        } else {
+                            player.setCurrentRoomId(nextRoomId);
+                            AdventureGUI.printText("You move " + direction + ".");
+                            currentRoom = rooms.get(player.getCurrentRoomId());
+                            AdventureGUI.printText(currentRoom.getLongDescription());
+                        }
 
                     } else {
                         AdventureGUI.printText("You can't go that way.");
@@ -176,8 +183,7 @@ public class CommandParser {
                 // do something?
                 return false;
             case "talk":
-                // check if this works pls
-                if (words.length < 2) {
+                if (words.length < 3) {
                     AdventureGUI.printText("talk to who?");
                 } else {
                     String npcName = words[2];
@@ -196,7 +202,6 @@ public class CommandParser {
                 }
                 return false;
             case "use":
-                // check if this works pls
                 if (words.length < 2) {
                     AdventureGUI.printText("use what?");
                 } else {
@@ -216,7 +221,6 @@ public class CommandParser {
                             player.setHealth(player.getHealth() + addHeart);
                             AdventureGUI.printText("Your health increased by " + addHeart);
                         }
-                        // add case for key unlocking door
                         else {
                             AdventureGUI.printText("You can't use that item");
                         }
@@ -225,6 +229,38 @@ public class CommandParser {
                     }
                 }
                 return false;
+            case "open":
+                //Please double check - supposed to use the key to open door 
+                if (words.length < 2) {
+                    AdventureGUI.printText("open what?");
+                } else {
+                    String targetRoom = words[1];
+                    Room roomToOpen = rooms.get(targetRoom);
+                if(roomToOpen == null){
+                    AdventureGUI.printText("There is no room called " + targetRoom + ".");
+                }
+                           
+                String keyName = words[3];
+                Keys keyToUse = null;
+                for (Item item : player.getInventory()) {
+                    if (item.getName().equalsIgnoreCase(keyName) && item instanceof Keys) {
+                        keyToUse = (Keys) item;
+                        break;
+                    }
+                }
+                if(keyToUse == null){
+                    AdventureGUI.printText("You don't have a key named " + keyName + ".");
+                }
+                
+                if (keyToUse.getId().equals(roomToOpen.getKeyID())) {
+                    roomToOpen.setIsLocked(false);
+                    AdventureGUI.printText("You unlocked the " + targetRoom + "!");
+                } else {
+                    AdventureGUI.printText("That key doesn't seem to fit this door...");
+                }
+                
+            }
+            return false;
 
             default:
                 AdventureGUI.printText("I don't understand that command.");
@@ -232,3 +268,4 @@ public class CommandParser {
         }
     }
 }
+

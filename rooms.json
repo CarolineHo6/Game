@@ -16,7 +16,9 @@
       }
     ],
     "npc": [],
-    "floor": "2"
+    "floor": "2",
+    "isLocked": false,
+    "KeyID": ""
   },
   "theatre": {
     "id": "theatre",
@@ -50,7 +52,7 @@
     "exits": {
       "north": "cafeteria",
       "south": "library",
-      "east": "east exit",
+      "east": "exit",
       "west": "entrance hall"
     },
     "items": [],
@@ -89,7 +91,14 @@
       "south": "hallway3"
     },
     "items": [],
-    "npc": [],
+    "npc": [{
+      "name": "Mr Stott",
+      "isHostile": false,
+      "description": "",
+      "talk": "",
+      "id": "teacher2",
+      "type": "NPC"
+    }],
     "floor": "2"
   },
   
@@ -136,7 +145,9 @@
     "items": [{
       "id":"sword1",
       "name":"Play Sword",
-      "description": "A flimsy metal sword used for various plays"
+      "description": "A flimsy metal sword used for various plays",
+      "attack": 1,
+      "crit" : 0
     }],
     "npc": [],
     "floor": "2"
@@ -221,7 +232,14 @@
       "north": "1F hallway2"
     },
     "items": [],
-    "npc": [],
+    "npc": [{
+      "name": "Ms. Landau",
+      "isHostile": false,
+      "description": "", 
+      "talk": "",
+      "id": "teacher4",
+      "type": "NPC"
+    }],
     "floor": "1"
   },
   "gr.12 common area": {
@@ -299,7 +317,14 @@
       "east": "3F hallway1"
     },
     "items": [],
-    "npc": [],
+    "npc": [{
+      "name": "Adriana",
+      "isHostile": false,
+      "description": "", 
+      "talk": "",
+      "id": "student2",
+      "type": "NPC"
+    }],
     "floor": "3"
   },
   "compsci room": {
@@ -315,9 +340,10 @@
       "description":"Average white man turned zombie, he will stop at nothing to eat your brains",
       "talk":"DID YOU COMMIT YOUR CODE TO GITHUB??",
       "id":"final boss",
-      "health":10,
+      "health":50,
       "damage":3,
-      "dodgerange":2
+      "dodgerange":2,
+      "type": "Boss"
     }
     ],
     "floor": "3"
@@ -334,7 +360,8 @@
       "isHostile":false,
       "description":"",
       "talk":"",
-      "id":"teacher1"
+      "id":"teacher1",
+      "type": "NPC"
     }],
     "floor": "3"
   },
@@ -345,7 +372,14 @@
       "north": "3F hallway2"
     },
     "items": [],
-    "npc": [],
+    "npc": [{
+      "name": "Ms. Fenili",
+      "isHostile": false,
+      "description": "",
+      "talk": "",
+      "id": "teacher3",
+      "type": "NPC"
+    }],
     "floor": "3"
   },
   "gr.10 common area": {
@@ -357,5 +391,15 @@
     "items": [],
     "npc": [],
     "floor": "3"
+  },
+  "exit": {
+    "name": "Exit",
+    "description":"You pull open the heavy metal door, and with a rush of air and light, you step into freedom—it's over.",
+    "exits": {},
+    "items": [],
+    "npc": [],
+    "floor": "2",
+    "isLocked": true,
+    "KeyID": ""
   }
 }
