@@ -16,7 +16,9 @@
       }
     ],
     "npc": [],
-    "floor": "2"
+    "floor": "2",
+    "isLocked": false,
+    "KeyID": ""
   },
   "theatre": {
     "id": "theatre",

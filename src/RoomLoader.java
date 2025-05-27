@@ -25,6 +25,8 @@ public class RoomLoader {
                 for (String dir : exitsJson.keySet()) {
                     exits.put(dir, exitsJson.get(dir).getAsString());
                 }
+                boolean isLocked = obj.get("isLocked").getAsBoolean();
+                String keyID = obj.get("keyID").getAsString();
 
                 // Items array creation
                 List<Item> items = new ArrayList<>();
@@ -68,7 +70,7 @@ public class RoomLoader {
                 }
 
                 // Making the acc room
-                rooms.put(key, new Room(key, name, desc, exits, items, npc, floor));
+                rooms.put(key, new Room(key, name, desc, exits, items, npc, floor, isLocked, keyID));
             }
         } catch (Exception e) {
             e.printStackTrace();
