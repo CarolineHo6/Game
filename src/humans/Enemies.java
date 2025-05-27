@@ -8,12 +8,12 @@ public class Enemies extends NPC {
     private String name;
     private int dodgeRange;
 
-    public Enemies(int h, int d, String n, int dr, String name, String currentRoom, String description, String talk,
-            String id) {
-        super(name, currentRoom, true, description, talk, id);
+    public Enemies(int h, int d, int dr, String name, String currentRoom, String description, String talk,
+            String id, String type) {
+        super(name, currentRoom, true, description, talk, id, type);
         health = h;
         damage = d;
-        name = n;
+        this.name = name;
         dodgeRange = dr;
     }
 
@@ -41,6 +41,7 @@ public class Enemies extends NPC {
         return name;
     }
 
+    // dodges attack if two numbers equal
     public boolean ifDodge() {
 
         int x = (int) (Math.random() * dodgeRange);

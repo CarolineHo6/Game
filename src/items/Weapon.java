@@ -1,3 +1,4 @@
+package items;
 
 import java.util.*;
 
@@ -5,27 +6,20 @@ public class Weapon extends Item {
     private int attack;
     private int crit;
     private boolean isCrit;
-    // private double broken;
-    // private boolean isBroken;
+    private boolean isBroken;
 
-<<<<<<< HEAD
-    public Weapon(String id, String name, String description, int attack, int crit) {
-        super(id, name, description, isWeapon);
-=======
-
-    public Weapon(String id, String name, String description, int attack, int crit, double broken) {
-        super(id, name, description, 0);
->>>>>>> 68be78f5bde3932ce20e82027b7eb9615369e5aa
+    public Weapon(String id, String name, String description, String type, int attack, int crit) {
+        super(id, name, description, type);
         this.attack = attack;
         isCrit = false;
-        // this.broken = broken;
-        // isBroken = false;
+        isBroken = false;
     }
 
     public boolean isWeapon() {
         return true;
     }
 
+    // Critical attack added to attack
     public int getAttack() {
         if (Math.random() < 0.05)
         {
@@ -41,6 +35,14 @@ public class Weapon extends Item {
         // }
 
         return attack;
+    }
+
+    // see if your weapon will break
+    public boolean getBreak() {
+        if (Math.random() < 0.1) {
+            isBroken = true;
+        }
+        return isBroken;
     }
 
 }

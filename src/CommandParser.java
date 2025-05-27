@@ -2,64 +2,73 @@ import java.util.*;
 
 import humans.Enemies;
 import humans.NPC;
+import items.Item;
+import items.Potions;
+import items.Keys;
 
 public class CommandParser {
 
-    public static boolean parse(String input, Player player, Map<String, Room> rooms) {
+    public static boolean parse(AdventureGUI gui, String input, Player player, Map<String, Room> rooms) {
         String[] words = input.trim().toLowerCase().split("\\s+");
         if (words.length == 0) {
-            System.out.println("Please enter a command.");
+            AdventureGUI.printText("Please enter a command.");
             return false;
         }
 
         String command = words[0];
         Room currentRoom = rooms.get(player.getCurrentRoomId());
-        Enemies monster = (Enemies) currentRoom.randomGenerateMonster();
+        // assume only 1 npc per room?
+        Enemies monster = (Enemies) currentRoom.getNPCs().get(0); // actually idk what im doing
 
-        if (monster != null && currentRoom.randomGenerateMonster().getIsHostility() == true) {
+        if (monster != null && monster.getIsHostility() == true) {
 
-            System.out.println("Would you like to fight the monster?");
+            AdventureGUI.printText("Would you like to fight the monster?");
 
-            Scanner sc = new Scanner(System.in);
-            System.out.println("Fight or Flee");
+            AdventureGUI.printText("Fight or Flee");
 
-            System.out.println("> ");
-            String decision = sc.nextLine();
+            AdventureGUI.printText("> ");
+            String decision = gui.getInput();
 
             if (decision.equals("Fight") || decision.equals("fight")) {
 
                 while (true) {
                     monster.stats();
                     player.stats();
-                    System.out.println("Please select your weapon");
+                    AdventureGUI.printText("Please select your weapon");
                     System.out.print("Inventory: ");
                     ArrayList<Item> pop = player.getInventory();
-                    System.out.println("fist, ");
+                    AdventureGUI.printText("fist, ");
                     for (int i = 0; i < pop.size(); i++) {
                         if (pop.get(i).isWeapon() == true) {
-                            System.out.println(pop.get(i).getName() + " - " + pop.get(i).getAttack());
+                            AdventureGUI.printText(pop.get(i).getName() + " - " + pop.get(i).getAttack());
                         }
                     }
 
-                    System.out.println("> ");
-                    String selection = sc.nextLine();
+                    AdventureGUI.printText("> ");
+                    String selection = gui.getInput();
 
                     int index = pop.indexOf(selection);
                     Item w = pop.get(index);
 
-                    if (monster.getHealth() <= w.getAttack()) {
-                        System.out.println("You have defeated the monster");
-                        return false;
+                    if (monster.ifDodge()) {
+                        AdventureGUI.printText("The monster has dodge your attack");
                     } else {
 
-                        monster.setHealth(monster.getHealth() - monster.getDamage());
+                        if (monster.getHealth() <= w.getAttack()) {
+                            AdventureGUI.printText("You have defeated the monster");
+                            return false;
+                        } else {
+
+                            monster.setHealth(monster.getHealth() - monster.getDamage());
+
+                        }
 
                     }
 
-                    System.out.println("The monster is going to attack you");
+                    AdventureGUI.printText("The monster is going to attack you");
 
                     if (player.getHealth() <= monster.getDamage()) {
-                        System.out.println("You have been defeated by the monster. Game over.");
+                        AdventureGUI.printText("You have been defeated by the monster. Game over.");
                         return true;
                     } else {
                         player.setHealth(player.getHealth() - monster.getDamage());
@@ -67,7 +76,7 @@ public class CommandParser {
 
                 }
             }
-            System.out.println("you have ran away");
+            AdventureGUI.printText("you have ran away");
             return true;
 
         }
@@ -75,39 +84,39 @@ public class CommandParser {
         switch (command) {
             case "go":
                 if (words.length < 2) {
-                    System.out.println("Go where?");
+                    AdventureGUI.printText("Go where?");
                 } else {
                     String direction = words[1];
                     // Room currentRoom = rooms.get(player.getCurrentRoomId());
                     String nextRoomId = currentRoom.getExits().get(direction);
                     if (nextRoomId != null) {
                         player.setCurrentRoomId(nextRoomId);
-                        System.out.println("You move " + direction + ".");
+                        AdventureGUI.printText("You move " + direction + ".");
                         currentRoom = rooms.get(player.getCurrentRoomId());
-                        System.out.println(currentRoom.getLongDescription());
+                        AdventureGUI.printText(currentRoom.getLongDescription());
 
                     } else {
-                        System.out.println("You can't go that way.");
+                        AdventureGUI.printText("You can't go that way.");
                     }
                 }
                 return false;
             case "look":
                 // Room currentRoom = rooms.get(player.getCurrentRoomId());
-                System.out.println(currentRoom.getLongDescription());
+                AdventureGUI.printText(currentRoom.getLongDescription());
                 return false;
             case "inventory":
                 if (player.getInventory().isEmpty()) {
-                    System.out.println("Your inventory is empty.");
+                    AdventureGUI.printText("Your inventory is empty.");
                 } else {
-                    System.out.println("You are carrying:");
+                    AdventureGUI.printText("You are carrying:");
                     for (Item item : player.getInventory()) {
-                        System.out.println("- " + item.getName());
+                        AdventureGUI.printText("- " + item.getName());
                     }
                 }
                 return false;
             case "take":
                 if (words.length < 2) {
-                    System.out.println("Take what?");
+                    AdventureGUI.printText("Take what?");
                 } else {
                     String itemName = words[1];
                     // Room room = rooms.get(player.getCurrentRoomId());
@@ -121,15 +130,15 @@ public class CommandParser {
                     if (itemToTake != null) {
                         currentRoom.removeItem(itemToTake);
                         player.addItem(itemToTake);
-                        System.out.println("You take the " + itemToTake.getName() + ".");
+                        AdventureGUI.printText("You take the " + itemToTake.getName() + ".");
                     } else {
-                        System.out.println("There is no " + itemName + " here.");
+                        AdventureGUI.printText("There is no " + itemName + " here.");
                     }
                 }
                 return false;
             case "drop":
                 if (words.length < 2) {
-                    System.out.println("Drop what?");
+                    AdventureGUI.printText("Drop what?");
                 } else {
                     String itemName = words[1];
                     Item itemToDrop = null;
@@ -143,9 +152,9 @@ public class CommandParser {
                         player.removeItem(itemToDrop);
                         // Room room = rooms.get(player.getCurrentRoomId());
                         currentRoom.addItem(itemToDrop);
-                        System.out.println("You drop the " + itemToDrop.getName() + ".");
+                        AdventureGUI.printText("You drop the " + itemToDrop.getName() + ".");
                     } else {
-                        System.out.println("You don't have a " + itemName + ".");
+                        AdventureGUI.printText("You don't have a " + itemName + ".");
                     }
                 }
                 return false;
@@ -157,20 +166,103 @@ public class CommandParser {
                 // TODO make a confirmation and add a scanner
                 Scanner sc = new Scanner(System.in);
 
-                System.out.println("Are you sure?");
-                System.out.println("Please return yes or no");
+                AdventureGUI.printText("Are you sure?");
+                AdventureGUI.printText("Please return yes or no");
                 String in = sc.nextLine();
 
                 if (in.equals("yes") || in.equals("Yes")) {
-                    System.out.println("BYE!");
+                    AdventureGUI.printText("BYE!");
                     return true;
                 }
                 // do something?
                 return false;
+            case "talk":
+                // check if this works pls
+                if (words.length < 2) {
+                    AdventureGUI.printText("talk to who?");
+                } else {
+                    String npcName = words[2];
+                    NPC npcToTalk = null;
+                    for (NPC npc : currentRoom.getNPCs()) {
+                        if (npc.getName().equalsIgnoreCase(npcName)) {
+                            npcToTalk = npc;
+                            break;
+                        }
+                    }
+                    if (npcToTalk != null) {
+                        AdventureGUI.printText(npcToTalk.getTalk());
+                    } else {
+                        AdventureGUI.printText("There is no " + npcName + " here");
+                    }
+                }
+                return false;
+            case "use":
+                // check if this works pls
+                if (words.length < 2) {
+                    AdventureGUI.printText("use what?");
+                } else {
+                    String itemName = words[1];
+                    Item itemToUse = null;
+                    Potions potionToUse = null;
+                    for (Item item : player.getInventory()) {
+                        if (item.getName().equalsIgnoreCase(itemName) && item instanceof Potions) {
+                            itemToUse = item;
+                            break;
+                        }
+                    }
+
+                    if (itemToUse != null) {
+                        int addHeart = itemToUse.getAddHeart();
+                        if (addHeart != 0) {
+                            player.setHealth(player.getHealth() + addHeart);
+                            AdventureGUI.printText("Your health increased by " + addHeart);
+                        }
+                        // add case for key unlocking door
+                        else {
+                            AdventureGUI.printText("You can't use that item");
+                        }
+                    } else {
+                        AdventureGUI.printText("You don't have that item");
+                    }
+                }
+                return false;
+            case "open":
+                //Please double check - supposed to use the key to open door 
+            if (words.length < 2) {
+                AdventureGUI.printText("open what?");
+            } else {
+                String targetRoom = words[1];
+                Room roomToOpen = rooms.get(targetRoom);
+                if(roomToOpen == null){
+                    AdventureGUI.printText("There is no room called " + targetRoom + ".");
+                }
+                           
+                String keyName = words[3];
+                Keys keyToUse = null;
+                for (Item item : player.getInventory()) {
+                    if (item.getName().equalsIgnoreCase(keyName) && item instanceof Keys) {
+                        keyToUse = (Keys) item;
+                        break;
+                    }
+                }
+                if(keyToUse == null){
+                    AdventureGUI.printText("You don't have a key named " + keyName + ".");
+                }
+                
+                if (keyToUse.getId().equals(roomToOpen.getKeyID())) {
+                    roomToOpen.setIsLocked(false);
+                    AdventureGUI.printText("You unlocked the " + targetRoom + "!");
+                } else {
+                    AdventureGUI.printText("That key doesn't seem to fit this door...");
+                }
+                
+            }
+            return false;
 
             default:
-                System.out.println("I don't understand that command.");
+                AdventureGUI.printText("I don't understand that command.");
                 return false;
         }
     }
 }
+

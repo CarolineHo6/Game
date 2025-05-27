@@ -10,13 +10,15 @@
     },
     "items": [
       {
-        "id": "key1",
-        "name": "Key",
-        "description": "A small rusty key."
+        "id": "notebook",
+        "name": "Notebook",
+        "description": "Insert welcome/intro message here"
       }
     ],
     "npc": [],
-    "floor": "2"
+    "floor": "2",
+    "isLocked": false,
+    "KeyID": ""
   },
   "theatre": {
     "id": "theatre",
@@ -60,7 +62,8 @@
       "isHostile": false,
       "description": "A person that resembles a sphere. She is holding a snack in her hand while shoving some more food into her mouth. Its rather disgusting...",
       "talk": "GIMME FOOD. I WANT FOOD",
-      "id": "person1"
+      "id": "person1",
+      "type": "NPC"
     }],
     "floor": "2"
   },
@@ -70,7 +73,13 @@
     "exits": {
       "south": "hallway1"
     },
-    "items": [],
+    "items": [{
+      "id":"butterknife",
+      "name":"Butterknife",
+      "description":"For smearing butter on bread, among other purposes",
+      "attack":1,
+      "crit":1
+    }],
     "npc": [],
     "floor": "2"
   },
@@ -82,7 +91,14 @@
       "south": "hallway3"
     },
     "items": [],
-    "npc": [],
+    "npc": [{
+      "name": "Mr Stott",
+      "isHostile": false,
+      "description": "",
+      "talk": "",
+      "id": "teacher2",
+      "type": "NPC"
+    }],
     "floor": "2"
   },
   
@@ -128,20 +144,30 @@
     },
     "items": [{
       "id":"sword1",
-      "description": "A flimsy metal sword used for various plays",
-      ""
+      "name":"Play Sword",
+      "description": "A flimsy metal sword used for various plays"
     }],
     "npc": [],
     "floor": "2"
   },
   "hallway2": {
     "name": "Hallway 2",
-    "description": "Lockers line both walls. There are doors leading both to the north and the south.",
+    "description": "Lockers line both walls, one of them seems to be unlocked. There are doors leading both to the north and the south.",
     "exits": {
       "north": "theatre",
       "south": "drama room"
     },
-    "items": [],
+    "items": [{
+      "id":"first aid kit",
+      "name":"First Aid Kit",
+      "description":"There are bandages, cotton swabs, antiseptic, and alcohol wipes inside.",
+      "addHeart":3
+    }, {
+      "id":"food2",
+      "name":"Chips",
+      "description":"You didn't think there would be an unopened bag of doritos here.",
+      "addHeart":1
+    }],
     "npc": [],
     "floor": "2"
   },
@@ -164,7 +190,13 @@
     "exits": {
       "north": "1F hallway1"
     },
-    "items": [],
+    "items": [{
+      "id":"tennis racket",
+      "name":"Tennis Racket",
+      "description":"You have any tennis balls to hit?",
+      "attack":2,
+      "crit":1
+    }],
     "npc": [],
     "floor": "1"
   },
@@ -198,7 +230,14 @@
       "north": "1F hallway2"
     },
     "items": [],
-    "npc": [],
+    "npc": [{
+      "name": "Ms. Landau",
+      "isHostile": false,
+      "description": "", 
+      "talk": "",
+      "id": "teacher4",
+      "type": "NPC"
+    }],
     "floor": "1"
   },
   "gr.12 common area": {
@@ -276,7 +315,14 @@
       "east": "3F hallway1"
     },
     "items": [],
-    "npc": [],
+    "npc": [{
+      "name": "Adriana",
+      "isHostile": false,
+      "description": "", 
+      "talk": "",
+      "id": "student2",
+      "type": "NPC"
+    }],
     "floor": "3"
   },
   "compsci room": {
@@ -286,7 +332,18 @@
       "north": "3F hallway1"
     },
     "items": [],
-    "npc": [],
+    "npc": [{
+      "name":"Mr.Delauriers",
+      "isHostile":true,
+      "description":"Average white man turned zombie, he will stop at nothing to eat your brains",
+      "talk":"DID YOU COMMIT YOUR CODE TO GITHUB??",
+      "id":"final boss",
+      "health":10,
+      "damage":3,
+      "dodgerange":2,
+      "type": "Boss"
+    }
+    ],
     "floor": "3"
   },
   "math lab": {
@@ -296,7 +353,14 @@
       "south": "3F hallway2"
     },
     "items": [],
-    "npc": [],
+    "npc": [{
+      "name":"Mr.Pape",
+      "isHostile":false,
+      "description":"",
+      "talk":"",
+      "id":"teacher1",
+      "type": "NPC"
+    }],
     "floor": "3"
   },
   "principle's office": {
@@ -306,7 +370,14 @@
       "north": "3F hallway2"
     },
     "items": [],
-    "npc": [],
+    "npc": [{
+      "name": "Ms. Fenili",
+      "isHostile": false,
+      "description": "",
+      "talk": "",
+      "id": "teacher3",
+      "type": "NPC"
+    }],
     "floor": "3"
   },
   "gr.10 common area": {

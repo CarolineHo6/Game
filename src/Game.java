@@ -13,8 +13,8 @@ public class Game {
         commandParser = new CommandParser();
     }
 
-    public boolean processCommand(String input) {
-        return CommandParser.parse(input, player, rooms);
+    public boolean processCommand(AdventureGUI gui, String input) {
+        return CommandParser.parse(gui, input, player, rooms);
     }
 
     public Player getPlayer() {
@@ -25,17 +25,4 @@ public class Game {
         return rooms.get(player.getCurrentRoomId());
     }
 
-    public void start() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Welcome to the Text Adventure Game!");
-        Room currentRoom = rooms.get(player.getCurrentRoomId());
-        System.out.println(currentRoom.getLongDescription());
-        boolean gameOver = false;
-        while (!gameOver) {
-            
-            System.out.print("> ");
-            String input = scanner.nextLine();
-            gameOver = commandParser.parse(input, player, rooms);
-        }
-    }
 }
