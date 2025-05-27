@@ -4,7 +4,7 @@ import humans.Enemies;
 import humans.NPC;
 import items.Item;
 import items.Potions;
-import items.Keys;
+import items.Key;
 
 public class CommandParser {
 
@@ -241,10 +241,10 @@ public class CommandParser {
                 }
                            
                 String keyName = words[3];
-                Keys keyToUse = null;
+                Key keyToUse = null;
                 for (Item item : player.getInventory()) {
-                    if (item.getName().equalsIgnoreCase(keyName) && item instanceof Keys) {
-                        keyToUse = (Keys) item;
+                    if (item.getName().equalsIgnoreCase(keyName) && item instanceof Key) {
+                        keyToUse = (Key) item;
                         break;
                     }
                 }

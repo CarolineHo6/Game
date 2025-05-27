@@ -1,9 +1,9 @@
 package items;
 
-public class Keys extends Item {
+public class Key extends Item {
     private String room;
     
-    public Keys (String id, String name, String description, String type, String room){
+    public Key (String id, String name, String description, String type, String room){
         super(id, name, description, type);
         this.room = room;
     }
