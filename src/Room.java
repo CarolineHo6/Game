@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -9,9 +10,11 @@ public class Room {
     private String id;
     private String name;
     private String description;
-    private Map<String, String> exits; // direction → roomId
+    private Map<String, String> exits; // direction → roomId 
     private static List<Item> items;
     private static ArrayList<NPC> npc;
+    private static ArrayList<String> riddles;
+    private static ArrayList<String> anwser;
     private String floor;
     private boolean isLocked;
     private String keyID;
@@ -27,22 +30,22 @@ public class Room {
         this.floor = floor;
         this.isLocked = isLocked;
         this.keyID = keyID;
-            }
+        }
 
+    public boolean isRiddle(){ // checks if a room is suppose to have a riddle or not
+        if(isLocked && keyID == null){
+            return true;
+        }
 
-     public Room(String id, String name, String description, Map<String, String> exits, List<Item> items,
-            ArrayList<NPC> npc, String floor) {
-        this.id = id;
-        this.name = name;
-        this.description = description;
-        this.exits = exits;
-        this.items = items;
-        this.npc = npc;
-        this.floor = floor;
-        this.isLocked = false;
-        this.keyID = "";
-
+        return false; 
     }
+
+    public String generateRandomRiddle(){
+        int x = (int) (Math.random() * riddles.size());
+
+        return riddles.get(x) + " " + anwser.get(x);
+    }
+
 
     public String getId() {
         return id;
