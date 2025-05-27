@@ -3,6 +3,7 @@ import java.util.List;
 import java.util.Map;
 
 import humans.NPC;
+import items.Item;
 
 public class Room {
     private String id;
@@ -12,9 +13,11 @@ public class Room {
     private static List<Item> items;
     private static ArrayList<NPC> npc;
     private String floor;
+    private boolean isLocked;
+    private String keyID;
 
     public Room(String id, String name, String description, Map<String, String> exits, List<Item> items,
-            ArrayList<NPC> npc, String floor) {
+            ArrayList<NPC> npc, String floor, boolean isLocked, String keyID) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -22,6 +25,9 @@ public class Room {
         this.items = items;
         this.npc = npc;
         this.floor = floor;
+        this.isLocked = isLocked;
+        this.keyID = keyID;
+
     }
 
     public String getId() {
@@ -54,6 +60,18 @@ public class Room {
 
     public void addItem(Item item) {
         items.add(item);
+    }
+
+    public boolean getIsLocked() {
+        return isLocked;
+    }
+
+    public void setIsLocked(boolean isLocked){
+        this.isLocked = isLocked;
+    }
+
+    public String getKeyID() {
+        return keyID; 
     }
 
     // remove?

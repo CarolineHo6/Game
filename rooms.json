@@ -15,13 +15,10 @@
         "description": "Insert welcome/intro message here"
       }
     ],
-    "npc": [{
-        "id": "key1",
-        "name": "Key",
-        "description": "A small rusty key.",
-        "type":"boss"
-      }],
-    "floor": "2"
+    "npc": [],
+    "floor": "2",
+    "isLocked": false,
+    "KeyID": ""
   },
   "theatre": {
     "id": "theatre",
@@ -65,7 +62,8 @@
       "isHostile": false,
       "description": "A person that resembles a sphere. She is holding a snack in her hand while shoving some more food into her mouth. Its rather disgusting...",
       "talk": "GIMME FOOD. I WANT FOOD",
-      "id": "person1"
+      "id": "person1",
+      "type": "NPC"
     }],
     "floor": "2"
   },
@@ -93,7 +91,14 @@
       "south": "hallway3"
     },
     "items": [],
-    "npc": [],
+    "npc": [{
+      "name": "Mr Stott",
+      "isHostile": false,
+      "description": "",
+      "talk": "",
+      "id": "teacher2",
+      "type": "NPC"
+    }],
     "floor": "2"
   },
   
@@ -225,7 +230,14 @@
       "north": "1F hallway2"
     },
     "items": [],
-    "npc": [],
+    "npc": [{
+      "name": "Ms. Landau",
+      "isHostile": false,
+      "description": "", 
+      "talk": "",
+      "id": "teacher4",
+      "type": "NPC"
+    }],
     "floor": "1"
   },
   "gr.12 common area": {
@@ -303,7 +315,14 @@
       "east": "3F hallway1"
     },
     "items": [],
-    "npc": [],
+    "npc": [{
+      "name": "Adriana",
+      "isHostile": false,
+      "description": "", 
+      "talk": "",
+      "id": "student2",
+      "type": "NPC"
+    }],
     "floor": "3"
   },
   "compsci room": {
@@ -321,7 +340,8 @@
       "id":"final boss",
       "health":10,
       "damage":3,
-      "dodgerange":2
+      "dodgerange":2,
+      "type": "Boss"
     }
     ],
     "floor": "3"
@@ -338,7 +358,8 @@
       "isHostile":false,
       "description":"",
       "talk":"",
-      "id":"teacher1"
+      "id":"teacher1",
+      "type": "NPC"
     }],
     "floor": "3"
   },
@@ -349,7 +370,14 @@
       "north": "3F hallway2"
     },
     "items": [],
-    "npc": [],
+    "npc": [{
+      "name": "Ms. Fenili",
+      "isHostile": false,
+      "description": "",
+      "talk": "",
+      "id": "teacher3",
+      "type": "NPC"
+    }],
     "floor": "3"
   },
   "gr.10 common area": {
