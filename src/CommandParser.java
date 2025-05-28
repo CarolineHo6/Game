@@ -128,7 +128,7 @@ public class CommandParser {
                                 return false;
                             }
                             else {
-                                AdventureGUI.printText("You have chosen not to solve the riddle");
+                                AdventureGUI.printText("You have chosen not to solve the riddle. Can't solve it? Try reading more");
                                 // TODO more??
                                 return false;
                             }
