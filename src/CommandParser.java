@@ -272,7 +272,38 @@ public class CommandParser {
                     }
                 }
                 return false;
+            
+            case "read":
+                if (words.length < 2) {
+                    AdventureGUI.printText("read what?");
+                } else {
+                    String itemName = words[1];
+                    if (!"notebook".equalsIgnoreCase(itemName)) {
+                        AdventureGUI.printText("You can't read that item!");
+                    } else {
+                        Item itemToRead = null;
+                        for (Item item : player.getInventory()) {
+                            if (item.getName().equalsIgnoreCase(itemName)) {
+                                itemToRead = item;
+                                break;
+                            }
+                        }
+                        for (Item item : currentRoom.getItems()) {
+                            if (item.getName().equalsIgnoreCase(itemName)) {
+                                itemToRead = item;
+                                break;
+                            }
+                        }
 
+                        if (itemToRead != null) {
+                            AdventureGUI.printText(itemToRead.getDescription());
+                        } else {
+                            AdventureGUI.printText("There is no notebook here!");
+                        }
+                    }
+                }
+                return false;
+            
             case "open":
                 // Please double check - supposed to use the key to open door
                 if (words.length < 2) {
