@@ -12,7 +12,9 @@ public class Room {
     private static List<Item> items;
     private static ArrayList<NPC> npc;
     private static ArrayList<String> riddles = new ArrayList<String>(List.of("")); // make riddles!!!!!!!!
-    private static ArrayList<String> anwser = new ArrayList<String>(List.of(""));   // put the answers here make sure they correspond w the index of the question
+    private static ArrayList<String> answer = new ArrayList<String>(List.of("")); // put the answers here make sure they
+                                                                                  // correspond w the index of the
+                                                                                  // question
     private String floor;
     private boolean isLocked;
     private String keyID;
@@ -38,10 +40,17 @@ public class Room {
         return false;
     }
 
+    public void removeRiddle(String x) {
+        int index = riddles.indexOf(x);
+        riddles.remove(index);
+        answer.remove(index);
+
+    }
+
     public String generateRandomRiddle() {
         int x = (int) (Math.random() * riddles.size());
 
-        return riddles.get(x) + " " + anwser.get(x);
+        return riddles.get(x) + " " + answer.get(x);
     }
 
     public String getId() {
@@ -130,4 +139,30 @@ public class Room {
 
         return sb.toString();
     }
+
+    static {
+        riddles.add(
+                "I have keys but open no doors. I have space but no room. You can enter, but not go outside. What am I?");
+        riddles.add("The more of me you take, the more you leave behind. What am I?");
+        riddles.add(
+                "No heartbeat, no breath, but I can still follow you. I copy your every move, but only in the light. What am I?");
+        riddles.add(
+                "You pass me every day, but never speak to me. I reflect what you are, and in this school, sometimes what you fear. What am I?");
+        riddles.add(
+                "You can’t see me, but I decide when you panic. I make your heart race, your hands shake, and your breath quicken. I’m the only curve your calculator can’t flatten. What am I?");
+        riddles.add(
+                "I was your last hope for passing. Now I hold the last piece of the key. But I won’t open unless you remember everything I taught. What am I?");
+        riddles.add("I’m always running, but I never move. You can never catch me, but you always lose me. What am I?");
+        riddles.add("I have cities but no houses, forests but no trees, and rivers but no water. What am I?");
+
+        answer.add("Keyboard");
+        answer.add("Footsteps");
+        answer.add("Shadow");
+        answer.add("Mirror");
+        answer.add("Anxiety");
+        answer.add("Exam");
+        answer.add("Time");
+        answer.add("Map");
+    }
+
 }
