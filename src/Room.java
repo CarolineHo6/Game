@@ -1,20 +1,18 @@
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import humans.NPC;
-import items.Item;
+import humans.*;
+import items.*;
 
 public class Room {
     private String id;
     private String name;
     private String description;
-    private Map<String, String> exits; // direction → roomId 
+    private Map<String, String> exits; // direction → roomId
     private static List<Item> items;
     private static ArrayList<NPC> npc;
-    private static ArrayList<String> riddles;
-    private static ArrayList<String> anwser;
+    private static ArrayList<String> riddles = new ArrayList<String>(List.of("")); // make riddles!!!!!!!!
+    private static ArrayList<String> anwser = new ArrayList<String>(List.of(""));   // put the answers here make sure they correspond w the index of the question
     private String floor;
     private boolean isLocked;
     private String keyID;
@@ -30,22 +28,21 @@ public class Room {
         this.floor = floor;
         this.isLocked = isLocked;
         this.keyID = keyID;
-        }
+    }
 
-    public boolean isRiddle(){ // checks if a room is suppose to have a riddle or not
-        if(isLocked && keyID == null){
+    public boolean isRiddle() { // checks if a room is suppose to have a riddle or not
+        if (isLocked && keyID == null) {
             return true;
         }
 
-        return false; 
+        return false;
     }
 
-    public String generateRandomRiddle(){
+    public String generateRandomRiddle() {
         int x = (int) (Math.random() * riddles.size());
 
         return riddles.get(x) + " " + anwser.get(x);
     }
-
 
     public String getId() {
         return id;
@@ -83,12 +80,12 @@ public class Room {
         return isLocked;
     }
 
-    public void setIsLocked(boolean isLocked){
+    public void setIsLocked(boolean isLocked) {
         this.isLocked = isLocked;
     }
 
     public String getKeyID() {
-        return keyID; 
+        return keyID;
     }
 
     // remove?

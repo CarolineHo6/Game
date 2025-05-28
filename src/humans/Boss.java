@@ -21,7 +21,6 @@ public class Boss extends Enemies {
 
     public int getStages() {
         return stages;
-
     }
 
 }
