@@ -11,10 +11,10 @@ public class Room {
     private Map<String, String> exits; // direction → roomId
     private static List<Item> items;
     private static ArrayList<NPC> npc;
-    private static ArrayList<String> riddles = new ArrayList<String>(List.of("")); // make riddles!!!!!!!!
-    private static ArrayList<String> answer = new ArrayList<String>(List.of("")); // put the answers here make sure they
-                                                                                  // correspond w the index of the
-                                                                                  // question
+    private static ArrayList<String> riddles = new ArrayList<String>(); // make riddles!!!!!!!!
+    private static ArrayList<String> answer = new ArrayList<String>(); // put the answers at bottom make sure they
+                                                                        // correspond w the index of the
+                                                                        // question
     private String floor;
     private boolean isLocked;
     private String keyID;
