@@ -355,14 +355,15 @@
     },
     "items": [],
     "npc": [{
+      "health":50,
+      "damage":3,
+      "dodgeRange":2,
+      "stages": 10,
       "name":"Mr.Delauriers",
-      "isHostile":true,
+      "currentRoom": "compsci room",
       "description":"Average white man turned zombie, he will stop at nothing to eat your brains",
       "talk":"DID YOU COMMIT YOUR CODE TO GITHUB??",
       "id":"final boss",
-      "health":50,
-      "damage":3,
-      "dodgerange":2,
       "type": "Boss"
     }
     ],

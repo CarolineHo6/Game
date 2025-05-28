@@ -22,53 +22,64 @@ public class RoomLoader {
                     exits.put(dir, exitsJson.get(dir).getAsString());
                 }
                 boolean isLocked = obj.get("isLocked").getAsBoolean();
-                String keyID = obj.get("keyID").getAsString();
+                JsonElement keyElement = obj.get("keyID");
+                String keyID = (keyElement != null && !keyElement.isJsonNull()) ? keyElement.getAsString() : null;
 
                 // Items array creation
                 List<Item> items = new ArrayList<>();
                 JsonArray itemArray = obj.getAsJsonArray("items");
-                for (JsonElement e : itemArray) {
-                    JsonObject i = e.getAsJsonObject();
 
-                    // diff types of items
-                    if (i.get("type").getAsString().equals("item")) {
-                        items.add(new Item(i.get("id").getAsString(), i.get("name").getAsString(),
-                                i.get("description").getAsString(), i.get("type").getAsString()));
-                    } else if (i.get("type").getAsString().equals("potion")) {
-                        items.add(new Potions(i.get("id").getAsString(), i.get("name").getAsString(),
-                                i.get("description").getAsString(), i.get("type").getAsString(), i.get("health").getAsInt()));
-                    } else if (i.get("type").getAsString().equals("weapon")) {
-                        items.add(new Weapon(i.get("id").getAsString(), i.get("name").getAsString(),
-                                i.get("description").getAsString(), i.get("type").getAsString(), 
-                                i.get("attack").getAsInt(), i.get("crit").getAsInt()));
-                    } else if (i.get("type").getAsString().equals("key")) {
-                        items.add(new Key(i.get("id").getAsString(), i.get("name").getAsString(), 
-                                i.get("description").getAsString(), i.get("type").getAsString(), 
-                                i.get("room").getAsString(), i.get("used").getAsBoolean()));
+                if (itemArray != null) {
+                    for (JsonElement e : itemArray) {
+                        JsonObject i = e.getAsJsonObject();
+
+                        // diff types of items
+                        if (i.get("type").getAsString().equalsIgnoreCase("item")) {
+                            items.add(new Item(i.get("id").getAsString(), i.get("name").getAsString(),
+                                    i.get("description").getAsString(), i.get("type").getAsString()));
+                        } else if (i.get("type").getAsString().equalsIgnoreCase("potion")) {
+                            items.add(new Potions(i.get("id").getAsString(), i.get("name").getAsString(),
+                                    i.get("description").getAsString(), i.get("type").getAsString(),
+                                    i.get("health").getAsInt()));
+                        } else if (i.get("type").getAsString().equalsIgnoreCase("weapon")) {
+                            items.add(new Weapon(i.get("id").getAsString(), i.get("name").getAsString(),
+                                    i.get("description").getAsString(), i.get("type").getAsString(),
+                                    i.get("attack").getAsInt(), i.get("crit").getAsInt()));
+                        } else if (i.get("type").getAsString().equalsIgnoreCase("key")) {
+                            items.add(new Key(i.get("id").getAsString(), i.get("name").getAsString(),
+                                    i.get("description").getAsString(), i.get("type").getAsString(),
+                                    i.get("room").getAsString(), i.get("used").getAsBoolean()));
+                        }
                     }
                 }
 
                 // NPC array creation
                 ArrayList<NPC> npc = new ArrayList<NPC>();
-                JsonArray npcArray = obj.getAsJsonArray("npc");
-                for (JsonElement n : npcArray) {
-                    JsonObject i = n.getAsJsonObject();
+                if (obj.has("npc") && obj.get("npc").isJsonArray()) {
+                    JsonArray npcArray = obj.getAsJsonArray("npc");
+                    for (JsonElement n : npcArray) {
+                        JsonObject i = n.getAsJsonObject();
 
-                    // Making diff objects based on what "type" they are
-                    if (i.get("type").getAsString().equals("NPC")) {
-                        npc.add(new NPC(i.get("name").getAsString(), i.get("currentRoom").getAsString(),
-                                i.get("isHostile").getAsBoolean(), i.get("description").getAsString(),
-                                i.get("talk").getAsString(), i.get("id").getAsString(), i.get("type").getAsString()));
-                    } else if (i.get("type").getAsString().equals("Enemy")) {
-                        npc.add(new Enemies(i.get("health").getAsInt(), i.get("damage").getAsInt(),
-                                i.get("dodgeRange").getAsInt(), i.get("name").getAsString(),
-                                i.get("currentRoom").getAsString(), i.get("description").getAsString(),
-                                i.get("talk").getAsString(), i.get("id").getAsString(), i.get("type").getAsString()));
-                    } else if (i.get("type").getAsString().equals("Boss")) {
-                        npc.add(new Boss(i.get("h").getAsInt(), i.get("d").getAsInt(),
-                                i.get("dr").getAsInt(), i.get("stages").getAsInt(), i.get("name").getAsString(),
-                                i.get("currentRoom").getAsString(), i.get("description").getAsString(),
-                                i.get("talk").getAsString(), i.get("id").getAsString(), i.get("type").getAsString()));
+                        // Making diff objects based on what "type" they are
+                        if (i.get("type").getAsString().equalsIgnoreCase("NPC")) {
+                            npc.add(new NPC(i.get("name").getAsString(), i.get("currentRoom").getAsString(),
+                                    i.get("isHostile").getAsBoolean(), i.get("description").getAsString(),
+                                    i.get("talk").getAsString(), i.get("id").getAsString(),
+                                    i.get("type").getAsString()));
+                        } else if (i.get("type").getAsString().equalsIgnoreCase("Enemy")) {
+                            npc.add(new Enemies(i.get("health").getAsInt(), i.get("damage").getAsInt(),
+                                    i.get("dodgeRange").getAsInt(), i.get("name").getAsString(),
+                                    i.get("currentRoom").getAsString(), i.get("description").getAsString(),
+                                    i.get("talk").getAsString(), i.get("id").getAsString(),
+                                    i.get("type").getAsString()));
+                        } else if (i.get("type").getAsString().equalsIgnoreCase("Boss")) {
+                            npc.add(new Boss(i.get("health").getAsInt(), i.get("damage").getAsInt(),
+                                    i.get("dodgeRange").getAsInt(), i.get("stages").getAsInt(),
+                                    i.get("name").getAsString(),
+                                    i.get("currentRoom").getAsString(), i.get("description").getAsString(),
+                                    i.get("talk").getAsString(), i.get("id").getAsString(),
+                                    i.get("type").getAsString()));
+                        }
                     }
                 }
 
