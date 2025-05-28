@@ -12,7 +12,9 @@ public class Room {
     private static List<Item> items;
     private static ArrayList<NPC> npc;
     private static ArrayList<String> riddles = new ArrayList<String>(List.of("")); // make riddles!!!!!!!!
-    private static ArrayList<String> anwser = new ArrayList<String>(List.of(""));   // put the answers here make sure they correspond w the index of the question
+    private static ArrayList<String> anwser = new ArrayList<String>(List.of("")); // put the answers here make sure they
+                                                                                  // correspond w the index of the
+                                                                                  // question
     private String floor;
     private boolean isLocked;
     private String keyID;
@@ -36,6 +38,13 @@ public class Room {
         }
 
         return false;
+    }
+
+    public void removeRiddle(String x) {
+        int index = riddles.indexOf(x);
+        riddles.remove(index);
+        anwser.remove(index);
+
     }
 
     public String generateRandomRiddle() {
