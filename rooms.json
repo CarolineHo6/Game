@@ -68,6 +68,7 @@
     "floor": "2"
   },
   "cafeteria": {
+    "id": "cafeteria",
     "name": "Cafeteria",
     "description": "You enter a large room that smells of food. You see rows of tables and chairs that resemble a jail cafeteria. There is a designated seat, that looks rather large, for someone named Caitlin.",
     "exits": {
@@ -84,6 +85,7 @@
     "floor": "2"
   },
   "library": {
+    "id": "library",
     "name": "Learning Commons",
     "description": "Books line the walls, and tables are arranged around the large space. It's quiet.",
     "exits": {
@@ -103,6 +105,7 @@
   },
   
   "hallway3" :  {
+    "id": "hallway3",
     "name" : "hallway3",
     "descripion": "Remains of scavenged food lies on the ground. There are rooms in all four directions.",
     "exits": {
@@ -116,6 +119,7 @@
     "floor": "2"
   },
   "music room": {
+    "id": "musicRoom",
     "name": "Music Room",
     "description": "There are rows of plastic chairs and music stands. Piles of messy sheet music are stacked on a table to the side. A tuba seems to have angered someone, and is laying destroyed in the corner.",
     "exits": {
@@ -126,6 +130,7 @@
     "floor": "2"
   },
   "gr.11 common area": {
+    "id": "Gr11CommonArea",
     "name": "Gr.11 Common Area",
     "description": "Sofas are arranged against the walls, and there seems to be a back door that was boarded up some time ago. There is a suspicious stain on the ground.",
     "exits": {
@@ -136,6 +141,7 @@
     "floor": "2"
   },
   "drama room": {
+    "id": "dramaRoom",
     "name": "Drama Room",
     "description": "There are overturned tables, chairs, and racks of costumes. Looks like the theater kids just had their production of The Three Musketeers in here.",
     "exits": {
@@ -153,6 +159,7 @@
     "floor": "2"
   },
   "hallway2": {
+    "id": "hallway2",
     "name": "Hallway 2",
     "description": "Lockers line both walls, one of them seems to be unlocked. There are doors leading both to the north and the south.",
     "exits": {
@@ -174,6 +181,7 @@
     "floor": "2"
   },
   "1F hallway1": {
+    "id": "1FHallway1",
     "name": "1F Hallway 1",
     "description": "The lower level is musty and dank. A staircase leads up, and the dark hallway continues to the east. There are two double doors to the south and west.",
     "exits": {
@@ -187,6 +195,7 @@
     "floor": "1"
   },
   "gym": {
+    "id": "gym",
     "name": "Gym",
     "description": "A large variety of round objects are strewn across the floor: dodgeballs, basketballs, tennis balls, a human head...",
     "exits": {
@@ -203,6 +212,7 @@
     "floor": "1"
   },
   "IT": {
+    "id": "IT",
     "name": "IT Department",
     "description": "You are faced with a pile of smashed computers and a whole bunch of scary looking wires.",
     "exits": {
@@ -213,6 +223,7 @@
     "floor": "1"
   },
   "1F hallway2": {
+    "id": "1FHallway2",
     "name": "1F Hallway 2",
     "description": "The hallway continues west. There are doors to the north and south, and an area to the east.",
     "exits": {
@@ -226,6 +237,7 @@
     "floor": "1"
   },
   "science lab": {
+    "id": "scienceLab",
     "name": "Science Labratory",
     "description": "Ah, so that's where the smell's coming from.",
     "exits": {
@@ -243,6 +255,7 @@
     "floor": "1"
   },
   "gr.12 common area": {
+    "id": "Gr12CommonArea",
     "name": "Gr.12 Common Area",
     "description": "There are chairs and tables scattered around the space.",
     "exits": {
@@ -253,6 +266,7 @@
     "floor": "1"
   },
   "classroom": {
+    "id": "classroom",
     "name": "Classroom",
     "description": "It's a classroom. Not much to see here. Oh, don't mind the severed hand on that desk over there.",
     "exits": {
@@ -263,6 +277,7 @@
     "floor": "1"
   },
   "1F staircase": {
+    "id": "1FStaircase",
     "name": "1F Staircase",
     "description": "The stairwell is dark without any natural light. A ray of sunlight streams in from above where the stairs continue upwards. A door leads to the lower level to the south.",
     "exits": {
@@ -274,6 +289,7 @@
     "floor": "1"
   },
   "3F staircase": {
+    "id": "3FStaircase",
     "name": "3F Staircase",
     "description": "You are at the top. There's a door that leads to the rest of the 3rd floor, and the staircase winds down.",
     "exits": {
@@ -285,6 +301,7 @@
     "floor": "1"
   },
   "3F hallway1": {
+    "id": "3FHallway1",
     "name": "3F Hallway 1",
     "description": "The hallway continues east, with 2 rooms to the south and west. The staircase is at the north.",
     "exits": {
@@ -298,6 +315,7 @@
     "floor": "3"
   },
   "3F hallway2": {
+    "id": "3FHallway2",
     "name": "3F Hallway 2",
     "description": "The hallway continues west, with rooms in all three other directions.",
     "exits": {
@@ -311,6 +329,7 @@
     "floor": "3"
   },
   "gr.9 common area": {
+    "id": "Gr9CommonArea",
     "name": "gr.9 Common Area",
     "description": "Couches line the walls of the small space. Snacks and garbage cover eavery inch of the carpeted floor.",
     "exits": {
@@ -328,7 +347,8 @@
     "floor": "3"
   },
   "compsci room": {
-    "name": "Comp Sci Classroom",
+    "id": "compsciRoom",
+    "name": "Computer Science Classroom",
     "description": "It's just a regular classroom, except on the board there is a lesson on Arraylists. A man sits at the table in front of the board, typing menacingly.",
     "exits": {
       "north": "3F hallway1"
@@ -349,6 +369,7 @@
     "floor": "3"
   },
   "math lab": {
+    "id": "mathLab",
     "name": "Math Lab",
     "description": "Red marks cover the glass walls along with the various math equations, but otherwise everything is surprisingly well kept. A man stands behind a desk.",
     "exits": {
@@ -366,6 +387,7 @@
     "floor": "3"
   },
   "principle's office": {
+    "id": "principleOffice",
     "name": "Principle's Office",
     "description": "It's dark and scary in here.",
     "exits": {
@@ -383,6 +405,7 @@
     "floor": "3"
   },
   "gr.10 common area": {
+    "id": "Gr10CommonArea",
     "name": "Gr.10 Common Area",
     "description": "Couches are arranged around a small Christmas tree in the middle. It looks sad.",
     "exits": {
