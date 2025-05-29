@@ -12,7 +12,8 @@
       {
         "id": "notebook",
         "name": "Notebook",
-        "description": "Welcome to ThE SuPeR FuN ScHoOl oF BaYvIeW GlEn, where students and teachers have been turned into Monsters that you must defeat. The main objective of this game is to ESCAPE THE SCHOOL. You must explore the school, defeat bosses, and most important of all............ survive (or die, if you want). Use the keyword: help, if you want the commands :). Have Fun! ( ͡° ͜ʖ ͡°)╭∩╮"
+        "description": "Welcome to ThE SuPeR FuN ScHoOl oF BaYvIeW GlEn, where students and teachers have been turned into Monsters that you must defeat. The main objective of this game is to ESCAPE THE SCHOOL. You must explore the school, defeat bosses, and most important of all............ survive (or die, if you want). Use the keyword: help, if you want the commands :). Have Fun! ( ͡° ͜ʖ ͡°)╭∩╮",
+        "type": "item"
       }
     ],
     "npc": [],
@@ -30,7 +31,9 @@
     },
     "items": [],
     "npc": [],
-    "floor": "2"
+    "floor": "2",
+    "isLocked": false,
+    "KeyID": ""
   },
   "2F staircase": {
     "id": "2Fstaircase",
@@ -43,7 +46,9 @@
     },
     "items": [],
     "npc": [],
-    "floor": "2"
+    "floor": "2",
+    "isLocked": false,
+    "KeyID": ""
   },
   "hallway1": {
     "id": "hallway1",
@@ -65,7 +70,9 @@
       "id": "person1",
       "type": "NPC"
     }],
-    "floor": "2"
+    "floor": "2",
+    "isLocked": false,
+    "KeyID": ""
   },
   "cafeteria": {
     "id": "cafeteria",
@@ -82,7 +89,9 @@
       "crit":1
     }],
     "npc": [],
-    "floor": "2"
+    "floor": "2",
+    "isLocked": false,
+    "KeyID": ""
   },
   "library": {
     "id": "library",
@@ -101,7 +110,9 @@
       "id": "teacher2",
       "type": "NPC"
     }],
-    "floor": "2"
+    "floor": "2",
+    "isLocked": false,
+    "KeyID": ""
   },
   
   "hallway3" :  {
@@ -116,7 +127,9 @@
     },
     "items": [],
     "npc": [],
-    "floor": "2"
+    "floor": "2",
+    "isLocked": false,
+    "KeyID": ""
   },
   "music room": {
     "id": "musicRoom",
@@ -127,7 +140,9 @@
     },
     "items": [],
     "npc": [],
-    "floor": "2"
+    "floor": "2",
+    "isLocked": false,
+    "KeyID": ""
   },
   "gr.11 common area": {
     "id": "Gr11CommonArea",
@@ -138,7 +153,9 @@
     },
     "items": [],
     "npc": [],
-    "floor": "2"
+    "floor": "2",
+    "isLocked": false,
+    "KeyID": ""
   },
   "drama room": {
     "id": "dramaRoom",
@@ -156,7 +173,9 @@
       "crit" : 0
     }],
     "npc": [],
-    "floor": "2"
+    "floor": "2",
+    "isLocked": false,
+    "KeyID": ""
   },
   "hallway2": {
     "id": "hallway2",
@@ -178,7 +197,9 @@
       "addHeart":1
     }],
     "npc": [],
-    "floor": "2"
+    "floor": "2",
+    "isLocked": false,
+    "KeyID": ""
   },
   "1F hallway1": {
     "id": "1FHallway1",
@@ -192,7 +213,9 @@
     },
     "items": [],
     "npc": [],
-    "floor": "1"
+    "floor": "1",
+    "isLocked": false,
+    "KeyID": ""
   },
   "gym": {
     "id": "gym",
@@ -209,7 +232,9 @@
       "crit":1
     }],
     "npc": [],
-    "floor": "1"
+    "floor": "1",
+    "isLocked": false,
+    "KeyID": ""
   },
   "IT": {
     "id": "IT",
@@ -220,7 +245,9 @@
     },
     "items": [],
     "npc": [],
-    "floor": "1"
+    "floor": "1",
+    "isLocked": false,
+    "KeyID": ""
   },
   "1F hallway2": {
     "id": "1FHallway2",
@@ -234,16 +261,24 @@
     },
     "items": [],
     "npc": [],
-    "floor": "1"
+    "floor": "1",
+    "isLocked": false,
+    "KeyID": ""
   },
   "science lab": {
     "id": "scienceLab",
     "name": "Science Labratory",
-    "description": "Ah, so that's where the smell's coming from.",
+    "description": "You take one look at the flask on the table. So that's where the smell's coming from.",
     "exits": {
       "north": "1F hallway2"
     },
-    "items": [],
+    "items": [{
+      "id": "lol",
+      "name": "flask",
+      "description": "... it could do something maybe??? ... I would leave now",
+      "type": "potion",
+      "addHeart": -100
+    }],
     "npc": [{
       "name": "Ms. Landy",
       "isHostile": true,
@@ -252,7 +287,14 @@
       "id": "teacher4",
       "type": "NPC"
     }],
-    "floor": "1"
+    "floor": "1",
+<<<<<<< HEAD
+    "isLocked": false,
+    "KeyID": ""
+=======
+    "isLocked": true,
+    "keyID": null
+>>>>>>> 0691ccd7ef91a2de47924b190551179c3f2e370e
   },
   "gr.12 common area": {
     "id": "Gr12CommonArea",
@@ -263,7 +305,9 @@
     },
     "items": [],
     "npc": [],
-    "floor": "1"
+    "floor": "1",
+    "isLocked": false,
+    "KeyID": ""
   },
   "classroom": {
     "id": "classroom",
@@ -274,7 +318,9 @@
     },
     "items": [],
     "npc": [],
-    "floor": "1"
+    "floor": "1",
+    "isLocked": false,
+    "KeyID": ""
   },
   "1F staircase": {
     "id": "1FStaircase",
@@ -286,7 +332,9 @@
     },
     "items": [],
     "npc": [],
-    "floor": "1"
+    "floor": "1",
+    "isLocked": false,
+    "KeyID": ""
   },
   "3F staircase": {
     "id": "3FStaircase",
@@ -298,7 +346,9 @@
     },
     "items": [],
     "npc": [],
-    "floor": "1"
+    "floor": "1",
+    "isLocked": false,
+    "KeyID": ""
   },
   "3F hallway1": {
     "id": "3FHallway1",
@@ -312,7 +362,14 @@
     },
     "items": [],
     "npc": [],
-    "floor": "3"
+    "floor": "3",
+<<<<<<< HEAD
+    "isLocked": false,
+    "KeyID": ""
+=======
+    "isLocked": true,
+    "keyID": null
+>>>>>>> 0691ccd7ef91a2de47924b190551179c3f2e370e
   },
   "3F hallway2": {
     "id": "3FHallway2",
@@ -326,7 +383,9 @@
     },
     "items": [],
     "npc": [],
-    "floor": "3"
+    "floor": "3",
+    "isLocked": false,
+    "KeyID": ""
   },
   "gr.9 common area": {
     "id": "Gr9CommonArea",
@@ -344,7 +403,9 @@
       "id": "student2",
       "type": "NPC"
     }],
-    "floor": "3"
+    "floor": "3",
+    "isLocked": false,
+    "KeyID": ""
   },
   "compsci room": {
     "id": "compsciRoom",
@@ -367,7 +428,9 @@
       "type": "Boss"
     }
     ],
-    "floor": "3"
+    "floor": "3",
+    "isLocked": false,
+    "KeyID": ""
   },
   "math lab": {
     "id": "mathLab",
@@ -385,7 +448,9 @@
       "id":"teacher1",
       "type": "NPC"
     }],
-    "floor": "3"
+    "floor": "3",
+    "isLocked": false,
+    "KeyID": ""
   },
   "principle's office": {
     "id": "principleOffice",
@@ -398,12 +463,14 @@
     "npc": [{
       "name": "Ms. Penili",
       "isHostile": true,
-      "description": "An overwhelming authority figure. Shivers chill down your spine within 20 meters of her. You can hear the jangling of her keys as she patrols the lonely halls.",
+      "description": "An overwhelming authority figure. Chills run down your spine within 20 meters of her. You can hear the jangling of her keys when she patrols the lonely halls.",
       "talk": "WHY ARE YOU NOT IN YOUR BLACK SHOES?",
       "id": "teacher3",
       "type": "NPC"
     }],
-    "floor": "3"
+    "floor": "3",
+    "isLocked": false,
+    "KeyID": ""
   },
   "gr.10 common area": {
     "id": "Gr10CommonArea",
@@ -414,7 +481,9 @@
     },
     "items": [],
     "npc": [],
-    "floor": "3"
+    "floor": "3",
+    "isLocked": false,
+    "KeyID": ""
   },
   "exit": {
     "name": "Exit",

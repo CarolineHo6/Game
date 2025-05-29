@@ -14,6 +14,10 @@ public class Potions extends Item {
         return addHeart;
     }
 
+    public void setAddHeart(int h) {
+        addHeart = h;
+    }
+
     public String getType() {
         return type;
     }
