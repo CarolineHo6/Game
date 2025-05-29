@@ -142,7 +142,7 @@
   "hallway3" :  {
     "id": "hallway3",
     "name" : "hallway3",
-    "descripion": "Remains of scavenged food lies on the ground. There are rooms in all four directions.",
+    "description": "Remains of scavenged food lies on the ground. There are rooms in all four directions.",
     "exits": {
       "north": "library",
       "south": "gr.11 Common Area",
@@ -215,12 +215,13 @@
       "name":"First Aid Kit",
       "description":"There are bandages, cotton swabs, antiseptic, and alcohol wipes inside.",
       "type": "potion",
-      "addHeart":3
+      "addHeart": 3
     }, {
       "id":"food2",
       "name":"Chips",
       "description":"You didn't think there would be an unopened bag of doritos here.",
-      "addHeart":1
+      "type": "potion",
+      "addHeart": 1
     }],
     "npc": [],
     "floor": "2",
@@ -436,8 +437,8 @@
     },
     "items": [],
     "npc": [{
-      "health":50,
-      "damage":3,
+      "health":300,
+      "damage":20,
       "dodgeRange":2,
       "stages": 10,
       "name":"Mr.Delauriers",

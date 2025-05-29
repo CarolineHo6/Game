@@ -1,13 +1,15 @@
 import javax.swing.*;
+import humans.*;
 import java.awt.*;
+import items.*;
 
 public class AdventureGUI {
     private JFrame frame;
     private static JTextArea outputArea;
-    private JTextField inputField;
+    public static JTextField inputField;
     private JLabel imageLabel;
     private Game game;
-    private AdventureGUI gui;
+    private JButton submitButton;
 
     public AdventureGUI(Game game) {
         this.game = game;
@@ -36,7 +38,7 @@ public class AdventureGUI {
         // Input field
         JPanel inputPanel = new JPanel(new BorderLayout());
         inputField = new JTextField();
-        JButton submitButton = new JButton("Submit");
+        submitButton = new JButton("Submit");
 
         submitButton.addActionListener(e -> handleInput());
         inputField.addActionListener(e -> handleInput());
@@ -47,6 +49,9 @@ public class AdventureGUI {
 
         frame.setVisible(true);
         printText(game.getCurrentRoom().getLongDescription());
+        for (NPC i : game.getCurrentRoom().getNPCs()) {
+            printText(i.getDescription());
+        }
         updateRoomDisplay(false);
     }
 
@@ -76,9 +81,12 @@ public class AdventureGUI {
         Image img = icon.getImage().getScaledInstance(800, 200, Image.SCALE_SMOOTH);
         imageLabel.setIcon(new ImageIcon(img));
 
-        // TODO fix this bumbum code cause it doesnt work and its making the whole thingy exit always
-        if (death == true) {
+        // Death condition
+        if (death == true && game.getPlayer().getHealth() <= 0) {
             printText("UR DED. L");
+            inputField.setEditable(false);
+            return;
+        } else if (death == true && game.getPlayer().getHealth() > 0){
             return;
         }
     }

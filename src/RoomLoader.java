@@ -13,6 +13,8 @@ public class RoomLoader {
 
             for (String key : data.keySet()) {
                 JsonObject obj = data.getAsJsonObject(key);
+                System.out.println(obj.get("name"));
+                System.out.println(obj.get("description"));
                 String name = obj.get("name").getAsString();
                 String description = obj.get("description").getAsString();
                 String floor = obj.get("floor").getAsString();
@@ -32,7 +34,7 @@ public class RoomLoader {
                 if (itemArray != null) {
                     for (JsonElement e : itemArray) {
                         JsonObject i = e.getAsJsonObject();
-                        System.out.println(i);
+                        //System.out.println(i);
                         // diff types of items
                         if (i.get("type").getAsString().equalsIgnoreCase("item")) {
                             items.add(new Item(i.get("id").getAsString(), i.get("name").getAsString(),
@@ -40,7 +42,7 @@ public class RoomLoader {
                         } else if (i.get("type").getAsString().equalsIgnoreCase("potion")) {
                             items.add(new Potions(i.get("id").getAsString(), i.get("name").getAsString(),
                                     i.get("description").getAsString(), i.get("type").getAsString(),
-                                    i.get("health").getAsInt()));
+                                    i.get("addHeart").getAsInt()));
                         } else if (i.get("type").getAsString().equalsIgnoreCase("weapon")) {
                             items.add(new Weapon(i.get("id").getAsString(), i.get("name").getAsString(),
                                     i.get("description").getAsString(), i.get("type").getAsString(),

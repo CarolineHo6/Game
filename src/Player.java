@@ -12,7 +12,7 @@ public class Player {
     public Player(String startingRoomId) {
         this.currentRoomId = startingRoomId;
         this.inventory = new ArrayList<>();
-        this.health = 15; // hearts
+        this.health = 100; // hearts
         this.attack = 2; // 2 attack
     }
 
