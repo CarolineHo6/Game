@@ -10,7 +10,6 @@ public class Boss extends Enemies {
             String id, String type) {
         super(h, d, dr, name, currentRoom, description, talk, id, type);
         stages = s;
-
     }
 
     public void nextStage(int addDamage, int addHealth) {
@@ -21,7 +20,6 @@ public class Boss extends Enemies {
 
     public int getStages() {
         return stages;
-
     }
 
 }

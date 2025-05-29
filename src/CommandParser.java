@@ -111,6 +111,7 @@ public class CommandParser {
 
                                     if (res.equals(riddle[1])) {
                                         AdventureGUI.printText("congradulations, you may enter the room now");
+                                        currentRoom.removeRiddle(riddle[0]);
                                         break;
                                     } else {
 
@@ -123,19 +124,20 @@ public class CommandParser {
                                         } else if (res.equalsIgnoreCase("no")) {
                                             return false;
                                         }
-                                    }   
+                                    }
                                 }
                                 return false;
-                            }
-                            else {
-                                AdventureGUI.printText("You have chosen not to solve the riddle");
+                            } else {
+                                AdventureGUI.printText(
+                                        "You have chosen not to solve the riddle. Can't solve it? Try reading more");
                                 // TODO more??
                                 return false;
                             }
-                        
+
                         } else if (nextRoom.getIsLocked()) {
-                            AdventureGUI.printText("The " + nextRoomId + " seems to be locked, but you could open it with a key.");
-                        
+                            AdventureGUI.printText(
+                                    "The " + nextRoomId + " seems to be locked, but you could open it with a key.");
+
                         } else {
                             player.setCurrentRoomId(nextRoomId);
                             AdventureGUI.printText("You move " + direction + ".");
@@ -270,7 +272,38 @@ public class CommandParser {
                     }
                 }
                 return false;
+            
+            case "read":
+                if (words.length < 2) {
+                    AdventureGUI.printText("read what?");
+                } else {
+                    String itemName = words[1];
+                    if (!"notebook".equalsIgnoreCase(itemName)) {
+                        AdventureGUI.printText("You can't read that item!");
+                    } else {
+                        Item itemToRead = null;
+                        for (Item item : player.getInventory()) {
+                            if (item.getName().equalsIgnoreCase(itemName)) {
+                                itemToRead = item;
+                                break;
+                            }
+                        }
+                        for (Item item : currentRoom.getItems()) {
+                            if (item.getName().equalsIgnoreCase(itemName)) {
+                                itemToRead = item;
+                                break;
+                            }
+                        }
 
+                        if (itemToRead != null) {
+                            AdventureGUI.printText(itemToRead.getDescription());
+                        } else {
+                            AdventureGUI.printText("There is no notebook here!");
+                        }
+                    }
+                }
+                return false;
+            
             case "open":
                 // Please double check - supposed to use the key to open door
                 if (words.length < 2) {
@@ -287,47 +320,49 @@ public class CommandParser {
                     }
                     // moved riddle to "go" command but kept it here in case we want it here too
                     // if (currentRoom.isRiddle()) {
-                    //     AdventureGUI.printText("This room has a riddle that you must solve to enter");
-                    //     AdventureGUI.printText("Would you like to answer the riddle? Please answer yes or no");
-                    //     AdventureGUI.printText("> ");
-                    //     String response = gui.getInput();
+                    // AdventureGUI.printText("This room has a riddle that you must solve to
+                    // enter");
+                    // AdventureGUI.printText("Would you like to answer the riddle? Please answer
+                    // yes or no");
+                    // AdventureGUI.printText("> ");
+                    // String response = gui.getInput();
 
-                    //     if (response.equalsIgnoreCase("yes")) {
+                    // if (response.equalsIgnoreCase("yes")) {
 
-                    //         String[] riddle = currentRoom.generateRandomRiddle().split(" ");
+                    // String[] riddle = currentRoom.generateRandomRiddle().split(" ");
 
-                    //         AdventureGUI.printText(riddle[0]);
+                    // AdventureGUI.printText(riddle[0]);
 
-                    //         while (true) {
-                    //             AdventureGUI.printText("Please respond with the right answer");
-                    //             AdventureGUI.printText("> ");
+                    // while (true) {
+                    // AdventureGUI.printText("Please respond with the right answer");
+                    // AdventureGUI.printText("> ");
 
-                    //             String res = gui.getInput(); // response
+                    // String res = gui.getInput(); // response
 
-                    //             if (res.equals(riddle[1])) {
-                    //                 AdventureGUI.printText("congradulations, you may enter the room now");
-                    //                 break;
-                    //             } else {
+                    // if (res.equals(riddle[1])) {
+                    // AdventureGUI.printText("congradulations, you may enter the room now");
+                    // break;
+                    // } else {
 
-                    //                 AdventureGUI.printText("Wrong");
-                    //                 AdventureGUI.printText(riddle[0]);
-                    //                 AdventureGUI.printText("Would you like to try again? please input");
-                    //                 res = gui.getInput();
-                    //                 if (res.equalsIgnoreCase("yes")) {
-                    //                     return true;
-                    //                 } else if (res.equalsIgnoreCase("no")) {
-                    //                     return false;
-                    //                 }
-                    //             }
-                    //         }
-                    //         return false;
-                    //     }
-                    //     else {
-                    //         AdventureGUI.printText("You have chosen not to solve the riddle");
-                    //         // TODO more??
-                    //         return false;
-                    //     }
-                    // } 
+                    // AdventureGUI.printText("Wrong");
+                    // AdventureGUI.printText(riddle[0]);
+                    // AdventureGUI.printText("Would you like to try again? please input");
+                    // res = gui.getInput();
+                    // if (res.equalsIgnoreCase("yes")) {
+                    // return true;
+                    // } else if (res.equalsIgnoreCase("no")) {
+                    // return false;
+                    // }
+                    // }
+                    // }
+                    // return false;
+                    // }
+                    // else {
+                    // AdventureGUI.printText("You have chosen not to solve the riddle");
+                    // // TODO more??
+                    // return false;
+                    // }
+                    // }
                     else {
                         // riddle ill fix later - daisy
                         String keyName = words[3];

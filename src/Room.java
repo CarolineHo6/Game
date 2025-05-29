@@ -1,20 +1,20 @@
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import humans.NPC;
-import items.Item;
+import humans.*;
+import items.*;
 
 public class Room {
     private String id;
     private String name;
     private String description;
-    private Map<String, String> exits; // direction → roomId 
+    private Map<String, String> exits; // direction → roomId
     private static List<Item> items;
     private static ArrayList<NPC> npc;
-    private static ArrayList<String> riddles;
-    private static ArrayList<String> anwser;
+    private static ArrayList<String> riddles = new ArrayList<String>(); // make riddles!!!!!!!!
+    private static ArrayList<String> answer = new ArrayList<String>(); // put the answers at bottom make sure they
+                                                                        // correspond w the index of the
+                                                                        // question
     private String floor;
     private boolean isLocked;
     private String keyID;
@@ -30,22 +30,28 @@ public class Room {
         this.floor = floor;
         this.isLocked = isLocked;
         this.keyID = keyID;
-        }
+    }
 
-    public boolean isRiddle(){ // checks if a room is suppose to have a riddle or not
-        if(isLocked && keyID == null){
+    public boolean isRiddle() { // checks if a room is suppose to have a riddle or not
+        if (isLocked && keyID == null) {
             return true;
         }
 
-        return false; 
+        return false;
     }
 
-    public String generateRandomRiddle(){
+    public void removeRiddle(String x) {
+        int index = riddles.indexOf(x);
+        riddles.remove(index);
+        answer.remove(index);
+
+    }
+
+    public String generateRandomRiddle() {
         int x = (int) (Math.random() * riddles.size());
 
-        return riddles.get(x) + " " + anwser.get(x);
+        return riddles.get(x) + " " + answer.get(x);
     }
-
 
     public String getId() {
         return id;
@@ -83,12 +89,12 @@ public class Room {
         return isLocked;
     }
 
-    public void setIsLocked(boolean isLocked){
+    public void setIsLocked(boolean isLocked) {
         this.isLocked = isLocked;
     }
 
     public String getKeyID() {
-        return keyID; 
+        return keyID;
     }
 
     // remove?
@@ -133,4 +139,30 @@ public class Room {
 
         return sb.toString();
     }
+
+    static {
+        riddles.add(
+                "I have keys but open no doors. I have space but no room. You can enter, but not go outside. What am I?");
+        riddles.add("The more of me you take, the more you leave behind. What am I?");
+        riddles.add(
+                "No heartbeat, no breath, but I can still follow you. I copy your every move, but only in the light. What am I?");
+        riddles.add(
+                "You pass me every day, but never speak to me. I reflect what you are, and in this school, sometimes what you fear. What am I?");
+        riddles.add(
+                "You can’t see me, but I decide when you panic. I make your heart race, your hands shake, and your breath quicken. I’m the only curve your calculator can’t flatten. What am I?");
+        riddles.add(
+                "I was your last hope for passing. Now I hold the last piece of the key. But I won’t open unless you remember everything I taught. What am I?");
+        riddles.add("I’m always running, but I never move. You can never catch me, but you always lose me. What am I?");
+        riddles.add("I have cities but no houses, forests but no trees, and rivers but no water. What am I?");
+
+        answer.add("Keyboard");
+        answer.add("Footsteps");
+        answer.add("Shadow");
+        answer.add("Mirror");
+        answer.add("Anxiety");
+        answer.add("Exam");
+        answer.add("Time");
+        answer.add("Map");
+    }
+
 }
