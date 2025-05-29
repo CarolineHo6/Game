@@ -16,7 +16,18 @@
         "type": "item"
       }
     ],
-    "npc": [],
+    "npc": [{
+      "health": 100,
+      "damage": 50,
+      "dodgeRange": 2,
+      "stages": 1,
+      "name": "cindy",
+      "currentRoom": "entrance",
+      "description": "hi",
+      "talk": "bye",
+      "id": "cindy",
+      "type": "Boss"
+    }],
     "floor": "2",
     "isLocked": false,
     "KeyID": ""
@@ -85,6 +96,7 @@
       "id":"butterknife",
       "name":"Butterknife",
       "description":"For smearing butter on bread, among other purposes",
+      "type": "weapon",
       "attack":1,
       "crit":1
     }],
@@ -104,6 +116,7 @@
     "items": [],
     "npc": [{
       "name": "Mr Stott",
+      "currentRoom": "compsci room",
       "isHostile": true,
       "description": "He seems to be blabbering about opportunity costs and scarcity. His luscious blonde hair drapes down to the floor. ",
       "talk": "Did you evaluate the marginal benefit of going to another room?",
@@ -169,6 +182,7 @@
       "id":"sword1",
       "name":"Play Sword",
       "description": "A flimsy metal sword used for various plays",
+      "type": "weapon",
       "attack": 1,
       "crit" : 0
     }],
@@ -189,6 +203,7 @@
       "id":"first aid kit",
       "name":"First Aid Kit",
       "description":"There are bandages, cotton swabs, antiseptic, and alcohol wipes inside.",
+      "type": "potion",
       "addHeart":3
     }, {
       "id":"food2",
@@ -228,6 +243,7 @@
       "id":"tennis racket",
       "name":"Tennis Racket",
       "description":"You have any tennis balls to hit?",
+      "type": "weapon",
       "attack":2,
       "crit":1
     }],
@@ -281,6 +297,7 @@
     }],
     "npc": [{
       "name": "Ms. Landy",
+      "currentRoom": "science lab",
       "isHostile": true,
       "description": "A scary science teacher. Yet, she has a warming prescence.", 
       "talk": "Have you completed all your homework?",
@@ -387,6 +404,7 @@
     "items": [],
     "npc": [{
       "name": "Adriana",
+      "currentRoom": "gr.9 common area",
       "isHostile": false,
       "description": "", 
       "talk": "",
@@ -432,6 +450,7 @@
     "items": [],
     "npc": [{
       "name":"Mr.Paper",
+      "currentRoom": "math lab",
       "isHostile":false,
       "description":"A middle-aged math teacher who turned bald a bit too soon. His head gleams brighter than the beaming sun. He seems to have hoarded an array of belongings which he seems very protective of.",
       "talk":"Math lab is closed today MWAHAHAH. I'll give you pity marks because you're too stupid.",
@@ -452,6 +471,7 @@
     "items": [],
     "npc": [{
       "name": "Ms. Penili",
+      "currentRoom": "principle's office",
       "isHostile": true,
       "description": "An overwhelming authority figure. Chills run down your spine within 20 meters of her. You can hear the jangling of her keys when she patrols the lonely halls.",
       "talk": "WHY ARE YOU NOT IN YOUR BLACK SHOES?",

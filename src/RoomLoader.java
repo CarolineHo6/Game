@@ -14,7 +14,7 @@ public class RoomLoader {
             for (String key : data.keySet()) {
                 JsonObject obj = data.getAsJsonObject(key);
                 String name = obj.get("name").getAsString();
-                String desc = obj.get("description").getAsString();
+                String description = obj.get("description").getAsString();
                 String floor = obj.get("floor").getAsString();
                 Map<String, String> exits = new HashMap<>();
                 JsonObject exitsJson = obj.getAsJsonObject("exits");
@@ -84,7 +84,7 @@ public class RoomLoader {
                 }
 
                 // Making the acc room
-                rooms.put(key, new Room(key, name, desc, exits, items, npc, floor, isLocked, keyID));
+                rooms.put(key, new Room(key, name, description, exits, items, npc, floor, isLocked, keyID));
             }
         } catch (Exception e) {
             e.printStackTrace();

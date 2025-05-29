@@ -1,6 +1,7 @@
 import java.util.*;
 import humans.*;
 import items.*;
+import java.io.FileReader;
 
 public class CommandParser {
 
@@ -218,8 +219,6 @@ public class CommandParser {
                 AdventureGUI.printText("Available commands: go [direction], look, take [item], drop [item], inventory, help");
                 return false;
             case "quit":
-                // TODO make a confirmation and add a scanner
-
                 AdventureGUI.printText("Are you sure?");
                 AdventureGUI.printText("Please return yes or no");
                 AdventureGUI.printText("> ");
