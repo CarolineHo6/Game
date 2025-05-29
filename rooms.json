@@ -288,13 +288,8 @@
       "type": "NPC"
     }],
     "floor": "1",
-<<<<<<< HEAD
     "isLocked": false,
     "KeyID": ""
-=======
-    "isLocked": true,
-    "keyID": null
->>>>>>> 0691ccd7ef91a2de47924b190551179c3f2e370e
   },
   "gr.12 common area": {
     "id": "Gr12CommonArea",
@@ -363,13 +358,8 @@
     "items": [],
     "npc": [],
     "floor": "3",
-<<<<<<< HEAD
     "isLocked": false,
     "KeyID": ""
-=======
-    "isLocked": true,
-    "keyID": null
->>>>>>> 0691ccd7ef91a2de47924b190551179c3f2e370e
   },
   "3F hallway2": {
     "id": "3FHallway2",
