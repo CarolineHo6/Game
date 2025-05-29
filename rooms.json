@@ -96,9 +96,9 @@
     "items": [],
     "npc": [{
       "name": "Mr Stott",
-      "isHostile": false,
-      "description": "",
-      "talk": "",
+      "isHostile": true,
+      "description": "He seems to be blabbering about opportunity costs and scarcity. His luscious blonde hair drapes down to the floor. ",
+      "talk": "Did you evaluate the marginal benefit of going to another room?",
       "id": "teacher2",
       "type": "NPC"
     }],
@@ -246,10 +246,10 @@
     },
     "items": [],
     "npc": [{
-      "name": "Ms. Landau",
-      "isHostile": false,
-      "description": "", 
-      "talk": "",
+      "name": "Ms. Landy",
+      "isHostile": true,
+      "description": "A scary science teacher. Yet, she has a warming prescence.", 
+      "talk": "Have you completed all your homework?",
       "id": "teacher4",
       "type": "NPC"
     }],
@@ -379,10 +379,10 @@
     },
     "items": [],
     "npc": [{
-      "name":"Mr.Pape",
+      "name":"Mr.Paper",
       "isHostile":false,
-      "description":"",
-      "talk":"",
+      "description":"A middle-aged math teacher who turned bald a bit too soon. His head gleams brighter than the beaming sun. He seems to have hoarded an array of belongings which he seems very protective of.",
+      "talk":"Math lab is closed today MWAHAHAH. I'll give you pity marks because you're too stupid.",
       "id":"teacher1",
       "type": "NPC"
     }],
@@ -397,10 +397,10 @@
     },
     "items": [],
     "npc": [{
-      "name": "Ms. Fenili",
-      "isHostile": false,
-      "description": "",
-      "talk": "",
+      "name": "Ms. Penili",
+      "isHostile": true,
+      "description": "An overwhelming authority figure. Shivers chill down your spine within 20 meters of her. You can hear the jangling of her keys as she patrols the lonely halls.",
+      "talk": "WHY ARE YOU NOT IN YOUR BLACK SHOES?",
       "id": "teacher3",
       "type": "NPC"
     }],
