@@ -32,7 +32,7 @@ public class RoomLoader {
                 if (itemArray != null) {
                     for (JsonElement e : itemArray) {
                         JsonObject i = e.getAsJsonObject();
-
+                        System.out.println(i);
                         // diff types of items
                         if (i.get("type").getAsString().equalsIgnoreCase("item")) {
                             items.add(new Item(i.get("id").getAsString(), i.get("name").getAsString(),

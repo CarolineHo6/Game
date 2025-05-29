@@ -12,7 +12,8 @@
       {
         "id": "notebook",
         "name": "Notebook",
-        "description": "Welcome to ThE SuPeR FuN ScHoOl oF BaYvIeW GlEn, where students and teachers have been turned into Monsters that you must defeat. The main objective of this game is to ESCAPE THE SCHOOL. You must explore the school, defeat bosses, and most important of all............ survive (or die, if you want). Use the keyword: help, if you want the commands :). Have Fun! ( ͡° ͜ʖ ͡°)╭∩╮"
+        "description": "Welcome to ThE SuPeR FuN ScHoOl oF BaYvIeW GlEn, where students and teachers have been turned into Monsters that you must defeat. The main objective of this game is to ESCAPE THE SCHOOL. You must explore the school, defeat bosses, and most important of all............ survive (or die, if you want). Use the keyword: help, if you want the commands :). Have Fun! ( ͡° ͜ʖ ͡°)╭∩╮",
+        "type": "item"
       }
     ],
     "npc": [],
