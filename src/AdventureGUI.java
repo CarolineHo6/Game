@@ -47,7 +47,7 @@ public class AdventureGUI {
 
         frame.setVisible(true);
         printText(game.getCurrentRoom().getLongDescription());
-        updateRoomDisplay(false);
+        updateRoomDisplay();
     }
 
     public String getInput() {
@@ -62,7 +62,7 @@ public class AdventureGUI {
         if (!input.isEmpty()) {
             printText("> " + input);
             boolean result = game.processCommand(this, input);
-            updateRoomDisplay(result);
+            updateRoomDisplay();
         }
     }
 
@@ -70,12 +70,10 @@ public class AdventureGUI {
         outputArea.append(text + "\n");
     }
 
-    private void updateRoomDisplay(boolean death) {
+    private void updateRoomDisplay() {
         String roomId = game.getPlayer().getCurrentRoomId();
         ImageIcon icon = new ImageIcon("images/" + roomId + ".png");
         Image img = icon.getImage().getScaledInstance(800, 200, Image.SCALE_SMOOTH);
         imageLabel.setIcon(new ImageIcon(img));
-
-        //TODO decide death if stuff
     }
 }
