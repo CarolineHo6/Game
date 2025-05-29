@@ -77,7 +77,7 @@
       "damage": 1,
       "dodgeRange": 0,
       "name": "caitlin",
-      "currentRoom": "entrance",
+      "currentRoom": "hallway1",
       "description": "A person that resembles a sphere. She is holding a snack in her hand while shoving some more food into her mouth. Its rather disgusting...",
       "talk": "GIMME FOOD. I WANT FOOD",
       "id": "person1",
@@ -103,7 +103,7 @@
       "crit":1
     }],
     "npc": [{
-      "name": "Charesse",
+      "name": "Ms. Charesse",
       "currentRoom": "cafeteria",
       "description": "A cashier with a warm smile that somehow survived the apocalypse. Despite everything, she hums softly as she works, offering kind words to anyone who approaches—like the world hasn't fallen apart outside the cafeteria walls.",
       "talk": "Hello! Nice to meet you!",
@@ -461,12 +461,15 @@
     },
     "items": [],
     "npc": [{
-      "name":"Mr.Paper",
+      "health": 30,
+      "damage": 15,
+      "dodgeRange": 1,
+      "name":"Mr.Pape",
       "currentRoom": "math lab",
       "description":"A middle-aged math teacher who turned bald a bit too soon. His head gleams brighter than the beaming sun. He seems to have hoarded an array of belongings which he seems very protective of.",
       "talk":"Math lab is closed today MWAHAHAH. I'll give you pity marks because you're too stupid.",
       "id":"teacher1",
-      "type": "NPC"
+      "type": "MiniBoss"
     }],
     "floor": "3",
     "isLocked": false,
@@ -481,15 +484,12 @@
     },
     "items": [],
     "npc": [{
-      "health": 30,
-      "damage": 3,
-      "dodgeRange": 3,
-      "name": "Ms. Penili",
+      "name": "Ms. Fenili",
       "currentRoom": "principle's office",
-      "description": "An overwhelming authority figure. Chills run down your spine within 20 meters of her. You can hear the jangling of her keys when she patrols the lonely halls.",
-      "talk": "WHY ARE YOU NOT IN YOUR BLACK SHOES?",
+      "description": "An overwhelming authority figure. Chills run down your spine within 20 meters of her. She greets you with a kind smile, opposite of your first impression of her, and goes on her merry way.",
+      "talk": "How are you doing?",
       "id": "teacher3",
-      "type": "MiniBoss"
+      "type": "NPC"
     }],
     "floor": "3",
     "isLocked": false,
