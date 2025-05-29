@@ -239,11 +239,17 @@
   "science lab": {
     "id": "scienceLab",
     "name": "Science Labratory",
-    "description": "Ah, so that's where the smell's coming from.",
+    "description": "You take one look at the flask on the table. So that's where the smell's coming from.",
     "exits": {
       "north": "1F hallway2"
     },
-    "items": [],
+    "items": [{
+      "id": "lol",
+      "name": "flask",
+      "description": "... it could do something maybe??? ... I would leave now",
+      "type": "potion",
+      "addHeart": -100
+    }],
     "npc": [{
       "name": "Ms. Landy",
       "isHostile": true,
@@ -252,7 +258,9 @@
       "id": "teacher4",
       "type": "NPC"
     }],
-    "floor": "1"
+    "floor": "1",
+    "isLocked": true,
+    "keyID": null
   },
   "gr.12 common area": {
     "id": "Gr12CommonArea",
@@ -312,7 +320,9 @@
     },
     "items": [],
     "npc": [],
-    "floor": "3"
+    "floor": "3",
+    "isLocked": true,
+    "keyID": null
   },
   "3F hallway2": {
     "id": "3FHallway2",
@@ -398,7 +408,7 @@
     "npc": [{
       "name": "Ms. Penili",
       "isHostile": true,
-      "description": "An overwhelming authority figure. Shivers chill down your spine within 20 meters of her. You can hear the jangling of her keys as she patrols the lonely halls.",
+      "description": "An overwhelming authority figure. Chills run down your spine within 20 meters of her. You can hear the jangling of her keys when she patrols the lonely halls.",
       "talk": "WHY ARE YOU NOT IN YOUR BLACK SHOES?",
       "id": "teacher3",
       "type": "NPC"
