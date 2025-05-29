@@ -73,13 +73,15 @@
     },
     "items": [],
     "npc": [{
+      "health": 5,
+      "damage": 1,
+      "dodgeRange": 0,
       "name": "caitlin",
       "currentRoom": "entrance",
-      "isHostile": false,
       "description": "A person that resembles a sphere. She is holding a snack in her hand while shoving some more food into her mouth. Its rather disgusting...",
       "talk": "GIMME FOOD. I WANT FOOD",
       "id": "person1",
-      "type": "NPC"
+      "type": "MiniBoss"
     }],
     "floor": "2",
     "isLocked": false,
@@ -100,7 +102,14 @@
       "attack":1,
       "crit":1
     }],
-    "npc": [],
+    "npc": [{
+      "name": "Charesse",
+      "currentRoom": "cafeteria",
+      "description": "A cashier with a warm smile that somehow survived the apocalypse. Despite everything, she hums softly as she works, offering kind words to anyone who approaches—like the world hasn't fallen apart outside the cafeteria walls.",
+      "talk": "Hello! Nice to meet you!",
+      "id": "charesse",
+      "type": "NPC"
+    }],
     "floor": "2",
     "isLocked": false,
     "KeyID": ""
@@ -115,13 +124,15 @@
     },
     "items": [],
     "npc": [{
+      "health": 5,
+      "damage": 1,
+      "dodgeRange": 1,
       "name": "Mr Stott",
-      "currentRoom": "compsci room",
-      "isHostile": true,
+      "currentRoom": "library",
       "description": "He seems to be blabbering about opportunity costs and scarcity. His luscious blonde hair drapes down to the floor. ",
       "talk": "Did you evaluate the marginal benefit of going to another room?",
       "id": "teacher2",
-      "type": "NPC"
+      "type": "MiniBoss"
     }],
     "floor": "2",
     "isLocked": false,
@@ -296,13 +307,15 @@
       "addHeart": -100
     }],
     "npc": [{
-      "name": "Ms. Landy",
+      "health": 5,
+      "damage": 1,
+      "dodgeRange": 2,
+      "name": "Ms. Landau",
       "currentRoom": "science lab",
-      "isHostile": true,
       "description": "A scary science teacher. Yet, she has a warming prescence.", 
-      "talk": "Have you completed all your homework?",
+      "talk": "EXTENTION DENIED",
       "id": "teacher4",
-      "type": "NPC"
+      "type": "MiniBoss"
     }],
     "floor": "1",
     "isLocked": false,
@@ -405,7 +418,6 @@
     "npc": [{
       "name": "Adriana",
       "currentRoom": "gr.9 common area",
-      "isHostile": false,
       "description": "", 
       "talk": "",
       "id": "student2",
@@ -451,7 +463,6 @@
     "npc": [{
       "name":"Mr.Paper",
       "currentRoom": "math lab",
-      "isHostile":false,
       "description":"A middle-aged math teacher who turned bald a bit too soon. His head gleams brighter than the beaming sun. He seems to have hoarded an array of belongings which he seems very protective of.",
       "talk":"Math lab is closed today MWAHAHAH. I'll give you pity marks because you're too stupid.",
       "id":"teacher1",
@@ -470,13 +481,15 @@
     },
     "items": [],
     "npc": [{
+      "health": 30,
+      "damage": 3,
+      "dodgeRange": 3,
       "name": "Ms. Penili",
       "currentRoom": "principle's office",
-      "isHostile": true,
       "description": "An overwhelming authority figure. Chills run down your spine within 20 meters of her. You can hear the jangling of her keys when she patrols the lonely halls.",
       "talk": "WHY ARE YOU NOT IN YOUR BLACK SHOES?",
       "id": "teacher3",
-      "type": "NPC"
+      "type": "MiniBoss"
     }],
     "floor": "3",
     "isLocked": false,

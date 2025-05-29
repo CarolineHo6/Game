@@ -63,11 +63,11 @@ public class RoomLoader {
                         // Making diff objects based on what "type" they are
                         if (i.get("type").getAsString().equalsIgnoreCase("NPC")) {
                             npc.add(new NPC(i.get("name").getAsString(), i.get("currentRoom").getAsString(),
-                                    i.get("isHostile").getAsBoolean(), i.get("description").getAsString(),
+                                    i.get("description").getAsString(),
                                     i.get("talk").getAsString(), i.get("id").getAsString(),
                                     i.get("type").getAsString()));
-                        } else if (i.get("type").getAsString().equalsIgnoreCase("Enemy")) {
-                            npc.add(new Enemies(i.get("health").getAsInt(), i.get("damage").getAsInt(),
+                        } else if (i.get("type").getAsString().equalsIgnoreCase("MiniBoss")) {
+                            npc.add(new MiniBoss(i.get("health").getAsInt(), i.get("damage").getAsInt(),
                                     i.get("dodgeRange").getAsInt(), i.get("name").getAsString(),
                                     i.get("currentRoom").getAsString(), i.get("description").getAsString(),
                                     i.get("talk").getAsString(), i.get("id").getAsString(),

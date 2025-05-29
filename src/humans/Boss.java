@@ -2,7 +2,7 @@ package humans;
 
 import java.util.*;
 
-public class Boss extends Enemies {
+public class Boss extends MiniBoss {
 
     private int stages;
 
