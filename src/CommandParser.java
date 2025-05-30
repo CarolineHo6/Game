@@ -1,8 +1,11 @@
 import java.util.*;
 import humans.*;
 import items.*;
+import java.io.FileReader;
 
 public class CommandParser {
+
+    public static boolean confirmingQuit = false;
 
     public static boolean parse(AdventureGUI gui, String input, Player player, Map<String, Room> rooms) {
         String[] words = input.trim().toLowerCase().split("\\s+");
@@ -15,71 +18,86 @@ public class CommandParser {
         System.out.println(command);
         Room currentRoom = rooms.get(player.getCurrentRoomId());
 
-        // TODO fix attack - Daisy I swear the logic works i just need to put it in the case
+        if (confirmingQuit) {
+            confirmingQuit = false;
+            if (command.equalsIgnoreCase("yes")) {
+                AdventureGUI.printText("BYE!");
+                AdventureGUI.inputField.setEditable(false);
+                return true;
+            } else {
+                AdventureGUI.printText("Quit cancelled. Continuing game...");
+                return false;
+            }
+        }
+
+        // TODO fix attack - Daisy I swear the logic works i just need to put it in the
+        // case
 
         // // assume only 1 npc per room?
-        // Enemies monster = (Enemies) currentRoom.getNPCs().get(0); // actually idk what im doing
+        // Enemies monster = (Enemies) currentRoom.getNPCs().get(0); // actually idk
+        // what im doing
 
         // if (monster != null && monster.getIsHostility() == true) {
 
-        //     AdventureGUI.printText("A monster has appeared");
+        // AdventureGUI.printText("A monster has appeared");
 
-        //     AdventureGUI.printText("Would you like to fight the monster?");
+        // AdventureGUI.printText("Would you like to fight the monster?");
 
-        //     AdventureGUI.printText("Fight or Flee");
+        // AdventureGUI.printText("Fight or Flee");
 
-        //     AdventureGUI.printText("> ");
-        //     String decision = gui.getInput();
+        // AdventureGUI.printText("> ");
+        // String decision = gui.getInput();
 
-        //     if (decision.equals("Fight") || decision.equals("fight")) {
+        // if (decision.equals("Fight") || decision.equals("fight")) {
 
-        //         while (true) {
-        //             monster.stats();
-        //             player.stats();
-        //             AdventureGUI.printText("Please select your weapon");
-        //             System.out.print("Inventory: ");
-        //             ArrayList<Item> pop = player.getInventory();
-        //             AdventureGUI.printText("fist, ");
-        //             for (int i = 0; i < pop.size(); i++) {
-        //                 if (pop.get(i).isWeapon() == true) {
-        //                     AdventureGUI.printText(pop.get(i).getName() + " - " + pop.get(i).getAttack());
-        //                 }
-        //             }
+        // while (true) {
+        // monster.stats();
+        // player.stats();
+        // AdventureGUI.printText("Please select your weapon");
+        // System.out.print("Inventory: ");
+        // ArrayList<Item> pop = player.getInventory();
+        // AdventureGUI.printText("fist, ");
+        // for (int i = 0; i < pop.size(); i++) {
+        // if (pop.get(i).isWeapon() == true) {
+        // AdventureGUI.printText(pop.get(i).getName() + " - " +
+        // pop.get(i).getAttack());
+        // }
+        // }
 
-        //             AdventureGUI.printText("> ");
-        //             String selection = gui.getInput();
+        // AdventureGUI.printText("> ");
+        // String selection = gui.getInput();
 
-        //             int index = pop.indexOf(selection);
-        //             Item w = pop.get(index);
+        // int index = pop.indexOf(selection);
+        // Item w = pop.get(index);
 
-        //             if (monster.ifDodge()) {
-        //                 AdventureGUI.printText("The monster has dodge your attack");
-        //             } else {
+        // if (monster.ifDodge()) {
+        // AdventureGUI.printText("The monster has dodge your attack");
+        // } else {
 
-        //                 if (monster.getHealth() <= w.getAttack()) {
-        //                     AdventureGUI.printText("You have defeated the monster");
-        //                     return false;
-        //                 } else {
+        // if (monster.getHealth() <= w.getAttack()) {
+        // AdventureGUI.printText("You have defeated the monster");
+        // return false;
+        // } else {
 
-        //                     monster.setHealth(monster.getHealth() - monster.getDamage());
+        // monster.setHealth(monster.getHealth() - monster.getDamage());
 
-        //                 }
+        // }
 
-        //             }
+        // }
 
-        //             AdventureGUI.printText("The monster is going to attack you");
+        // AdventureGUI.printText("The monster is going to attack you");
 
-        //             if (player.getHealth() <= monster.getDamage()) {
-        //                 AdventureGUI.printText("You have been defeated by the monster. Game over.");
-        //                 return true;
-        //             } else {
-        //                 player.setHealth(player.getHealth() - monster.getDamage());
-        //             }
+        // if (player.getHealth() <= monster.getDamage()) {
+        // AdventureGUI.printText("You have been defeated by the monster. Game over.");
+        // return true;
+        // } else {
+        // player.setHealth(player.getHealth() - monster.getDamage());
+        // }
 
-        //         }
-        //     }
-        //     AdventureGUI.printText("you have ran away");
-        //     return true;
+        // }
+        // }
+        // AdventureGUI.printText("you have ran away");
+        // return true;
 
         // }
 
@@ -215,22 +233,13 @@ public class CommandParser {
                 }
                 return false;
             case "help":
-                AdventureGUI.printText("Available commands: go [direction], look, take [item], drop [item], inventory, help");
+                AdventureGUI.printText(
+                        "Available commands: go [direction], look, take [item], drop [item], inventory, help");
                 return false;
             case "quit":
-                // TODO make a confirmation and add a scanner
-
-                AdventureGUI.printText("Are you sure?");
-                AdventureGUI.printText("Please return yes or no");
-                AdventureGUI.printText("> ");
-                String in = gui.getInput();
-
-                if (in.equalsIgnoreCase("yes")) {
-                    AdventureGUI.printText("BYE!");
-                    return true;
-                }
-                // do something?
-                return false;
+                confirmingQuit = true;
+                AdventureGUI.printText("Are you sure you want to quit? Type 'yes' to confirm.");
+                return true;
             case "talk":
                 if (words.length < 3) {
                     AdventureGUI.printText("talk to who?");
@@ -277,7 +286,7 @@ public class CommandParser {
                     }
                 }
                 return false;
-            
+
             case "read":
                 if (words.length < 2) {
                     AdventureGUI.printText("read what?");
@@ -308,7 +317,7 @@ public class CommandParser {
                     }
                 }
                 return false;
-            
+
             case "open":
                 // Please double check - supposed to use the key to open door
                 if (words.length < 2) {
@@ -401,5 +410,9 @@ public class CommandParser {
                 AdventureGUI.printText("I don't understand that command.");
                 return false;
         }
+    }
+
+    public boolean getConfirmingQuit() {
+        return confirmingQuit;
     }
 }

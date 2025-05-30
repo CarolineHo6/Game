@@ -13,8 +13,10 @@ public class RoomLoader {
 
             for (String key : data.keySet()) {
                 JsonObject obj = data.getAsJsonObject(key);
+                System.out.println(obj.get("name"));
+                System.out.println(obj.get("description"));
                 String name = obj.get("name").getAsString();
-                String desc = obj.get("description").getAsString();
+                String description = obj.get("description").getAsString();
                 String floor = obj.get("floor").getAsString();
                 Map<String, String> exits = new HashMap<>();
                 JsonObject exitsJson = obj.getAsJsonObject("exits");
@@ -32,7 +34,7 @@ public class RoomLoader {
                 if (itemArray != null) {
                     for (JsonElement e : itemArray) {
                         JsonObject i = e.getAsJsonObject();
-                        System.out.println(i);
+                        //System.out.println(i);
                         // diff types of items
                         if (i.get("type").getAsString().equalsIgnoreCase("item")) {
                             items.add(new Item(i.get("id").getAsString(), i.get("name").getAsString(),
@@ -40,7 +42,7 @@ public class RoomLoader {
                         } else if (i.get("type").getAsString().equalsIgnoreCase("potion")) {
                             items.add(new Potions(i.get("id").getAsString(), i.get("name").getAsString(),
                                     i.get("description").getAsString(), i.get("type").getAsString(),
-                                    i.get("health").getAsInt()));
+                                    i.get("addHeart").getAsInt()));
                         } else if (i.get("type").getAsString().equalsIgnoreCase("weapon")) {
                             items.add(new Weapon(i.get("id").getAsString(), i.get("name").getAsString(),
                                     i.get("description").getAsString(), i.get("type").getAsString(),
@@ -63,11 +65,11 @@ public class RoomLoader {
                         // Making diff objects based on what "type" they are
                         if (i.get("type").getAsString().equalsIgnoreCase("NPC")) {
                             npc.add(new NPC(i.get("name").getAsString(), i.get("currentRoom").getAsString(),
-                                    i.get("isHostile").getAsBoolean(), i.get("description").getAsString(),
+                                    i.get("description").getAsString(),
                                     i.get("talk").getAsString(), i.get("id").getAsString(),
                                     i.get("type").getAsString()));
-                        } else if (i.get("type").getAsString().equalsIgnoreCase("Enemy")) {
-                            npc.add(new Enemies(i.get("health").getAsInt(), i.get("damage").getAsInt(),
+                        } else if (i.get("type").getAsString().equalsIgnoreCase("MiniBoss")) {
+                            npc.add(new MiniBoss(i.get("health").getAsInt(), i.get("damage").getAsInt(),
                                     i.get("dodgeRange").getAsInt(), i.get("name").getAsString(),
                                     i.get("currentRoom").getAsString(), i.get("description").getAsString(),
                                     i.get("talk").getAsString(), i.get("id").getAsString(),
@@ -84,7 +86,7 @@ public class RoomLoader {
                 }
 
                 // Making the acc room
-                rooms.put(key, new Room(key, name, desc, exits, items, npc, floor, isLocked, keyID));
+                rooms.put(key, new Room(key, name, description, exits, items, npc, floor, isLocked, keyID));
             }
         } catch (Exception e) {
             e.printStackTrace();

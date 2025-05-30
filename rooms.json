@@ -16,7 +16,18 @@
         "type": "item"
       }
     ],
-    "npc": [],
+    "npc": [{
+      "health": 100,
+      "damage": 50,
+      "dodgeRange": 2,
+      "stages": 1,
+      "name": "cindy",
+      "currentRoom": "entrance",
+      "description": "hi",
+      "talk": "bye",
+      "id": "cindy",
+      "type": "Boss"
+    }],
     "floor": "2",
     "isLocked": false,
     "KeyID": ""
@@ -62,13 +73,15 @@
     },
     "items": [],
     "npc": [{
+      "health": 5,
+      "damage": 1,
+      "dodgeRange": 0,
       "name": "caitlin",
-      "currentRoom": "entrance",
-      "isHostile": false,
+      "currentRoom": "hallway1",
       "description": "A person that resembles a sphere. She is holding a snack in her hand while shoving some more food into her mouth. Its rather disgusting...",
       "talk": "GIMME FOOD. I WANT FOOD",
       "id": "person1",
-      "type": "NPC"
+      "type": "MiniBoss"
     }],
     "floor": "2",
     "isLocked": false,
@@ -85,10 +98,18 @@
       "id":"butterknife",
       "name":"Butterknife",
       "description":"For smearing butter on bread, among other purposes",
+      "type": "weapon",
       "attack":1,
       "crit":1
     }],
-    "npc": [],
+    "npc": [{
+      "name": "Ms. Charesse",
+      "currentRoom": "cafeteria",
+      "description": "A cashier with a warm smile that somehow survived the apocalypse. Despite everything, she hums softly as she works, offering kind words to anyone who approaches—like the world hasn't fallen apart outside the cafeteria walls.",
+      "talk": "Hello! Nice to meet you!",
+      "id": "charesse",
+      "type": "NPC"
+    }],
     "floor": "2",
     "isLocked": false,
     "KeyID": ""
@@ -103,12 +124,15 @@
     },
     "items": [],
     "npc": [{
+      "health": 5,
+      "damage": 1,
+      "dodgeRange": 1,
       "name": "Mr Stott",
-      "isHostile": true,
+      "currentRoom": "library",
       "description": "He seems to be blabbering about opportunity costs and scarcity. His luscious blonde hair drapes down to the floor. ",
       "talk": "Did you evaluate the marginal benefit of going to another room?",
       "id": "teacher2",
-      "type": "NPC"
+      "type": "MiniBoss"
     }],
     "floor": "2",
     "isLocked": false,
@@ -118,7 +142,7 @@
   "hallway3" :  {
     "id": "hallway3",
     "name" : "hallway3",
-    "descripion": "Remains of scavenged food lies on the ground. There are rooms in all four directions.",
+    "description": "Remains of scavenged food lies on the ground. There are rooms in all four directions.",
     "exits": {
       "north": "library",
       "south": "gr.11 Common Area",
@@ -169,6 +193,7 @@
       "id":"sword1",
       "name":"Play Sword",
       "description": "A flimsy metal sword used for various plays",
+      "type": "weapon",
       "attack": 1,
       "crit" : 0
     }],
@@ -189,12 +214,14 @@
       "id":"first aid kit",
       "name":"First Aid Kit",
       "description":"There are bandages, cotton swabs, antiseptic, and alcohol wipes inside.",
-      "addHeart":3
+      "type": "potion",
+      "addHeart": 3
     }, {
       "id":"food2",
       "name":"Chips",
       "description":"You didn't think there would be an unopened bag of doritos here.",
-      "addHeart":1
+      "type": "potion",
+      "addHeart": 1
     }],
     "npc": [],
     "floor": "2",
@@ -228,6 +255,7 @@
       "id":"tennis racket",
       "name":"Tennis Racket",
       "description":"You have any tennis balls to hit?",
+      "type": "weapon",
       "attack":2,
       "crit":1
     }],
@@ -298,12 +326,15 @@
       "addHeart": -100
     }],
     "npc": [{
-      "name": "Ms. Landy",
-      "isHostile": true,
+      "health": 5,
+      "damage": 1,
+      "dodgeRange": 2,
+      "name": "Ms. Landau",
+      "currentRoom": "science lab",
       "description": "A scary science teacher. Yet, she has a warming prescence.", 
-      "talk": "Have you completed all your homework?",
+      "talk": "EXTENTION DENIED",
       "id": "teacher4",
-      "type": "NPC"
+      "type": "MiniBoss"
     }],
     "floor": "1",
     "isLocked": false,
@@ -405,7 +436,7 @@
     "items": [],
     "npc": [{
       "name": "Adriana",
-      "isHostile": false,
+      "currentRoom": "gr.9 common area",
       "description": "", 
       "talk": "",
       "id": "student2",
@@ -424,8 +455,8 @@
     },
     "items": [],
     "npc": [{
-      "health":50,
-      "damage":3,
+      "health":300,
+      "damage":20,
       "dodgeRange":2,
       "stages": 10,
       "name":"Mr.Delauriers",
@@ -449,12 +480,15 @@
     },
     "items": [],
     "npc": [{
-      "name":"Mr.Paper",
-      "isHostile":false,
+      "health": 30,
+      "damage": 15,
+      "dodgeRange": 1,
+      "name":"Mr.Pape",
+      "currentRoom": "math lab",
       "description":"A middle-aged math teacher who turned bald a bit too soon. His head gleams brighter than the beaming sun. He seems to have hoarded an array of belongings which he seems very protective of.",
       "talk":"Math lab is closed today MWAHAHAH. I'll give you pity marks because you're too stupid.",
       "id":"teacher1",
-      "type": "NPC"
+      "type": "MiniBoss"
     }],
     "floor": "3",
     "isLocked": false,
@@ -469,10 +503,10 @@
     },
     "items": [],
     "npc": [{
-      "name": "Ms. Penili",
-      "isHostile": true,
-      "description": "An overwhelming authority figure. Chills run down your spine within 20 meters of her. You can hear the jangling of her keys when she patrols the lonely halls.",
-      "talk": "WHY ARE YOU NOT IN YOUR BLACK SHOES?",
+      "name": "Ms. Fenili",
+      "currentRoom": "principle's office",
+      "description": "An overwhelming authority figure. Chills run down your spine within 20 meters of her. She greets you with a kind smile, opposite of your first impression of her, and goes on her merry way.",
+      "talk": "How are you doing?",
       "id": "teacher3",
       "type": "NPC"
     }],

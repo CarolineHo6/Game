@@ -25,8 +25,8 @@ public class Room {
         this.name = name;
         this.description = description;
         this.exits = exits;
-        this.items = items;
-        this.npc = npc;
+        Room.items = items;
+        Room.npc = npc;
         this.floor = floor;
         this.isLocked = isLocked;
         this.keyID = keyID;
@@ -154,6 +154,18 @@ public class Room {
                 "I was your last hope for passing. Now I hold the last piece of the key. But I won’t open unless you remember everything I taught. What am I?");
         riddles.add("I’m always running, but I never move. You can never catch me, but you always lose me. What am I?");
         riddles.add("I have cities but no houses, forests but no trees, and rivers but no water. What am I?");
+        riddles.add("I turn polar bears white and I will make you cry.\n" + //
+                        "I make guys have to pee and girls comb their hair.\n" + //
+                        "I make celebrities look stupid and normal people look like celebrities.\n" + //
+                        "I turn pancakes brown and make your champagne bubble.\n" + //
+                        "If you squeeze me, I'll pop. If you look at me, you'll pop. ");
+        riddles.add("You are a prisoner in a room with 2 doors and 2 guards. One of the doors will guide you to freedom and behind the other is a hangman–you don't know which is which, but the guards do know.\n" + //
+                        "\n" + //
+                        "One of the guards always tells the truth and the other always lies. You don't know which one is the truth-teller or the liar either. However both guards know each other.\n" + //
+                        "\n" + //
+                        "You have to choose and open one of these doors, but you can only ask a single question to one of the guards.\n" + //
+                        "\n" + // 
+                        "Which door will you choose?");
 
         answer.add("Keyboard");
         answer.add("Footsteps");
@@ -163,6 +175,8 @@ public class Room {
         answer.add("Exam");
         answer.add("Time");
         answer.add("Map");
+        answer.add("Time");
+        answer.add("the other door");
     }
 
 }
