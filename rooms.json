@@ -231,7 +231,25 @@
       "attack":2,
       "crit":1
     }],
-    "npc": [],
+    "npc": [{
+       "name": "Mr. Cardone",
+      "isHostile": false,
+      "description": "A very buff gym teacher.",
+      "talk": "Did you eat your veggies?",
+      "id": "teacher5",
+      "type": "NPC"
+    }
+    ,
+    {
+       "name": "Ms. Deeks",
+      "isHostile": false,
+      "description": "A very buff gym teacher whos's very enthusiastic about winter fest.",
+      "talk": "Exercising is best for your mental health!",
+      "id": "teacher5",
+      "type": "NPC"
+    }
+  
+  ],
     "floor": "1",
     "isLocked": false,
     "KeyID": ""
@@ -470,7 +488,14 @@
       "west": "3F hallway2"
     },
     "items": [],
-    "npc": [],
+    "npc": [{
+       "name": "Ms. Bala",
+      "isHostile": false,
+      "description": "A menacing teacher. She likes jokes a lot.",
+      "talk": "You're homework is late. Do you want detention?",
+      "id": "teacher6",
+      "type": "NPC"
+    }],
     "floor": "3",
     "isLocked": false,
     "KeyID": ""
