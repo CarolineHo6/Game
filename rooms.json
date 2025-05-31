@@ -16,18 +16,20 @@
         "type": "item"
       }
     ],
-    "npc": [{
-      "health": 100,
-      "damage": 50,
-      "dodgeRange": 2,
-      "stages": 1,
-      "name": "cindy",
-      "currentRoom": "entrance",
-      "description": "hi",
-      "talk": "bye",
-      "id": "cindy",
-      "type": "Boss"
-    }],
+    "npc": [
+      {
+        "health": 100,
+        "damage": 50,
+        "dodgeRange": 2,
+        "stages": 1,
+        "name": "cindy",
+        "currentRoom": "entrance",
+        "description": "hi",
+        "talk": "bye",
+        "id": "cindy",
+        "type": "Boss"
+      }
+    ],
     "floor": "2",
     "isLocked": false,
     "KeyID": ""
@@ -72,17 +74,19 @@
       "west": "entrance hall"
     },
     "items": [],
-    "npc": [{
-      "health": 5,
-      "damage": 1,
-      "dodgeRange": 0,
-      "name": "caitlin",
-      "currentRoom": "hallway1",
-      "description": "A person that resembles a sphere. She is holding a snack in her hand while shoving some more food into her mouth. Its rather disgusting...",
-      "talk": "GIMME FOOD. I WANT FOOD",
-      "id": "person1",
-      "type": "MiniBoss"
-    }],
+    "npc": [
+      {
+        "health": 5,
+        "damage": 1,
+        "dodgeRange": 0,
+        "name": "caitlin",
+        "currentRoom": "hallway1",
+        "description": "A person that resembles a sphere. She is holding a snack in her hand while shoving some more food into her mouth. Its rather disgusting...",
+        "talk": "GIMME FOOD. I WANT FOOD",
+        "id": "person1",
+        "type": "MiniBoss"
+      }
+    ],
     "floor": "2",
     "isLocked": false,
     "KeyID": ""
@@ -94,22 +98,26 @@
     "exits": {
       "south": "hallway1"
     },
-    "items": [{
-      "id":"butterknife",
-      "name":"Butterknife",
-      "description":"For smearing butter on bread, among other purposes",
-      "type": "weapon",
-      "attack":1,
-      "crit":1
-    }],
-    "npc": [{
-      "name": "Ms. Charesse",
-      "currentRoom": "cafeteria",
-      "description": "A cashier with a warm smile that somehow survived the apocalypse. Despite everything, she hums softly as she works, offering kind words to anyone who approaches—like the world hasn't fallen apart outside the cafeteria walls.",
-      "talk": "Hello! Nice to meet you!",
-      "id": "charesse",
-      "type": "NPC"
-    }],
+    "items": [
+      {
+        "id": "butterknife",
+        "name": "Butterknife",
+        "description": "For smearing butter on bread, among other purposes",
+        "type": "weapon",
+        "attack": 1,
+        "crit": 1
+      }
+    ],
+    "npc": [
+      {
+        "name": "Ms. Charesse",
+        "currentRoom": "cafeteria",
+        "description": "A cashier with a warm smile that somehow survived the apocalypse. Despite everything, she hums softly as she works, offering kind words to anyone who approaches—like the world hasn't fallen apart outside the cafeteria walls.",
+        "talk": "Hello! Nice to meet you!",
+        "id": "charesse",
+        "type": "NPC"
+      }
+    ],
     "floor": "2",
     "isLocked": false,
     "KeyID": ""
@@ -123,25 +131,26 @@
       "south": "hallway3"
     },
     "items": [],
-    "npc": [{
-      "health": 5,
-      "damage": 1,
-      "dodgeRange": 1,
-      "name": "Mr Stott",
-      "currentRoom": "library",
-      "description": "He seems to be blabbering about opportunity costs and scarcity. His luscious blonde hair drapes down to the floor. ",
-      "talk": "Did you evaluate the marginal benefit of going to another room?",
-      "id": "teacher2",
-      "type": "MiniBoss"
-    }],
+    "npc": [
+      {
+        "health": 5,
+        "damage": 1,
+        "dodgeRange": 1,
+        "name": "Mr Stott",
+        "currentRoom": "library",
+        "description": "He seems to be blabbering about opportunity costs and scarcity. His luscious blonde hair drapes down to the floor. ",
+        "talk": "Did you evaluate the marginal benefit of going to another room?",
+        "id": "teacher2",
+        "type": "MiniBoss"
+      }
+    ],
     "floor": "2",
     "isLocked": false,
     "KeyID": ""
   },
-  
-  "hallway3" :  {
+  "hallway3": {
     "id": "hallway3",
-    "name" : "hallway3",
+    "name": "hallway3",
     "description": "Remains of scavenged food lies on the ground. There are rooms in all four directions.",
     "exits": {
       "north": "library",
@@ -189,15 +198,28 @@
       "north": "hallway2",
       "east": "hallway3"
     },
-    "items": [{
-      "id":"sword1",
-      "name":"Play Sword",
-      "description": "A flimsy metal sword used for various plays",
-      "type": "weapon",
-      "attack": 1,
-      "crit" : 0
-    }],
-    "npc": [],
+    "items": [
+      {
+        "id": "sword1",
+        "name": "Play Sword",
+        "description": "A flimsy metal sword used for various plays",
+        "type": "weapon",
+        "attack": 1,
+        "crit": 0
+      }
+    ],
+    "npc": [
+      {
+        "health": 10,
+        "damage": 2,
+        "dodgeRange": 0,
+        "name": "Mr. Clark",
+        "currentRoom": "drama room",
+        "description": "A jolly man that has a booming voice. Do not be decived by his looks for he is fearsome with his writing and dramatic acts",
+        "talk": "DID YOU INDENT YOUR PARAGRAPHS? HAHAHAHAHA",
+        "id": "teacher7"
+      }
+    ],
     "floor": "2",
     "isLocked": false,
     "KeyID": ""
@@ -210,19 +232,22 @@
       "north": "theatre",
       "south": "drama room"
     },
-    "items": [{
-      "id":"first aid kit",
-      "name":"First Aid Kit",
-      "description":"There are bandages, cotton swabs, antiseptic, and alcohol wipes inside.",
-      "type": "potion",
-      "addHeart": 3
-    }, {
-      "id":"food2",
-      "name":"Chips",
-      "description":"You didn't think there would be an unopened bag of doritos here.",
-      "type": "potion",
-      "addHeart": 1
-    }],
+    "items": [
+      {
+        "id": "first aid kit",
+        "name": "First Aid Kit",
+        "description": "There are bandages, cotton swabs, antiseptic, and alcohol wipes inside.",
+        "type": "potion",
+        "addHeart": 3
+      },
+      {
+        "id": "food2",
+        "name": "Chips",
+        "description": "You didn't think there would be an unopened bag of doritos here.",
+        "type": "potion",
+        "addHeart": 1
+      }
+    ],
     "npc": [],
     "floor": "2",
     "isLocked": false,
@@ -251,33 +276,34 @@
     "exits": {
       "north": "1F hallway1"
     },
-    "items": [{
-      "id":"tennis racket",
-      "name":"Tennis Racket",
-      "description":"You have any tennis balls to hit?",
-      "type": "weapon",
-      "attack":2,
-      "crit":1
-    }],
-    "npc": [{
-       "name": "Mr. Cardone",
-      "isHostile": false,
-      "description": "A very buff gym teacher.",
-      "talk": "Did you eat your veggies?",
-      "id": "teacher5",
-      "type": "NPC"
-    }
-    ,
-    {
-       "name": "Ms. Deeks",
-      "isHostile": false,
-      "description": "A very buff gym teacher whos's very enthusiastic about winter fest.",
-      "talk": "Exercising is best for your mental health!",
-      "id": "teacher5",
-      "type": "NPC"
-    }
-  
-  ],
+    "items": [
+      {
+        "id": "tennis racket",
+        "name": "Tennis Racket",
+        "description": "You have any tennis balls to hit?",
+        "type": "weapon",
+        "attack": 2,
+        "crit": 1
+      }
+    ],
+    "npc": [
+      {
+        "name": "Mr. Cardone",
+        "currentRoom": "gym",
+        "description": "A very buff gym teacher.",
+        "talk": "Did you eat your veggies?",
+        "id": "teacher5",
+        "type": "NPC"
+      },
+      {
+        "name": "Ms. Deeks",
+        "currentRoom": "gym",
+        "description": "A very buff gym teacher whos's very enthusiastic about winter fest.",
+        "talk": "Exercising is best for your mental health!",
+        "id": "teacher5",
+        "type": "NPC"
+      }
+    ],
     "floor": "1",
     "isLocked": false,
     "KeyID": ""
@@ -318,24 +344,36 @@
     "exits": {
       "north": "1F hallway2"
     },
-    "items": [{
-      "id": "lol",
-      "name": "flask",
-      "description": "... it could do something maybe??? ... I would leave now",
-      "type": "potion",
-      "addHeart": -100
-    }],
-    "npc": [{
-      "health": 5,
-      "damage": 1,
-      "dodgeRange": 2,
-      "name": "Ms. Landau",
-      "currentRoom": "science lab",
-      "description": "A scary science teacher. Yet, she has a warming prescence.", 
-      "talk": "EXTENTION DENIED",
-      "id": "teacher4",
-      "type": "MiniBoss"
-    }],
+    "items": [
+      {
+        "id": "lol",
+        "name": "flask",
+        "description": "... it could do something maybe??? ... I would leave now",
+        "type": "potion",
+        "addHeart": -100
+      }
+    ],
+    "npc": [
+      {
+        "health": 5,
+        "damage": 1,
+        "dodgeRange": 2,
+        "name": "Ms. Landau",
+        "currentRoom": "science lab",
+        "description": "A scary science teacher. Yet, she has a warming prescence.",
+        "talk": "EXTENTION DENIED",
+        "id": "teacher4",
+        "type": "MiniBoss"
+      },
+      {
+        "name": "Ms. Russell",
+        "currentRoom": "science lab",
+        "description": "A kind woman who seems to be trying to stop the fearsome Ms. Landau but unfortunately she is too fearsome",
+        "talk": "Hi! Hope you are doing well!",
+        "id": "teacher9",
+        "type": "NPC"
+      }
+    ],
     "floor": "1",
     "isLocked": false,
     "KeyID": ""
@@ -348,7 +386,24 @@
       "west": "1F hallway2"
     },
     "items": [],
-    "npc": [],
+    "npc": [
+      {
+        "name": "Sophia",
+        "currentRoom": "gr. 12 common area",
+        "description": "a grade 12, who wants to be batman..... ur choice ig??",
+        "talk": "IM BATMAN....",
+        "id": "student3",
+        "type": "NPC"
+      }, 
+      {
+        "name": "Gigi",
+        "currentRoom": "gr. 12 common area",
+        "description": "another gr 12, who is friends with 'batman' or so she says",
+        "talk": "im friends with batman",
+        "id": "student4",
+        "type": "NPC"
+      }
+    ],
     "floor": "1",
     "isLocked": false,
     "KeyID": ""
@@ -356,12 +411,24 @@
   "classroom": {
     "id": "classroom",
     "name": "Classroom",
-    "description": "It's a classroom. Not much to see here. Oh, don't mind the severed hand on that desk over there.",
+    "description": "It's a classroom. Not much to see here, except for something in the corner. Oh, don't mind the severed hand on that desk over there.",
     "exits": {
       "south": "1F hallway2"
     },
     "items": [],
-    "npc": [],
+    "npc": [
+      {
+        "health": 30,
+        "damage": 10,
+        "dodgeRange": 5,
+        "name": "Ms. Carpenter",
+        "currentRoom": "classroom",
+        "description": "An athletic looking teacher who looks like she could out smart you, and probably can...",
+        "talk": "I WILL NEVER SETTLE FOR SECOND! I AM FIRST!",
+        "id": "teacher8",
+        "type": "MiniBoss"
+      }
+    ],
     "floor": "1",
     "isLocked": false,
     "KeyID": ""
@@ -434,14 +501,16 @@
       "east": "3F hallway1"
     },
     "items": [],
-    "npc": [{
-      "name": "Adriana",
-      "currentRoom": "gr.9 common area",
-      "description": "", 
-      "talk": "",
-      "id": "student2",
-      "type": "NPC"
-    }],
+    "npc": [
+      {
+        "name": "Adriana",
+        "currentRoom": "gr.9 common area",
+        "description": "",
+        "talk": "",
+        "id": "student2",
+        "type": "NPC"
+      }
+    ],
     "floor": "3",
     "isLocked": false,
     "KeyID": ""
@@ -454,18 +523,19 @@
       "north": "3F hallway1"
     },
     "items": [],
-    "npc": [{
-      "health":300,
-      "damage":20,
-      "dodgeRange":2,
-      "stages": 10,
-      "name":"Mr.Delauriers",
-      "currentRoom": "compsci room",
-      "description":"Average white man turned zombie, he will stop at nothing to eat your brains",
-      "talk":"DID YOU COMMIT YOUR CODE TO GITHUB??",
-      "id":"final boss",
-      "type": "Boss"
-    }
+    "npc": [
+      {
+        "health": 300,
+        "damage": 20,
+        "dodgeRange": 2,
+        "stages": 10,
+        "name": "Mr.Delauriers",
+        "currentRoom": "compsci room",
+        "description": "Average white man turned zombie, he will stop at nothing to eat your brains",
+        "talk": "DID YOU COMMIT YOUR CODE TO GITHUB??",
+        "id": "final boss",
+        "type": "Boss"
+      }
     ],
     "floor": "3",
     "isLocked": false,
@@ -479,17 +549,19 @@
       "south": "3F hallway2"
     },
     "items": [],
-    "npc": [{
-      "health": 30,
-      "damage": 15,
-      "dodgeRange": 1,
-      "name":"Mr.Pape",
-      "currentRoom": "math lab",
-      "description":"A middle-aged math teacher who turned bald a bit too soon. His head gleams brighter than the beaming sun. He seems to have hoarded an array of belongings which he seems very protective of.",
-      "talk":"Math lab is closed today MWAHAHAH. I'll give you pity marks because you're too stupid.",
-      "id":"teacher1",
-      "type": "MiniBoss"
-    }],
+    "npc": [
+      {
+        "health": 30,
+        "damage": 15,
+        "dodgeRange": 1,
+        "name": "Mr.Pape",
+        "currentRoom": "math lab",
+        "description": "A middle-aged math teacher who turned bald a bit too soon. His head gleams brighter than the beaming sun. He seems to have hoarded an array of belongings which he seems very protective of.",
+        "talk": "Math lab is closed today MWAHAHAH. I'll give you pity marks because you're too stupid.",
+        "id": "teacher1",
+        "type": "MiniBoss"
+      }
+    ],
     "floor": "3",
     "isLocked": false,
     "KeyID": ""
@@ -502,14 +574,16 @@
       "north": "3F hallway2"
     },
     "items": [],
-    "npc": [{
-      "name": "Ms. Fenili",
-      "currentRoom": "principle's office",
-      "description": "An overwhelming authority figure. Chills run down your spine within 20 meters of her. She greets you with a kind smile, opposite of your first impression of her, and goes on her merry way.",
-      "talk": "How are you doing?",
-      "id": "teacher3",
-      "type": "NPC"
-    }],
+    "npc": [
+      {
+        "name": "Ms. Fenili",
+        "currentRoom": "principle's office",
+        "description": "An overwhelming authority figure. Chills run down your spine within 20 meters of her. She greets you with a kind smile, opposite of your first impression of her, and goes on her merry way.",
+        "talk": "How are you doing?",
+        "id": "teacher3",
+        "type": "NPC"
+      }
+    ],
     "floor": "3",
     "isLocked": false,
     "KeyID": ""
@@ -522,21 +596,23 @@
       "west": "3F hallway2"
     },
     "items": [],
-    "npc": [{
-       "name": "Ms. Bala",
-      "isHostile": false,
-      "description": "A menacing teacher. She likes jokes a lot.",
-      "talk": "You're homework is late. Do you want detention?",
-      "id": "teacher6",
-      "type": "NPC"
-    }],
+    "npc": [
+      {
+        "name": "Ms. Bala",
+        "currentRoom": "gr.10 common area",
+        "description": "A menacing teacher. She likes jokes a lot.",
+        "talk": "You're homework is late. Do you want detention?",
+        "id": "teacher6",
+        "type": "NPC"
+      }
+    ],
     "floor": "3",
     "isLocked": false,
     "KeyID": ""
   },
   "exit": {
     "name": "Exit",
-    "description":"You pull open the heavy metal door, and with a rush of air and light, you step into freedom—it's over. (づoωo)づᕦ(ᵔoᵔᕦ)",
+    "description": "You pull open the heavy metal door, and with a rush of air and light, you step into freedom—it's over. (づoωo)づᕦ(ᵔoᵔᕦ)",
     "exits": {},
     "items": [],
     "npc": [],
