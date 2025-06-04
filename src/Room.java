@@ -10,11 +10,11 @@ public class Room {
     private String description;
     private Map<String, String> exits; // direction → roomId
     private static List<Item> items;
-    private static ArrayList<NPC> npc;
+    private ArrayList<NPC> npc; // one npc per room
     private static ArrayList<String> riddles = new ArrayList<String>(); // make riddles!!!!!!!!
     private static ArrayList<String> answer = new ArrayList<String>(); // put the answers at bottom make sure they
-                                                                        // correspond w the index of the
-                                                                        // question
+                                                                       // correspond w the index of the
+                                                                       // question
     private String floor;
     private boolean isLocked;
     private String keyID;
@@ -26,7 +26,7 @@ public class Room {
         this.description = description;
         this.exits = exits;
         Room.items = items;
-        Room.npc = npc;
+        this.npc = npc;
         this.floor = floor;
         this.isLocked = isLocked;
         this.keyID = keyID;
@@ -98,17 +98,17 @@ public class Room {
     }
 
     // remove?
-    public NPC randomGenerateMonster() {
-        int r = (int) (Math.random() * 2);
-        if (npc.size() != 0 && r == 1) {
-            int x = (int) (Math.random() * npc.size());
-            NPC m = npc.get(x);
-            npc.remove(x);
-            return m;
-        } else {
-            return null;
-        }
-    }
+    // public NPC randomGenerateMonster() {
+    // int r = (int) (Math.random() * 2);
+    // if (npc.size() != 0 && r == 1) {
+    // int x = (int) (Math.random() * npc.size());
+    // NPC m = npc.get(x);
+    // npc.remove(x);
+    // return m;
+    // } else {
+    // return null;
+    // }
+    // }
 
     public String getLongDescription() {
         StringBuilder sb = new StringBuilder();
@@ -155,16 +155,20 @@ public class Room {
         riddles.add("I’m always running, but I never move. You can never catch me, but you always lose me. What am I?");
         riddles.add("I have cities but no houses, forests but no trees, and rivers but no water. What am I?");
         riddles.add("I turn polar bears white and I will make you cry.\n" + //
-                        "I make guys have to pee and girls comb their hair.\n" + //
-                        "I make celebrities look stupid and normal people look like celebrities.\n" + //
-                        "I turn pancakes brown and make your champagne bubble.\n" + //
-                        "If you squeeze me, I'll pop. If you look at me, you'll pop. ");
-        riddles.add("You are a prisoner in a room with 2 doors and 2 guards. One of the doors will guide you to freedom and behind the other is a hangman–you don't know which is which, but the guards do know.\n" + //
+                "I make guys have to pee and girls comb their hair.\n" + //
+                "I make celebrities look stupid and normal people look like celebrities.\n" + //
+                "I turn pancakes brown and make your champagne bubble.\n" + //
+                "If you squeeze me, I'll pop. If you look at me, you'll pop. ");
+        riddles.add(
+                "You are a prisoner in a room with 2 doors and 2 guards. One of the doors will guide you to freedom and behind the other is a hangman–you don't know which is which, but the guards do know.\n"
+                        + //
                         "\n" + //
-                        "One of the guards always tells the truth and the other always lies. You don't know which one is the truth-teller or the liar either. However both guards know each other.\n" + //
+                        "One of the guards always tells the truth and the other always lies. You don't know which one is the truth-teller or the liar either. However both guards know each other.\n"
+                        + //
                         "\n" + //
-                        "You have to choose and open one of these doors, but you can only ask a single question to one of the guards.\n" + //
-                        "\n" + // 
+                        "You have to choose and open one of these doors, but you can only ask a single question to one of the guards.\n"
+                        + //
+                        "\n" + //
                         "Which door will you choose?");
 
         answer.add("Keyboard");
