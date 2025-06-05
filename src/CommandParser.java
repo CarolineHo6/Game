@@ -314,6 +314,9 @@ public class CommandParser {
                     AdventureGUI.printText("use what?");
                 } else {
                     String itemName = words[1];
+                    for (int i = 2; i < words.length; i++) {
+                        itemName += " " + words[i];
+                    }
                     Item itemToUse = null;
                     // Potions potionToUse = null;
                     for (Item item : player.getInventory()) {
@@ -418,12 +421,22 @@ public class CommandParser {
 
                 } else {
                     String targetRoom = words[1];
+                    int iOfWith = 0;
+                    while (!words[iOfWith].equals("with")) {
+                        iOfWith++;
+                    }
+                    for (int i = 2; i < iOfWith; i++) {
+                        targetRoom += " " + words[i];
+                    }
                     Room roomToOpen = rooms.get(targetRoom);
                     if (roomToOpen == null) {
                         AdventureGUI.printText("There is no room called " + targetRoom + ".");
                     } else {
                         // riddle ill fix later - daisy
                         String keyName = words[3];
+                        for (int i = iOfWith + 2; i < words.length; i++) {
+                            keyName += " " + words[i];
+                        }
                         Key keyToUse = null;
                         for (Item item : player.getInventory()) {
                             if (item.getName().equalsIgnoreCase(keyName) && item instanceof Key) {
@@ -435,7 +448,7 @@ public class CommandParser {
                             AdventureGUI.printText("You don't have a key named " + keyName + ".");
                         }
 
-                        if (keyToUse.getId().equals(roomToOpen.getKeyID())) {
+                        else if (keyToUse.getId().equals(roomToOpen.getKeyID())) {
                             roomToOpen.setIsLocked();
                             keyToUse.used();
                             AdventureGUI.printText("You unlocked the " + targetRoom + "!");
