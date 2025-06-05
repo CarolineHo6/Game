@@ -367,6 +367,13 @@ public class CommandParser {
 
                 } else {
                     String targetRoom = words[1];
+                    int iOfWith = 0;
+                    while (!words[iOfWith].equals("with")) {
+                        iOfWith++;
+                    }
+                    for (int i = 2; i < iOfWith; i++) {
+                        targetRoom += " " + words[i];
+                    }
                     Room roomToOpen = rooms.get(targetRoom);
                     if (roomToOpen == null) {
                         AdventureGUI.printText("There is no room called " + targetRoom + ".");
@@ -418,7 +425,10 @@ public class CommandParser {
                     // }
                     else {
                         // riddle ill fix later - daisy
-                        String keyName = words[3];
+                        String keyName = words[iOfWith + 1];
+                        for (int i = iOfWith + 2; i < words.length; i++) {
+                            keyName += " " + words[i];
+                        }
                         Key keyToUse = null;
                         for (Item item : player.getInventory()) {
                             if (item.getName().equalsIgnoreCase(keyName) && item instanceof Key) {
