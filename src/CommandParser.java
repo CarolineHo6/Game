@@ -401,6 +401,9 @@ public class CommandParser {
                     else {
                         // riddle ill fix later - daisy
                         String keyName = words[3];
+                        for (int i = 4; i < words.length; i++){
+                            keyName += " " + words[i];
+                        }
                         Key keyToUse = null;
                         for (Item item : player.getInventory()) {
                             if (item.getName().equalsIgnoreCase(keyName) && item instanceof Key) {

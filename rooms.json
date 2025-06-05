@@ -31,7 +31,7 @@
     },
     "items": [ {
         "id": "key04",
-        "name": "key",
+        "name": "key - burger charm",
         "description": "A miniscule key. It has a burger charm.",
         "type": "key",
         "room": "cafeteria",
@@ -126,7 +126,7 @@
     },
     "items": [ {
         "id": "key01",
-        "name": "key",
+        "name": "key - flask keychain",
         "description": "A miniscule key. It seems to have a flask keychain on it.",
         "type": "key",
         "room": "scienceLab",
@@ -210,7 +210,7 @@
       },
        {
         "id": "key03",
-        "name": "key",
+        "name": "key - keyboard charm",
         "description": "A miniscule key. It has a little keyboard charm.",
         "type": "key",
         "room": "IT",
@@ -512,7 +512,7 @@
     },
     "items": [ {
         "id": "key05",
-        "name": "key",
+        "name": "key - addition sign",
         "description": "A miniscule key. It has an addition sign on it.",
         "type": "key",
         "room": "mathLab",
@@ -541,7 +541,7 @@
     },
     "items": [ {
         "id": "key09",
-        "name": "key",
+        "name": "key - rusted words",
         "description": "A miniscule key. It has the rusted words h_ad _f sc_ool.",
         "type": "key",
         "room": "principleOffice",
@@ -599,7 +599,7 @@
     },
     "items": [ {
         "id": "key10",
-        "name": "key",
+        "name": "key - the key of all keys",
         "description": "A miniscule key. Being the key of all keys, it gleams a light of glory. ",
         "type": "key",
         "room": "exit",
