@@ -152,7 +152,7 @@
   "hallway3": {
     "id": "hallway3",
     "name": "hallway3",
-    "description": "Remains of scavenged food lies on the ground. There are rooms in all four directions.",
+    "description": "Remains of scavenged food lies on the ground. The library stands queitly to the north. At the far east you could faintly see the rows of music stands in the music room. To the south is the spacious gr. 11 common area, and behind you is the drama room. ",
     "exits": {
       "north": "library",
       "south": "gr.11 Common Area",
@@ -179,7 +179,7 @@
     "KeyID": ""
   },
   "gr.11 common area": {
-    "id": "Gr11CommonArea",
+    "id": "gr.11CommonArea",
     "name": "Gr.11 Common Area",
     "description": "Sofas are arranged against the walls, and there seems to be a back door that was boarded up some time ago. There is a suspicious stain on the ground.",
     "exits": {
