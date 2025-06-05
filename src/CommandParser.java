@@ -259,7 +259,7 @@ public class CommandParser {
                 return false;
             case "help":
                 AdventureGUI.printText(
-                        "Available commands: go [direction], look, take [item], drop [item], use [item], talk to [NPC], inventory, help");
+                        "Available commands: go [direction], look, take [item], drop [item], use [item], talk to [NPC], inventory, help, use [Item], kill [NPC]");
                 return false;
             case "quit":
                 // TODO make a confirmation and add a scanner
