@@ -21,8 +21,8 @@ public class MiniBoss extends NPC {
         return health;
     }
 
-    public void stats() {
-        System.out.println("Name: " + name + "Health: " + health + " Damage: " + damage);
+    public String stats() {
+        return "Name: " + name + "Health: " + health + " Damage: " + damage;
     }
 
     public void setHealth(int m) {
