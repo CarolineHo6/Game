@@ -147,7 +147,19 @@ public class CommandParser {
                 if (words.length < 2) {
                     AdventureGUI.printText("Go where?");
                 } else {
-                    String direction = words[1];
+                    String direction = words[1].toLowerCase();
+
+                    Map<String, String> directionAliases = new HashMap<>();
+                    directionAliases.put("down", "south");
+                    directionAliases.put("up", "north");
+                    directionAliases.put("left", "west");
+                    directionAliases.put("right", "east");
+                    directionAliases.put("forward", "south");
+                    directionAliases.put("back", "north");
+
+                    if (directionAliases.containsKey(direction)) {
+                        direction = directionAliases.get(direction);
+                    }
                     // Room currentRoom = rooms.get(player.getCurrentRoomId());
                     String nextRoomId = currentRoom.getExits().get(direction);
 
@@ -155,7 +167,7 @@ public class CommandParser {
                         AdventureGUI.printText("You can't go that way.");
                         return false;
                     }
-                    
+
                     Room nextRoom = rooms.get(nextRoomId);
                     if (nextRoom == null) {
                         AdventureGUI.printText("The next room could not be found.");
@@ -211,7 +223,8 @@ public class CommandParser {
                             // }
 
                         } else if (nextRoom.getIsLocked() == true && !(nextRoom.getKeyID().equals(""))) {
-                            AdventureGUI.printText("The " + nextRoomId + " seems to be locked, but you could open it with a key.");
+                            AdventureGUI.printText(
+                                    "The " + nextRoomId + " seems to be locked, but you could open it with a key.");
 
                         } else {
                             player.setCurrentRoomId(nextRoomId);
