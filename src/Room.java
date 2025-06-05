@@ -19,6 +19,9 @@ public class Room {
     private String floor;
     private boolean isLocked;
     private String keyID;
+    private String currentRiddleQuestion;
+    private String currentRiddleAnswer;
+    private int riddleIndex = -1;
 
     public Room(String id, String name, String description, Map<String, String> exits, List<Item> items,
             ArrayList<NPC> npc, String floor, boolean isLocked, String keyID) {
@@ -33,24 +36,43 @@ public class Room {
         this.keyID = keyID;
     }
 
-    public boolean isRiddle() { // checks if a room is suppose to have a riddle or not
-        if (keyID == "none" && isLocked) {
-            return true;
-        }
-
-        return false;
-    }
-
-    public void removeRiddle(String x) {
-        int index = riddles.indexOf(x);
-        riddles.remove(index);
-        answer.remove(index);
-
+    public boolean isRiddle() {
+        return isLocked && (keyID == null || keyID.trim().isEmpty()); // returns if there is a riddle or not
     }
 
     public String generateRiddle() {
+        if (riddles.isEmpty())
+            return "No riddles left.";
+        riddleIndex = (int) (Math.random() * riddles.size());
+        currentRiddleQuestion = riddles.get(riddleIndex);
+        currentRiddleAnswer = answer.get(riddleIndex);
+        System.out.println("Riddle index: " + riddleIndex);
+        System.out.println("Riddle: " + riddles.get(riddleIndex));
+        System.out.println("Answer: " + answer.get(riddleIndex));
+        return currentRiddleQuestion;
+    }
 
-        return riddles.get(0) + ";" + answer.get(0);
+    public String getCurrentRiddleAnswer() {
+        return currentRiddleAnswer;
+    }
+
+    public void clearCurrentRiddle() {
+        if (riddleIndex != -1) {
+            riddles.remove(riddleIndex);
+            answer.remove(riddleIndex);
+            riddleIndex = -1;
+            currentRiddleQuestion = null;
+            currentRiddleAnswer = null;
+        }
+    }
+
+    public static String getAnswer(int index) {
+        return answer.get(index);
+    }
+
+    public static void removeRiddle(int index) {
+        riddles.remove(index);
+        answer.remove(index);
     }
 
     public String getId() {
@@ -184,3 +206,4 @@ public class Room {
     }
 
 }
+

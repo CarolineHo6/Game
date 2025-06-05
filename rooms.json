@@ -19,7 +19,7 @@
     "npc": [],
     "floor": "2",
     "isLocked": false,
-    "KeyID": ""
+    "keyID": ""
   },
   "theatre": {
     "id": "theatre",
@@ -40,7 +40,7 @@
     "npc": [],
     "floor": "2",
     "isLocked": false,
-    "KeyID": ""
+    "keyID": ""
   },
   "2F staircase": {
     "id": "2Fstaircase",
@@ -55,7 +55,7 @@
     "npc": [],
     "floor": "2",
     "isLocked": true,
-    "KeyID": "none"
+    "keyID": ""
   },
   "hallway1": {
     "id": "hallway1",
@@ -83,7 +83,7 @@
     ],
     "floor": "2",
     "isLocked": false,
-    "KeyID": ""
+    "keyID": ""
   },
   "cafeteria": {
     "id": "cafeteria",
@@ -114,7 +114,7 @@
     ],
     "floor": "2",
     "isLocked": true,
-    "KeyID": "key04"
+    "keyID": "key04"
   },
   "library": {
     "id": "library",
@@ -147,7 +147,7 @@
     ],
     "floor": "2",
     "isLocked": true,
-    "KeyID": "none"
+    "keyID": ""
   },
   "hallway3": {
     "id": "hallway3",
@@ -163,7 +163,7 @@
     "npc": [],
     "floor": "2",
     "isLocked": false,
-    "KeyID": ""
+    "keyID": ""
   },
   "music room": {
     "id": "musicRoom",
@@ -176,7 +176,7 @@
     "npc": [],
     "floor": "2",
     "isLocked": true,
-    "KeyID": "none"
+    "keyID": ""
   },
   "gr.11 common area": {
     "id": "gr.11CommonArea",
@@ -189,7 +189,7 @@
     "npc": [],
     "floor": "2",
     "isLocked": false,
-    "KeyID": ""
+    "keyID": ""
   },
   "drama room": {
     "id": "dramaRoom",
@@ -232,7 +232,7 @@
     ],
     "floor": "2",
     "isLocked": false,
-    "KeyID": ""
+    "keyID": ""
   },
   "hallway2": {
     "id": "hallway2",
@@ -261,7 +261,7 @@
     "npc": [],
     "floor": "2",
     "isLocked": false,
-    "KeyID": ""
+    "keyID": ""
   },
   "1F hallway1": {
     "id": "1FHallway1",
@@ -277,7 +277,7 @@
     "npc": [],
     "floor": "1",
     "isLocked": false,
-    "KeyID": ""
+    "keyID": ""
   },
   "gym": {
     "id": "gym",
@@ -316,7 +316,7 @@
     ],
     "floor": "1",
     "isLocked": false,
-    "KeyID": ""
+    "keyID": ""
   },
   "IT": {
     "id": "IT",
@@ -329,7 +329,7 @@
     "npc": [],
     "floor": "1",
     "isLocked": true,
-    "KeyID": "key03"
+    "keyID": "key03"
   },
   "1F hallway2": {
     "id": "1FHallway2",
@@ -345,7 +345,7 @@
     "npc": [],
     "floor": "1",
     "isLocked": true,
-    "KeyID": "none"
+    "keyID": ""
   },
   "science lab": {
     "id": "scienceLab",
@@ -386,7 +386,7 @@
     ],
     "floor": "1",
     "isLocked": true,
-    "KeyID": "key01"
+    "keyID": "key01"
   },
   "gr.12 common area": {
     "id": "Gr12CommonArea",
@@ -424,7 +424,7 @@
     ],
     "floor": "1",
     "isLocked": false,
-    "KeyID": ""
+    "keyID": ""
   },
   "classroom": {
     "id": "classroom",
@@ -449,7 +449,7 @@
     ],
     "floor": "1",
     "isLocked": false,
-    "KeyID": ""
+    "keyID": ""
   },
   "1F staircase": {
     "id": "1FStaircase",
@@ -463,7 +463,7 @@
     "npc": [],
     "floor": "1",
     "isLocked": false,
-    "KeyID": ""
+    "keyID": ""
   },
   "3F staircase": {
     "id": "3FStaircase",
@@ -477,7 +477,7 @@
     "npc": [],
     "floor": "1",
     "isLocked": false,
-    "KeyID": ""
+    "keyID": ""
   },
   "3F hallway1": {
     "id": "3FHallway1",
@@ -493,7 +493,7 @@
     "npc": [],
     "floor": "3",
     "isLocked": false,
-    "KeyID": ""
+    "keyID": ""
   },
   "3F hallway2": {
     "id": "3FHallway2",
@@ -509,7 +509,7 @@
     "npc": [],
     "floor": "3",
     "isLocked": false,
-    "KeyID": ""
+    "keyID": ""
   },
   "gr.9 common area": {
     "id": "Gr9CommonArea",
@@ -538,7 +538,7 @@
     ],
     "floor": "3",
     "isLocked": false,
-    "KeyID": ""
+    "keyID": ""
   },
   "compsci room": {
     "id": "compsciRoom",
@@ -570,8 +570,8 @@
       }
     ],
     "floor": "3",
-    "isLocked": true,
-    "KeyID": "key08"
+    "isLocked": false,
+    "keyID": ""
   },
   "math lab": {
     "id": "mathLab",
@@ -596,7 +596,7 @@
     ],
     "floor": "3",
     "isLocked": true,
-    "KeyID": "key05"
+    "keyID": "key05"
   },
   "principle's office": {
     "id": "principleOffice",
@@ -625,7 +625,7 @@
     ],
     "floor": "3",
     "isLocked": true,
-    "KeyID": "key09"
+    "keyID": "key09"
   },
   "gr.10 common area": {
     "id": "Gr10CommonArea",
@@ -647,7 +647,7 @@
     ],
     "floor": "3",
     "isLocked": false,
-    "KeyID": ""
+    "keyID": ""
   },
   "exit": {
     "name": "Exit",
@@ -657,6 +657,6 @@
     "npc": [],
     "floor": "2",
     "isLocked": true,
-    "KeyID": "key10"
+    "keyID": "key10"
   }
 }

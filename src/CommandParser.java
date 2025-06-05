@@ -5,6 +5,7 @@ import items.*;
 public class CommandParser {
 
     public static boolean confirmingQuit = false;
+    public static String pendingRoomToUnlock = null;
 
     public static boolean parse(AdventureGUI gui, String input, Player player, Map<String, Room> rooms) {
         String[] words = input.trim().toLowerCase().split("\\s+");
@@ -34,67 +35,115 @@ public class CommandParser {
                     AdventureGUI.printText("who?");
                 } else if (currentRoom.getNPCs().size() == 0) {
                     AdventureGUI.printText("You can't attack air. ");
-
-                }
-
-                else {
+                } else {
                     String attack = words[1];
                     AdventureGUI.printText("Player Stats: " + player.stats());
                     NPC monster = currentRoom.getNPCs().get(0);
                     AdventureGUI.printText("Monster Stats: " + monster.stats());
-                    AdventureGUI.printText("Please select your weapon");
+                    String targetName = words[1];
+                    NPC target = currentRoom.getNPCs().get(0); // adjust if multiple
+
+                    // Optional: Check that name matches target
+                    if (!target.getName().equalsIgnoreCase(targetName)) {
+                        AdventureGUI.printText("No one named " + targetName + " is here.");
+                        return false;
+                    }
+
+                    Weapon weapon = null;
+                    for (Item item : player.getInventory()) {
+                        if (item instanceof Weapon) {
+                            weapon = (Weapon) item;
+                            break;
+                        }
+                    }
+                    if (weapon == null) {
+                        AdventureGUI.printText("You have no weapon to use!");
+                        return false;
+                    }
+
+                    AdventureGUI.printText("You swing your " + weapon.getName() + " at the " + target.getName() + "!");
+
+                    if (target.ifDodge()) {
+                        AdventureGUI.printText("The monster dodged your attack!");
+                    } else {
+                        int damage = weapon.getAttack();
+                        int newHealth = target.getHealth() - damage;
+                        target.setHealth(newHealth);
+
+                        AdventureGUI.printText("You hit the monster for " + damage + " damage!");
+                        AdventureGUI.printText("Monster health is now " + target.getHealth());
+
+                        if (newHealth <= 0) {
+                            AdventureGUI.printText("You have defeated the monster!");
+                            // Optionally remove the monster from room
+                            currentRoom.getNPCs().remove(target);
+                        } else {
+                            AdventureGUI.printText("The monster attacks you!");
+
+                            int playerHealth = player.getHealth() - target.getDamage();
+                            player.setHealth(playerHealth);
+                            AdventureGUI.printText("You took " + target.getDamage() + " damage.");
+                            AdventureGUI.printText("Your health is now " + player.getHealth());
+
+                            if (playerHealth <= 0) {
+                                AdventureGUI.printText("You died. Game over.");
+                                return true;
+                            }
+                        }
+                    }
                 }
+                return false;
 
-                // an run away function that didnt work
-                // AdventureGUI.printText("> ");
-                // String selection = AdventureGUI.getInput();
+            // an run away function that didnt work
+            // AdventureGUI.printText("> ");
+            // String selection = AdventureGUI.getInput();
 
-                // int index = pop.indexOf(selection);
-                // Item w = pop.get(index);
+            // int index = pop.indexOf(selection);
+            // Item w = pop.get(index);
 
-                // if (monster.ifDodge()) {
-                // AdventureGUI.printText("The monster has dodge your attack");
-                // } else {
+            // if (monster.ifDodge()) {
+            // AdventureGUI.printText("The monster has dodge your attack");
+            // } else {
 
-                // if (monster.getHealth() <= w.getAttack()) {
-                // AdventureGUI.printText("You have defeated the monster");
-                // return false;
-                // } else {
+            // if (monster.getHealth() <= w.getAttack()) {
+            // AdventureGUI.printText("You have defeated the monster");
+            // return false;
+            // } else {
 
-                // monster.setHealth(monster.getHealth() - monster.getDamage());
+            // monster.setHealth(monster.getHealth() - monster.getDamage());
 
-                // }
+            // }
 
-                // AdventureGUI.printText("The monster is going to attack you");
+            // AdventureGUI.printText("The monster is going to attack you");
 
-                // if (player.getHealth() <= monster.getDamage()) {
-                // AdventureGUI.printText("You have been defeated by the monster. Game over.");
-                // return true;
-                // } else {
-                // player.setHealth(player.getHealth() - monster.getDamage());
-                // }
+            // if (player.getHealth() <= monster.getDamage()) {
+            // AdventureGUI.printText("You have been defeated by the monster. Game over.");
+            // return true;
+            // } else {
+            // player.setHealth(player.getHealth() - monster.getDamage());
+            // }
 
-                // }
-                // }
-                // AdventureGUI.printText("you have ran away");
-                // return true;\
+            // }
+            // }
+            // AdventureGUI.printText("you have ran away");
+            // return true;\
 
             case "solve":
-                String[] riddle = currentRoom.generateRiddle().split(";");
-                String solution = words[1];
+                if (pendingRoomToUnlock != null) {
+                    Room targetRoom = rooms.get(pendingRoomToUnlock);
+                    String guess = input.substring(input.indexOf(" ") + 1).trim(); // handles multi-word answers
+                    String correct = targetRoom.getCurrentRiddleAnswer();
 
-                if (solution.equalsIgnoreCase(riddle[1])) {
-                    AdventureGUI.printText("congradulations, you may enter the room now");
-                    currentRoom.setIsLocked();
-                    currentRoom.removeRiddle(riddle[0]);
-
-                } else {
-
-                    AdventureGUI.printText("Wrong");
-
+                    if (guess.equalsIgnoreCase(correct)) {
+                        AdventureGUI.printText("Correct! You may now enter the room.");
+                        targetRoom.setIsLocked();
+                        targetRoom.clearCurrentRiddle();
+                        pendingRoomToUnlock = null;
+                    } else {
+                        AdventureGUI.printText("Wrong answer.");
+                    }
+                    return false;
                 }
-
-                return false;
 
             case "go":
                 if (words.length < 2) {
@@ -108,12 +157,14 @@ public class CommandParser {
                         Room nextRoom = rooms.get(nextRoomId);
 
                         if (nextRoom.isRiddle()) {
-                            AdventureGUI.printText("This room has a riddle that you must solve to enter");
-                            String[] rid = currentRoom.generateRiddle().split(";");
-
-                            AdventureGUI.printText(rid[0]);
-                            AdventureGUI.printText(
-                                    "Would you like to answer the riddle? Please respond with solve [correct anwser] to enter");
+                            pendingRoomToUnlock = nextRoomId;
+                            String riddleQ = nextRoom.generateRiddle();
+                            AdventureGUI.printText("This room has a riddle you must solve to enter:");
+                            AdventureGUI.printText(riddleQ);
+                            // String[] rid = nextRoom.generateRiddle().split(";");
+                            // AdventureGUI.printText(rid[0]);
+                            AdventureGUI.printText("Respond with: solve [your answer]");
+                            return false;
 
                             // if (response.equalsIgnoreCase("yes")) {
 
@@ -151,7 +202,7 @@ public class CommandParser {
                             // return false;
                             // }
 
-                        } else if (nextRoom.getIsLocked()) {
+                        } else if (nextRoom.getIsLocked() == true && !(nextRoom.getKeyID().equals(""))) {
                             AdventureGUI.printText(
                                     "The " + nextRoomId + " seems to be locked, but you could open it with a key.");
 
@@ -230,7 +281,7 @@ public class CommandParser {
                 return false;
             case "help":
                 AdventureGUI.printText(
-                        "Available commands: go [direction], look, take [item], drop [item], use [item], talk to [NPC], inventory, help, kill [NPC], quit, read[item], open[room] + with[key]");
+                        "Available commands: go [direction], look, take [item], drop [item], use [item], talk to [NPC], inventory, help, use [Item], kill [NPC], quit, read[item], open");
                 return false;
             case "quit":
                 confirmingQuit = true;
@@ -263,9 +314,6 @@ public class CommandParser {
                     AdventureGUI.printText("use what?");
                 } else {
                     String itemName = words[1];
-                    for (int i = 2; i < words.length; i++) {
-                        itemName += " " + words[i];
-                    }
                     Item itemToUse = null;
                     // Potions potionToUse = null;
                     for (Item item : player.getInventory()) {
@@ -370,68 +418,12 @@ public class CommandParser {
 
                 } else {
                     String targetRoom = words[1];
-                    int iOfWith = 0;
-                    while (!words[iOfWith].equals("with")) {
-                        iOfWith++;
-                    }
-                    for (int i = 2; i < iOfWith; i++) {
-                        targetRoom += " " + words[i];
-                    }
                     Room roomToOpen = rooms.get(targetRoom);
                     if (roomToOpen == null) {
                         AdventureGUI.printText("There is no room called " + targetRoom + ".");
-                    }
-                    // moved riddle to "go" command but kept it here in case we want it here too
-                    // if (currentRoom.isRiddle()) {
-                    // AdventureGUI.printText("This room has a riddle that you must solve to
-                    // enter");
-                    // AdventureGUI.printText("Would you like to answer the riddle? Please answer
-                    // yes or no");
-                    // AdventureGUI.printText("> ");
-                    // String response = gui.getInput();
-
-                    // if (response.equalsIgnoreCase("yes")) {
-
-                    // String[] riddle = currentRoom.generateRandomRiddle().split(" ");
-
-                    // AdventureGUI.printText(riddle[0]);
-
-                    // while (true) {
-                    // AdventureGUI.printText("Please respond with the right answer");
-                    // AdventureGUI.printText("> ");
-
-                    // String res = gui.getInput(); // response
-
-                    // if (res.equals(riddle[1])) {
-                    // AdventureGUI.printText("congradulations, you may enter the room now");
-                    // break;
-                    // } else {
-
-                    // AdventureGUI.printText("Wrong");
-                    // AdventureGUI.printText(riddle[0]);
-                    // AdventureGUI.printText("Would you like to try again? please input");
-                    // res = gui.getInput();
-                    // if (res.equalsIgnoreCase("yes")) {
-                    // return true;
-                    // } else if (res.equalsIgnoreCase("no")) {
-                    // return false;
-                    // }
-                    // }
-                    // }
-                    // return false;
-                    // }
-                    // else {
-                    // AdventureGUI.printText("You have chosen not to solve the riddle");
-                    // // TODO more??
-                    // return false;
-                    // }
-                    // }
-                    else {
+                    } else {
                         // riddle ill fix later - daisy
-                        String keyName = words[iOfWith + 1];
-                        for (int i = iOfWith + 2; i < words.length; i++) {
-                            keyName += " " + words[i];
-                        }
+                        String keyName = words[3];
                         Key keyToUse = null;
                         for (Item item : player.getInventory()) {
                             if (item.getName().equalsIgnoreCase(keyName) && item instanceof Key) {
