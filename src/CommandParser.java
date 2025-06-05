@@ -96,7 +96,7 @@ public class CommandParser {
                     AdventureGUI.printText("Please select your weapon");
                     System.out.print("Inventory: ");
                     ArrayList<Item> pop = player.getInventory();
-                    AdventureGUI.printText("fist, ");
+                    AdventureGUI.printText("fist");
                     for (int i = 0; i < pop.size(); i++) {
                         if (pop.get(i).isWeapon() == true) {
                             AdventureGUI.printText(pop.get(i).getName() + " - " + pop.get(i).getAttack());
@@ -146,7 +146,6 @@ public class CommandParser {
 
                     if (nextRoomId != null) {
                         Room nextRoom = rooms.get(nextRoomId);
-                        System.out.println("hello");
 
                         if (nextRoom.isRiddle()) {
                             AdventureGUI.printText("This room has a riddle that you must solve to enter");
@@ -226,8 +225,6 @@ public class CommandParser {
                     AdventureGUI.printText("Take what?");
                 } else {
                     String itemName = words[1];
-
-                    System.out.println(itemName);
                     // Room room = rooms.get(player.getCurrentRoomId());
                     Item itemToTake = null;
                     for (Item item : currentRoom.getItems()) {

@@ -52,6 +52,8 @@ public class RoomLoader {
                                     i.get("description").getAsString(), i.get("type").getAsString(),
                                     i.get("room").getAsString(), i.get("used").getAsBoolean()));
                         }
+                        System.out.println(i.get("name"));
+                        System.out.println(i.get("description"));
                     }
                 }
 
@@ -82,6 +84,8 @@ public class RoomLoader {
                                     i.get("talk").getAsString(), i.get("id").getAsString(),
                                     i.get("type").getAsString()));
                         }
+                        System.out.println(i.get("name"));
+                        System.out.println(i.get("description"));
                     }
                 }
 
