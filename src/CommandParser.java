@@ -288,6 +288,9 @@ public class CommandParser {
                     AdventureGUI.printText("talk to who?");
                 } else {
                     String npcName = words[2];
+                    for (int i = 3; i < words.length; i++){
+                        npcName += " " + words[i];
+                    }
                     NPC npcToTalk = null;
                     for (NPC npc : currentRoom.getNPCs()) {
                         if (npc.getName().equalsIgnoreCase(npcName)) {
