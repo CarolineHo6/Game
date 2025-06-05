@@ -12,7 +12,7 @@
       {
         "id": "notebook",
         "name": "Notebook",
-        "description": "Welcome to ThE SuPeR FuN ScHoOl oF BaYvIeW GlEn, where students and teachers have been turned into Monsters that you must defeat. The main objective of this game is to ESCAPE THE SCHOOL. You must explore the school, defeat bosses, and most important of all............ survive (or die, if you want). Use the keyword: help, if you want the commands :). Have Fun!",
+        "description": "Welcome to ThE SuPeR FuN ScHoOl oF BaYvIeW GlEn, where students and teachers have been turned into Monsters that you must defeat. The main objective of this game is to ESCAPE THE SCHOOL. You must explore the school, defeat bosses, and most important of all............ survive (or die, if you want). Use the keyword: help, if you want the commands :). Have Fun! ( ͡° ͜ʖ ͡°)╭∩╮",
         "type": "item"
       }
     ],
@@ -55,7 +55,7 @@
     "exits": {
       "up": "3F staircase",
       "down": "1F staircase",
-      "north": "entrance hall"
+      "north": "entrance"
     },
     "items": [],
     "npc": [],
@@ -71,7 +71,7 @@
       "north": "cafeteria",
       "south": "library",
       "east": "exit",
-      "west": "entrance hall"
+      "west": "entrance"
     },
     "items": [],
     "npc": [
@@ -218,7 +218,7 @@
         "description": "A jolly man that has a booming voice. Do not be decived by his looks for he is fearsome with his writing and dramatic acts",
         "talk": "DID YOU INDENT YOUR PARAGRAPHS? HAHAHAHAHA",
         "id": "teacher7",
-        "type": "MiniBoss"
+        "type": "Miniboss"
       }
     ],
     "floor": "2",
