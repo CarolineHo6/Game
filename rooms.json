@@ -42,7 +42,13 @@
       "east": "entrance",
       "south": "hallway2"
     },
-    "items": [],
+    "items": [ {
+        "id": "key04",
+        "name": "key",
+        "description": "A miniscule key. It has a burger charm.",
+        "type": "key",
+        "room": "cafeteria" 
+      }],
     "npc": [],
     "floor": "2",
     "isLocked": false,
@@ -60,7 +66,7 @@
     "items": [],
     "npc": [],
     "floor": "2",
-    "isLocked": false,
+    "isLocked": true,
     "KeyID": ""
   },
   "hallway1": {
@@ -119,8 +125,8 @@
       }
     ],
     "floor": "2",
-    "isLocked": false,
-    "KeyID": ""
+    "isLocked": true,
+    "KeyID": "key04"
   },
   "library": {
     "id": "library",
@@ -130,7 +136,13 @@
       "north": "hallway1",
       "south": "hallway3"
     },
-    "items": [],
+    "items": [ {
+        "id": "key01",
+        "name": "key",
+        "description": "A miniscule key. It seems to have a flask keychain on it.",
+        "type": "key",
+        "room": "scienceLab" 
+      }],
     "npc": [
       {
         "health": 5,
@@ -145,7 +157,7 @@
       }
     ],
     "floor": "2",
-    "isLocked": false,
+    "isLocked": true,
     "KeyID": ""
   },
   "hallway3": {
@@ -174,7 +186,7 @@
     "items": [],
     "npc": [],
     "floor": "2",
-    "isLocked": false,
+    "isLocked": true,
     "KeyID": ""
   },
   "gr.11 common area": {
@@ -206,6 +218,13 @@
         "type": "weapon",
         "attack": 1,
         "crit": 0
+      },
+       {
+        "id": "key03",
+        "name": "key",
+        "description": "A miniscule key. It has a little keyboard charm.",
+        "type": "key",
+        "room": "IT" 
       }
     ],
     "npc": [
@@ -217,7 +236,8 @@
         "currentRoom": "drama room",
         "description": "A jolly man that has a booming voice. Do not be decived by his looks for he is fearsome with his writing and dramatic acts",
         "talk": "DID YOU INDENT YOUR PARAGRAPHS? HAHAHAHAHA",
-        "id": "teacher7"
+        "id": "teacher7",
+        "type": "MiniBoss" 
       }
     ],
     "floor": "2",
@@ -318,8 +338,8 @@
     "items": [],
     "npc": [],
     "floor": "1",
-    "isLocked": false,
-    "KeyID": ""
+    "isLocked": true,
+    "KeyID": "key03"
   },
   "1F hallway2": {
     "id": "1FHallway2",
@@ -334,7 +354,7 @@
     "items": [],
     "npc": [],
     "floor": "1",
-    "isLocked": false,
+    "isLocked": true,
     "KeyID": ""
   },
   "science lab": {
@@ -375,8 +395,8 @@
       }
     ],
     "floor": "1",
-    "isLocked": false,
-    "KeyID": ""
+    "isLocked": true,
+    "KeyID": "key01"
   },
   "gr.12 common area": {
     "id": "Gr12CommonArea",
@@ -500,7 +520,13 @@
     "exits": {
       "east": "3F hallway1"
     },
-    "items": [],
+    "items": [ {
+        "id": "key05",
+        "name": "key",
+        "description": "A miniscule key. It has an addition sign on it.",
+        "type": "key",
+        "room": "mathLab" 
+      }],
     "npc": [
       {
         "name": "Adriana",
@@ -522,7 +548,13 @@
     "exits": {
       "north": "3F hallway1"
     },
-    "items": [],
+    "items": [ {
+        "id": "key09",
+        "name": "key",
+        "description": "A miniscule key. It has the rusted words h_ad _f sc_ool.",
+        "type": "key",
+        "room": "principleOffice" 
+      }],
     "npc": [
       {
         "health": 300,
@@ -563,8 +595,8 @@
       }
     ],
     "floor": "3",
-    "isLocked": false,
-    "KeyID": ""
+    "isLocked": true,
+    "KeyID": "key05"
   },
   "principle's office": {
     "id": "principleOffice",
@@ -573,7 +605,13 @@
     "exits": {
       "north": "3F hallway2"
     },
-    "items": [],
+    "items": [ {
+        "id": "key10",
+        "name": "key",
+        "description": "A miniscule key. Being the key of all keys, it gleams a light of glory. ",
+        "type": "key",
+        "room": "exit" 
+      }],
     "npc": [
       {
         "name": "Ms. Fenili",
@@ -585,8 +623,8 @@
       }
     ],
     "floor": "3",
-    "isLocked": false,
-    "KeyID": ""
+    "isLocked": true,
+    "KeyID": "key09"
   },
   "gr.10 common area": {
     "id": "Gr10CommonArea",
@@ -618,6 +656,6 @@
     "npc": [],
     "floor": "2",
     "isLocked": true,
-    "KeyID": ""
+    "KeyID": "key10"
   }
 }
