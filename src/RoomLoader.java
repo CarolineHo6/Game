@@ -13,8 +13,8 @@ public class RoomLoader {
 
             for (String key : data.keySet()) {
                 JsonObject obj = data.getAsJsonObject(key);
-                System.out.println(obj.get("name"));
-                System.out.println(obj.get("description"));
+                // System.out.println(obj.get("name"));
+                // System.out.println(obj.get("description"));
                 String name = obj.get("name").getAsString();
                 String description = obj.get("description").getAsString();
                 String floor = obj.get("floor").getAsString();
@@ -35,7 +35,7 @@ public class RoomLoader {
                     for (JsonElement e : itemArray) {
                         JsonObject i = e.getAsJsonObject();
                         String type = i.get("type").getAsString().trim().toLowerCase();
-                        System.out.println("Raw item JSON: " + i.toString());
+                        //System.out.println("Raw item JSON: " + i.toString());
                         // using a switch statement to define diff types of items
                         switch (type) {
                             case "item":
@@ -63,10 +63,10 @@ public class RoomLoader {
                         }
                     }
                 }
-                System.out.println("Items loaded for room " + key + ":");
-                for (Item it : items) {
-                    System.out.println(it.getName() + " - " + it.getDescription());
-                }
+                //System.out.println("Items loaded for room " + key + ":");
+                // for (Item it : items) {
+                //     System.out.println(it.getName() + " - " + it.getDescription());
+                // }
 
                 // NPC array creation
                 ArrayList<NPC> npc = new ArrayList<NPC>();
@@ -75,7 +75,7 @@ public class RoomLoader {
                     for (JsonElement n : npcArray) {
                         JsonObject i = n.getAsJsonObject();
                         String type = i.get("type").getAsString().trim().toLowerCase();
-                        System.out.println("Raw item JSON: " + i.toString());
+                        //System.out.println("Raw item JSON: " + i.toString());
                         // Making diff objects based on what "type" they are using a switch statement
                         switch (type) {
                             case "npc":
@@ -104,10 +104,10 @@ public class RoomLoader {
                         }
                     }
                 }
-                System.out.println("Items loaded for room " + key + ":");
-                for (Item it : items) {
-                    System.out.println(it.getName() + " - " + it.getDescription());
-                }
+                // System.out.println("Items loaded for room " + key + ":");
+                // for (Item it : items) {
+                //     System.out.println(it.getName() + " - " + it.getDescription());
+                // }
 
                 // Making the acc room
                 rooms.put(key, new Room(key, name, description, exits, items, npc, floor, isLocked, keyID));
