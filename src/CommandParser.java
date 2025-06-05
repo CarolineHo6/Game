@@ -160,6 +160,7 @@ public class CommandParser {
                     if (directionAliases.containsKey(direction)) {
                         direction = directionAliases.get(direction);
                     }
+                    
                     // Room currentRoom = rooms.get(player.getCurrentRoomId());
                     String nextRoomId = currentRoom.getExits().get(direction);
 
