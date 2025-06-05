@@ -116,7 +116,7 @@ public class Room {
         sb.append(description).append("\n");
 
         if (!items.isEmpty()) {
-            sb.append("You see: ");
+            sb.append("Items: ");
             for (Item item : items) {
                 sb.append(item.getName()).append(", ");
                 sb.append(item.getDescription());
@@ -126,6 +126,7 @@ public class Room {
             sb.append(".\n");
         }
         if (!npc.isEmpty()) {
+            sb.append("You see: ");
             for (NPC npc : npc) {
                 sb.append(npc.getName()).append(", ");
                 sb.append(npc.getDescription());
