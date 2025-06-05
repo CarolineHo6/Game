@@ -46,7 +46,6 @@ public class CommandParser {
                     // Optional: Check that name matches target
                     if (!target.getName().equalsIgnoreCase(targetName)) {
                         AdventureGUI.printText("No one named " + targetName + " is here.");
-                        return false;
                     }
 
                     Weapon weapon = null;
@@ -58,7 +57,6 @@ public class CommandParser {
                     }
                     if (weapon == null) {
                         AdventureGUI.printText("You have no weapon to use!");
-                        return false;
                     }
 
                     AdventureGUI.printText("You swing your " + weapon.getName() + " at the " + target.getName() + "!");
@@ -142,8 +140,8 @@ public class CommandParser {
                     } else {
                         AdventureGUI.printText("Wrong answer.");
                     }
-                    return false;
                 }
+                return false;
 
             case "go":
                 if (words.length < 2) {
@@ -153,8 +151,19 @@ public class CommandParser {
                     // Room currentRoom = rooms.get(player.getCurrentRoomId());
                     String nextRoomId = currentRoom.getExits().get(direction);
 
+                    if (nextRoomId == null) {
+                        AdventureGUI.printText("You can't go that way.");
+                        return false;
+                    }
+                    
+                    Room nextRoom = rooms.get(nextRoomId);
+                    if (nextRoom == null) {
+                        AdventureGUI.printText("The next room could not be found.");
+                        return false;
+                    }
+
                     if (nextRoomId != null) {
-                        Room nextRoom = rooms.get(nextRoomId);
+                        nextRoom = rooms.get(nextRoomId);
 
                         if (nextRoom.isRiddle()) {
                             pendingRoomToUnlock = nextRoomId;
@@ -164,7 +173,6 @@ public class CommandParser {
                             // String[] rid = nextRoom.generateRiddle().split(";");
                             // AdventureGUI.printText(rid[0]);
                             AdventureGUI.printText("Respond with: solve [your answer]");
-                            return false;
 
                             // if (response.equalsIgnoreCase("yes")) {
 
@@ -203,8 +211,7 @@ public class CommandParser {
                             // }
 
                         } else if (nextRoom.getIsLocked() == true && !(nextRoom.getKeyID().equals(""))) {
-                            AdventureGUI.printText(
-                                    "The " + nextRoomId + " seems to be locked, but you could open it with a key.");
+                            AdventureGUI.printText("The " + nextRoomId + " seems to be locked, but you could open it with a key.");
 
                         } else {
                             player.setCurrentRoomId(nextRoomId);
