@@ -212,7 +212,7 @@ public class CommandParser {
                 return false;
             case "help":
                 AdventureGUI.printText(
-                        "Available commands: go [direction], look, take [item], drop [item], use [item], talk to [NPC], inventory, help, use [Item], kill [NPC], quit, read[item], open");
+                        "Available commands: go [direction], look, take [item], drop [item], use [item], talk to [NPC], inventory, help, use [Item], kill [NPC], quit, read[item], open [room] with [key]");
                 return false;
             case "quit":
                 confirmingQuit = true;
@@ -349,6 +349,13 @@ public class CommandParser {
 
                 } else {
                     String targetRoom = words[1];
+                    int iOfWith = 0;
+                    while(!words[iOfWith].equals("with")){
+                        iOfWith++;
+                    }
+                    for (int i = 2; i < iOfWith; i++){
+                        targetRoom += " " + words[i];
+                    }
                     Room roomToOpen = rooms.get(targetRoom);
                     if (roomToOpen == null) {
                         AdventureGUI.printText("There is no room called " + targetRoom + ".");
@@ -400,8 +407,8 @@ public class CommandParser {
                     // }
                     else {
                         // riddle ill fix later - daisy
-                        String keyName = words[3];
-                        for (int i = 4; i < words.length; i++){
+                        String keyName = words[iOfWith +1];
+                        for (int i = iOfWith +2; i < words.length; i++){
                             keyName += " " + words[i];
                         }
                         Key keyToUse = null;
