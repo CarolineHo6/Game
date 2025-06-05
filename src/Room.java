@@ -11,6 +11,7 @@ public class Room {
     private Map<String, String> exits; // direction → roomId
     private List<Item> items;
     private ArrayList<NPC> npc; // one npc per room
+    private String currentRoomRiddle;
     private static ArrayList<String> riddles = new ArrayList<String>(); // make riddles!!!!!!!!
     private static ArrayList<String> answer = new ArrayList<String>(); // put the answers at bottom make sure they
                                                                        // correspond w the index of the
@@ -47,10 +48,9 @@ public class Room {
 
     }
 
-    public String generateRandomRiddle() {
-        int x = (int) (Math.random() * riddles.size());
+    public String generateRiddle() {
 
-        return riddles.get(x) + " " + answer.get(x);
+        return riddles.get(0) + ";" + answer.get(0);
     }
 
     public String getId() {
@@ -89,8 +89,8 @@ public class Room {
         return isLocked;
     }
 
-    public void setIsLocked(boolean isLocked) {
-        this.isLocked = isLocked;
+    public void setIsLocked() {
+        isLocked = false;
     }
 
     public String getKeyID() {
