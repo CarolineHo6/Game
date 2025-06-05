@@ -218,6 +218,9 @@ public class CommandParser {
                     AdventureGUI.printText("Take what?");
                 } else {
                     String itemName = words[1];
+                    for (int i = 2; i < words.length; i++){
+                        itemName += " " + words[i];
+                    }
                     // Room room = rooms.get(player.getCurrentRoomId());
                     Item itemToTake = null;
                     for (Item item : currentRoom.getItems()) {
