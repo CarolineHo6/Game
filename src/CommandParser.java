@@ -134,8 +134,7 @@ public class CommandParser {
                             }
 
                         } else if (nextRoom.getIsLocked()) {
-                            AdventureGUI.printText(
-                                    "The " + nextRoomId + " seems to be locked, but you could open it with a key.");
+                            AdventureGUI.printText("The " + nextRoomId + " seems to be locked, but you could open it with a key.");
 
                         } if (!currentRoom.getNPCs().isEmpty()) {
                             NPC firstNPC = currentRoom.getNPCs().get(0);
