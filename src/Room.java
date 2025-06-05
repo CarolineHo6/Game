@@ -9,7 +9,7 @@ public class Room {
     private String name;
     private String description;
     private Map<String, String> exits; // direction → roomId
-    private static List<Item> items;
+    private List<Item> items;
     private ArrayList<NPC> npc; // one npc per room
     private static ArrayList<String> riddles = new ArrayList<String>(); // make riddles!!!!!!!!
     private static ArrayList<String> answer = new ArrayList<String>(); // put the answers at bottom make sure they
@@ -25,7 +25,7 @@ public class Room {
         this.name = name;
         this.description = description;
         this.exits = exits;
-        Room.items = items;
+        this.items = items;
         this.npc = npc;
         this.floor = floor;
         this.isLocked = isLocked;

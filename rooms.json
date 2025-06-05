@@ -14,30 +14,9 @@
         "name": "Notebook",
         "description": "Welcome to ThE SuPeR FuN ScHoOl oF BaYvIeW GlEn, where students and teachers have been turned into Monsters that you must defeat. The main objective of this game is to ESCAPE THE SCHOOL. You must explore the school, defeat bosses, and most important of all............ survive (or die, if you want). Use the keyword: help, if you want the commands :). Have Fun! ( ͡° ͜ʖ ͡°)╭∩╮",
         "type": "item"
-      },
-      {
-        "id": "sword2",
-        "name": "sword",
-        "description": "swords",
-        "type": "weapon",
-        "attack": 10,
-        "crit": 3
       }
     ],
-    "npc": [
-      {
-        "health": 100,
-        "damage": 50,
-        "dodgeRange": 2,
-        "stages": 1,
-        "name": "cindy",
-        "currentRoom": "entrance",
-        "description": "hi",
-        "talk": "bye",
-        "id": "cindy",
-        "type": "Boss"
-      }
-    ],
+    "npc": [],
     "floor": "2",
     "isLocked": false,
     "KeyID": ""
@@ -55,7 +34,8 @@
         "name": "key",
         "description": "A miniscule key. It has a burger charm.",
         "type": "key",
-        "room": "cafeteria" 
+        "room": "cafeteria",
+        "used": false
       }],
     "npc": [],
     "floor": "2",
@@ -149,7 +129,8 @@
         "name": "key",
         "description": "A miniscule key. It seems to have a flask keychain on it.",
         "type": "key",
-        "room": "scienceLab" 
+        "room": "scienceLab",
+        "used": false
       }],
     "npc": [
       {
@@ -232,7 +213,8 @@
         "name": "key",
         "description": "A miniscule key. It has a little keyboard charm.",
         "type": "key",
-        "room": "IT" 
+        "room": "IT",
+        "used": false
       }
     ],
     "npc": [
@@ -533,7 +515,8 @@
         "name": "key",
         "description": "A miniscule key. It has an addition sign on it.",
         "type": "key",
-        "room": "mathLab" 
+        "room": "mathLab",
+        "used": false
       }],
     "npc": [
       {
@@ -561,7 +544,8 @@
         "name": "key",
         "description": "A miniscule key. It has the rusted words h_ad _f sc_ool.",
         "type": "key",
-        "room": "principleOffice" 
+        "room": "principleOffice",
+        "used": false
       }],
     "npc": [
       {
@@ -618,7 +602,8 @@
         "name": "key",
         "description": "A miniscule key. Being the key of all keys, it gleams a light of glory. ",
         "type": "key",
-        "room": "exit" 
+        "room": "exit",
+        "used": false
       }],
     "npc": [
       {
