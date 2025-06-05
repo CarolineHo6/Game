@@ -55,7 +55,7 @@
     "npc": [],
     "floor": "2",
     "isLocked": true,
-    "KeyID": ""
+    "KeyID": "none"
   },
   "hallway1": {
     "id": "hallway1",
@@ -98,7 +98,7 @@
         "name": "Butterknife",
         "description": "For smearing butter on bread, among other purposes",
         "type": "weapon",
-        "attack": 1,
+        "attack": 2,
         "crit": 1
       }
     ],
@@ -147,7 +147,7 @@
     ],
     "floor": "2",
     "isLocked": true,
-    "KeyID": ""
+    "KeyID": "none"
   },
   "hallway3": {
     "id": "hallway3",
@@ -176,7 +176,7 @@
     "npc": [],
     "floor": "2",
     "isLocked": true,
-    "KeyID": ""
+    "KeyID": "none"
   },
   "gr.11 common area": {
     "id": "gr.11CommonArea",
@@ -205,8 +205,8 @@
         "name": "Play Sword",
         "description": "A flimsy metal sword used for various plays",
         "type": "weapon",
-        "attack": 1,
-        "crit": 0
+        "attack": 3,
+        "crit": 1
       },
        {
         "id": "key03",
@@ -345,7 +345,7 @@
     "npc": [],
     "floor": "1",
     "isLocked": true,
-    "KeyID": ""
+    "KeyID": "none"
   },
   "science lab": {
     "id": "scienceLab",
@@ -395,7 +395,15 @@
     "exits": {
       "west": "1F hallway2"
     },
-    "items": [],
+    "items": [{
+       "id": "key08",
+        "name": "key - baseball",
+        "description": "The key looks old and the charm is distorted, but you could faintly make out the shape of a baseball bat and baseball.",
+        "type": "key",
+        "room": "compsciRoom",
+        "used": false
+    }
+    ],
     "npc": [
       {
         "name": "Sophia",
@@ -562,8 +570,8 @@
       }
     ],
     "floor": "3",
-    "isLocked": false,
-    "KeyID": ""
+    "isLocked": true,
+    "KeyID": "key08"
   },
   "math lab": {
     "id": "mathLab",

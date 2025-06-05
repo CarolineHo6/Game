@@ -34,7 +34,7 @@ public class Room {
     }
 
     public boolean isRiddle() { // checks if a room is suppose to have a riddle or not
-        if (isLocked && keyID == null) {
+        if (keyID == "none" && isLocked) {
             return true;
         }
 
