@@ -37,4 +37,24 @@ public class NPC {
         return name;
     }
 
+    public boolean ifDodge() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'ifDodge'");
+    }
+
+    public int getHealth() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getHealth'");
+    }
+
+    public int getDamage() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getDamage'");
+    }
+
+    public void setHealth(int i) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'setHealth'");
+    }
+
 }

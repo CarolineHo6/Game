@@ -16,8 +16,8 @@ public class Player {
         this.attack = 2; // 2 attack
     }
 
-    public void stats() {
-        System.out.println("Health: " + health + "Attack: " + attack);
+    public String stats() {
+        return "Health: " + health + "Attack: " + attack;
     }
 
     public String getCurrentRoomId() {
