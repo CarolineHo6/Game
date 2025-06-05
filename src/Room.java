@@ -116,31 +116,25 @@ public class Room {
         sb.append(description).append("\n");
 
         if (!items.isEmpty()) {
-            sb.append("Items: ");
+            sb.append("Items:\n");
             for (Item item : items) {
-                sb.append(item.getName()).append(", ");
-                sb.append(item.getDescription());
+                sb.append("- ").append(item.getName()).append(": ").append(item.getDescription()).append("\n");
                 System.out.println("item name and description");
             }
-            sb.setLength(sb.length() - 2);
-            sb.append(".\n");
         }
         if (!npc.isEmpty()) {
-            sb.append("You see: ");
-            for (NPC npc : npc) {
-                sb.append(npc.getName()).append(", ");
-                sb.append(npc.getDescription());
+            sb.append("You see:\n");
+            for (NPC n : npc) {
+                sb.append("- ").append(n.getName()).append(": ").append(n.getDescription()).append("\n");
                 System.out.println("npc name and description");
             }
-            // Remove trailing comma and space
-            sb.setLength(sb.length() - 2);
-            sb.append(".\n");
         }
         if (!exits.isEmpty()) {
             sb.append("Exits: ");
             for (String direction : exits.keySet()) {
                 sb.append(direction).append(", ");
             }
+            // Remove trailing comma and space
             sb.setLength(sb.length() - 2);
             sb.append(".\n");
         }
