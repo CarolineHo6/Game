@@ -7,6 +7,7 @@ public class MiniBoss extends NPC {
     private int damage;
     private String name;
     private int dodgeRange;
+    private String type;
 
     public MiniBoss(int h, int d, int dr, String name, String currentRoom, String description, String talk,
             String id, String type) {
@@ -15,6 +16,7 @@ public class MiniBoss extends NPC {
         damage = d;
         this.name = name;
         dodgeRange = dr;
+        this.type = type;
     }
 
     public int getHealth() {
@@ -52,6 +54,10 @@ public class MiniBoss extends NPC {
             return false;
         }
 
+    }
+
+    public String getType() {
+        return type;
     }
 
 }
