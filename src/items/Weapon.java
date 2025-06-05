@@ -1,7 +1,5 @@
 package items;
 
-import java.util.*;
-
 public class Weapon extends Item {
     private int attack;
     private int crit;

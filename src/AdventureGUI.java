@@ -1,7 +1,5 @@
 import javax.swing.*;
-import humans.*;
 import java.awt.*;
-import items.*;
 
 public class AdventureGUI {
     private JFrame frame;

@@ -1,7 +1,5 @@
 package items;
 
-import java.util.*;
-
 public class Item {
     private String id;
     private String name;

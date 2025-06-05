@@ -1,7 +1,5 @@
 package humans;
 
-import java.util.*;
-
 public class MiniBoss extends NPC {
     private int health;
     private int damage;

@@ -36,7 +36,6 @@ public class CommandParser {
                 } else if (currentRoom.getNPCs().size() == 0) {
                     AdventureGUI.printText("You can't attack air. ");
                 } else {
-                    String attack = words[1];
                     AdventureGUI.printText("Player Stats: " + player.stats());
                     NPC monster = currentRoom.getNPCs().get(0);
                     AdventureGUI.printText("Monster Stats: " + monster.stats());
@@ -219,7 +218,6 @@ public class CommandParser {
                             // } else {
                             // AdventureGUI.printText(
                             // "You have chosen not to solve the riddle. Can't solve it? Try reading more");
-                            // // TODO more??
                             // return false;
                             // }
 
@@ -234,8 +232,6 @@ public class CommandParser {
                             AdventureGUI.printText(currentRoom.getLongDescription());
                         }
 
-                    } else {
-                        AdventureGUI.printText("You can't go that way.");
                     }
                 }
                 return false;
