@@ -44,10 +44,13 @@ public class MiniBoss extends NPC {
     // dodges attack if two numbers equal
     public boolean ifDodge() {
 
-        int x = (int) (Math.random() * dodgeRange);
-        int y = (int) (Math.random() * dodgeRange);
+        int x = (int) (Math.random() * 100);
 
-        return x == y;
+        if (x <= dodgeRange) {
+            return true;
+        } else {
+            return false;
+        }
 
     }
 

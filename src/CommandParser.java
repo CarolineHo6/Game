@@ -88,7 +88,12 @@ public class CommandParser {
             case "kill":
                 if (words.length < 2) {
                     AdventureGUI.printText("who?");
-                } else {
+                } else if (currentRoom.getNPCs().size() == 0) {
+                    AdventureGUI.printText("You can't attack air. ");
+
+                }
+
+                else {
                     String attack = words[1];
                     AdventureGUI.printText("Player Stats: " + player.stats());
                     NPC monster = currentRoom.getNPCs().get(0);
@@ -262,7 +267,7 @@ public class CommandParser {
                 return false;
             case "help":
                 AdventureGUI.printText(
-                        "Available commands: go [direction], look, take [item], drop [item], use [item], talk to [NPC], inventory, help");
+                        "Available commands: go [direction], look, take [item], drop [item], use [item], talk to [NPC], inventory, help, use [Item], kill [NPC], quit, read[item], open");
                 return false;
             case "quit":
                 // TODO make a confirmation and add a scanner
