@@ -244,7 +244,7 @@
     },
     "items": [
       {
-        "id": "first aid kit",
+        "id": "firstAidKit",
         "name": "First Aid Kit",
         "description": "There are bandages, cotton swabs, antiseptic, and alcohol wipes inside.",
         "type": "potion",
