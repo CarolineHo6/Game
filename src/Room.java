@@ -119,14 +119,12 @@ public class Room {
             sb.append("Items:\n");
             for (Item item : items) {
                 sb.append("- ").append(item.getName()).append(": ").append(item.getDescription()).append("\n");
-                System.out.println("item name and description");
             }
         }
         if (!npc.isEmpty()) {
             sb.append("You see:\n");
             for (NPC n : npc) {
                 sb.append("- ").append(n.getName()).append(": ").append(n.getDescription()).append("\n");
-                System.out.println("npc name and description");
             }
         }
         if (!exits.isEmpty()) {

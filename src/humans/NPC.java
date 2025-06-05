@@ -62,4 +62,8 @@ public class NPC {
         throw new UnsupportedOperationException("Unimplemented method 'stats'");
     }
 
+    public String getType() {
+        return type;
+    }
+
 }
