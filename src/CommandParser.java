@@ -91,10 +91,9 @@ public class CommandParser {
                 } else {
                     String attack = words[1];
                     AdventureGUI.printText(player.stats());
-
                     NPC monster = currentRoom.getNPCs().get(0);
                     AdventureGUI.printText("Please select your weapon");
-                    System.out.print("Inventory: ");
+                    AdventureGUI.printText("Inventory: ");
                     ArrayList<Item> pop = player.getInventory();
                     AdventureGUI.printText("fist, ");
                     for (int i = 0; i < pop.size(); i++) {
