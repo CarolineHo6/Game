@@ -217,7 +217,8 @@
         "currentRoom": "drama room",
         "description": "A jolly man that has a booming voice. Do not be decived by his looks for he is fearsome with his writing and dramatic acts",
         "talk": "DID YOU INDENT YOUR PARAGRAPHS? HAHAHAHAHA",
-        "id": "teacher7"
+        "id": "teacher7",
+        "type": "MiniBoss"
       }
     ],
     "floor": "2",
