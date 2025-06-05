@@ -95,7 +95,7 @@ public class CommandParser {
                     AdventureGUI.printText("Please select your weapon");
                     AdventureGUI.printText("Inventory: ");
                     ArrayList<Item> pop = player.getInventory();
-                    AdventureGUI.printText("fist, ");
+                    AdventureGUI.printText("fist");
                     for (int i = 0; i < pop.size(); i++) {
                         if (pop.get(i).isWeapon() == true) {
                             AdventureGUI.printText(pop.get(i).getName() + " - " + pop.get(i).getAttack());
