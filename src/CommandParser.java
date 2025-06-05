@@ -263,6 +263,9 @@ public class CommandParser {
                     AdventureGUI.printText("use what?");
                 } else {
                     String itemName = words[1];
+                    for (int i = 2; i < words.length; i++) {
+                        itemName += " " + words[i];
+                    }
                     Item itemToUse = null;
                     // Potions potionToUse = null;
                     for (Item item : player.getInventory()) {
