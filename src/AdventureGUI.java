@@ -49,9 +49,6 @@ public class AdventureGUI {
 
         frame.setVisible(true);
         printText(game.getCurrentRoom().getLongDescription());
-        for (NPC i : game.getCurrentRoom().getNPCs()) {
-            printText(i.getDescription());
-        }
         updateRoomDisplay(false);
     }
 

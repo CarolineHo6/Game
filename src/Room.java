@@ -119,15 +119,22 @@ public class Room {
             sb.append("You see: ");
             for (Item item : items) {
                 sb.append(item.getName()).append(", ");
+                sb.append(item.getDescription());
+                System.out.println("item name and description");
             }
+            sb.setLength(sb.length() - 2);
+            sb.append(".\n");
+        }
+        if (!npc.isEmpty()) {
             for (NPC npc : npc) {
                 sb.append(npc.getName()).append(", ");
+                sb.append(npc.getDescription());
+                System.out.println("npc name and description");
             }
             // Remove trailing comma and space
             sb.setLength(sb.length() - 2);
             sb.append(".\n");
         }
-
         if (!exits.isEmpty()) {
             sb.append("Exits: ");
             for (String direction : exits.keySet()) {

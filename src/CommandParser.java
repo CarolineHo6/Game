@@ -145,7 +145,6 @@ public class CommandParser {
 
                     if (nextRoomId != null) {
                         Room nextRoom = rooms.get(nextRoomId);
-                        System.out.println("hello");
 
                         if (nextRoom.isRiddle()) {
                             AdventureGUI.printText("This room has a riddle that you must solve to enter");
@@ -225,8 +224,6 @@ public class CommandParser {
                     AdventureGUI.printText("Take what?");
                 } else {
                     String itemName = words[1];
-
-                    System.out.println(itemName);
                     // Room room = rooms.get(player.getCurrentRoomId());
                     Item itemToTake = null;
                     for (Item item : currentRoom.getItems()) {
