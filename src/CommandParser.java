@@ -157,29 +157,28 @@ public class CommandParser {
 
                                 AdventureGUI.printText(riddle[0]);
 
-                                while (true) {
-                                    AdventureGUI.printText("Please respond with the right answer");
-                                    AdventureGUI.printText("> ");
+                                AdventureGUI.printText("Please respond with the right answer");
+                                AdventureGUI.printText("> ");
 
-                                    String res = gui.getInput(); // response
+                                String res = gui.getInput(); // response
 
-                                    if (res.equals(riddle[1])) {
-                                        AdventureGUI.printText("congradulations, you may enter the room now");
-                                        currentRoom.removeRiddle(riddle[0]);
-                                        break;
-                                    } else {
+                                if (res.equals(riddle[1])) {
+                                    AdventureGUI.printText("congradulations, you may enter the room now");
+                                    currentRoom.removeRiddle(riddle[0]);
 
-                                        AdventureGUI.printText("Wrong");
-                                        AdventureGUI.printText(riddle[0]);
-                                        AdventureGUI.printText("Would you like to try again? please input");
-                                        res = gui.getInput();
-                                        if (res.equalsIgnoreCase("yes")) {
-                                            return true;
-                                        } else if (res.equalsIgnoreCase("no")) {
-                                            return false;
-                                        }
+                                } else {
+
+                                    AdventureGUI.printText("Wrong");
+                                    AdventureGUI.printText(riddle[0]);
+                                    AdventureGUI.printText("Would you like to try again? please input");
+                                    res = gui.getInput();
+                                    if (res.equalsIgnoreCase("yes")) {
+                                        return false;
+                                    } else if (res.equalsIgnoreCase("no")) {
+                                        return false;
                                     }
                                 }
+
                                 return false;
                             } else {
                                 AdventureGUI.printText(
