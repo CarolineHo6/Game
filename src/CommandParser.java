@@ -4,6 +4,8 @@ import items.*;
 
 public class CommandParser {
 
+    public static boolean confirmingQuit = false;
+
     public static boolean parse(AdventureGUI gui, String input, Player player, Map<String, Room> rooms) {
         String[] words = input.trim().toLowerCase().split("\\s+");
         if (words.length == 0) {
@@ -13,76 +15,18 @@ public class CommandParser {
 
         String command = words[0];
         Room currentRoom = rooms.get(player.getCurrentRoomId());
-        // // TODO fix attack - Daisy I swear the logic works i just need to put it in
-        // the
-        // // case
 
-        // // assume only 1 npc per room?
-        // NPC monster = currentRoom.getNPCs().get(0);
-
-        // if (monster != null && monster.getIsHostility() == true) {
-
-        // AdventureGUI.printText("A monster has appeared");
-
-        // AdventureGUI.printText("Would you like to fight the monster?");
-
-        // AdventureGUI.printText("Fight or Flee");
-
-        // AdventureGUI.printText("> ");
-        // String decision = gui.getInput();
-
-        // if (decision.equals("Fight") || decision.equals("fight")) {
-
-        // while (true) {
-        // monster.stats();
-        // player.stats();
-        // AdventureGUI.printText("Please select your weapon");
-        // System.out.print("Inventory: ");
-        // ArrayList<Item> pop = player.getInventory();
-        // AdventureGUI.printText("fist, ");
-        // for (int i = 0; i < pop.size(); i++) {
-        // if (pop.get(i).isWeapon() == true) {
-        // AdventureGUI.printText(pop.get(i).getName() + " - " +
-        // pop.get(i).getAttack());
-        // }
-        // }
-
-        // AdventureGUI.printText("> ");
-        // String selection = gui.getInput();
-
-        // int index = pop.indexOf(selection);
-        // Item w = pop.get(index);
-
-        // if (monster.ifDodge()) {
-        // AdventureGUI.printText("The monster has dodge your attack");
-        // } else {
-
-        // if (monster.getHealth() <= w.getAttack()) {
-        // AdventureGUI.printText("You have defeated the monster");
-        // return false;
-        // } else {
-
-        // monster.setHealth(monster.getHealth() - monster.getDamage());
-
-        // }
-
-        // }
-
-        // AdventureGUI.printText("The monster is going to attack you");
-
-        // if (player.getHealth() <= monster.getDamage()) {
-        // AdventureGUI.printText("You have been defeated by the monster. Game over.");
-        // return true;
-        // } else {
-        // player.setHealth(player.getHealth() - monster.getDamage());
-        // }
-
-        // }
-        // }
-        // AdventureGUI.printText("you have ran away");
-        // return true;
-
-        // }
+        if (confirmingQuit) {
+            confirmingQuit = false;
+            if (command.equalsIgnoreCase("yes")) {
+                AdventureGUI.printText("BYE!!");
+                AdventureGUI.inputField.setEditable(false);
+                return true;
+            } else {
+                AdventureGUI.printText("Quit cancelled. Continuing game.... i knew u werent a quitter...");
+                return false;
+            }
+        }
 
         switch (command) {
             case "kill":
@@ -101,6 +45,7 @@ public class CommandParser {
                     AdventureGUI.printText("Please select your weapon");
                 }
 
+                // an run away function that didnt work
                 // AdventureGUI.printText("> ");
                 // String selection = AdventureGUI.getInput();
 
@@ -270,19 +215,9 @@ public class CommandParser {
                         "Available commands: go [direction], look, take [item], drop [item], use [item], talk to [NPC], inventory, help, use [Item], kill [NPC], quit, read[item], open");
                 return false;
             case "quit":
-                // TODO make a confirmation and add a scanner
-
-                AdventureGUI.printText("Are you sure?");
-                AdventureGUI.printText("Please return yes or no");
-                AdventureGUI.printText("> ");
-                String in = gui.getInput();
-
-                if (in.equalsIgnoreCase("yes")) {
-                    AdventureGUI.printText("BYE!");
-                    return true;
-                }
-                // do something?
-                return false;
+                confirmingQuit = true;
+                AdventureGUI.printText("Are you sure you want to quit? Type 'yes' to confirm");
+                return true;
             case "talk":
                 if (words.length < 3) {
                     AdventureGUI.printText("talk to who?");
