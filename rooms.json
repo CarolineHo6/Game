@@ -245,15 +245,7 @@
         "description": "A jolly man that has a booming voice. Do not be decived by his looks for he is fearsome with his writing and dramatic acts",
         "talk": "DID YOU INDENT YOUR PARAGRAPHS? HAHAHAHAHA",
         "id": "teacher7",
-<<<<<<< HEAD
-        "type": "Miniboss"
-=======
-<<<<<<< HEAD
-        "type": "MiniBoss" 
-=======
         "type": "MiniBoss"
->>>>>>> 924d44d2444c72c72d7dd52759ee1648bfc3aadb
->>>>>>> 8b2f36091694182f0f8a4a303e98d4576b0742e9
       }
     ],
     "floor": "2",
