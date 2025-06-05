@@ -22,7 +22,7 @@ public class MiniBoss extends NPC {
     }
 
     public String stats() {
-        return "Name: " + name + "Health: " + health + " Damage: " + damage;
+        return "Name: " + name + " Health: " + health + " Damage: " + damage;
     }
 
     public void setHealth(int m) {

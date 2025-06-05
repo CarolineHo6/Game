@@ -57,4 +57,9 @@ public class NPC {
         throw new UnsupportedOperationException("Unimplemented method 'setHealth'");
     }
 
+    public String stats() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'stats'");
+    }
+
 }

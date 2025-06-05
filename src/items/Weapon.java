@@ -21,17 +21,16 @@ public class Weapon extends Item {
 
     // Critical attack added to attack
     public int getAttack() {
-        if (Math.random() < 0.05)
-        {
+        if (Math.random() < 0.05) {
             isCrit = true;
         }
 
-        if (isCrit)
-            return attack + crit;
+        // if (isCrit)
+        // return attack + crit;
 
         // if (Math.random() < broken) {
-        //     isBroken = true;
-        //     attack = 0;
+        // isBroken = true;
+        // attack = 0;
         // }
 
         return attack;

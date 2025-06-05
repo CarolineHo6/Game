@@ -90,50 +90,44 @@ public class CommandParser {
                     AdventureGUI.printText("who?");
                 } else {
                     String attack = words[1];
-                    AdventureGUI.printText(player.stats());
+                    AdventureGUI.printText("Player Stats: " + player.stats());
                     NPC monster = currentRoom.getNPCs().get(0);
+                    AdventureGUI.printText("Monster Stats: " + monster.stats());
                     AdventureGUI.printText("Please select your weapon");
-                    AdventureGUI.printText("Inventory: ");
-                    ArrayList<Item> pop = player.getInventory();
-                    AdventureGUI.printText("fist");
-                    for (int i = 0; i < pop.size(); i++) {
-                        if (pop.get(i).isWeapon() == true) {
-                            AdventureGUI.printText(pop.get(i).getName() + " - " + pop.get(i).getAttack());
-                        }
-                    }
-
-                    AdventureGUI.printText("> ");
-                    String selection = gui.getInput();
-
-                    int index = pop.indexOf(selection);
-                    Item w = pop.get(index);
-
-                    if (monster.ifDodge()) {
-                        AdventureGUI.printText("The monster has dodge your attack");
-                    } else {
-
-                        if (monster.getHealth() <= w.getAttack()) {
-                            AdventureGUI.printText("You have defeated the monster");
-                            return false;
-                        } else {
-
-                            monster.setHealth(monster.getHealth() - monster.getDamage());
-
-                        }
-
-                        AdventureGUI.printText("The monster is going to attack you");
-
-                        if (player.getHealth() <= monster.getDamage()) {
-                            AdventureGUI.printText("You have been defeated by the monster. Game over.");
-                            return true;
-                        } else {
-                            player.setHealth(player.getHealth() - monster.getDamage());
-                        }
-
-                    }
                 }
-                AdventureGUI.printText("you have ran away");
-                return true;
+
+                // AdventureGUI.printText("> ");
+                // String selection = AdventureGUI.getInput();
+
+                // int index = pop.indexOf(selection);
+                // Item w = pop.get(index);
+
+                // if (monster.ifDodge()) {
+                // AdventureGUI.printText("The monster has dodge your attack");
+                // } else {
+
+                // if (monster.getHealth() <= w.getAttack()) {
+                // AdventureGUI.printText("You have defeated the monster");
+                // return false;
+                // } else {
+
+                // monster.setHealth(monster.getHealth() - monster.getDamage());
+
+                // }
+
+                // AdventureGUI.printText("The monster is going to attack you");
+
+                // if (player.getHealth() <= monster.getDamage()) {
+                // AdventureGUI.printText("You have been defeated by the monster. Game over.");
+                // return true;
+                // } else {
+                // player.setHealth(player.getHealth() - monster.getDamage());
+                // }
+
+                // }
+                // }
+                // AdventureGUI.printText("you have ran away");
+                // return true;
 
             case "go":
                 if (words.length < 2) {
@@ -306,21 +300,61 @@ public class CommandParser {
                 } else {
                     String itemName = words[1];
                     Item itemToUse = null;
-                    Potions potionToUse = null;
+                    // Potions potionToUse = null;
                     for (Item item : player.getInventory()) {
-                        if (item.getName().equalsIgnoreCase(itemName) && item instanceof Potions) {
+                        if (item.getName().equalsIgnoreCase(itemName)) {
                             itemToUse = item;
                             break;
                         }
                     }
 
                     if (itemToUse != null) {
-                        int addHeart = itemToUse.getAddHeart();
-                        if (addHeart != 0) {
-                            player.setHealth(player.getHealth() + addHeart);
-                            AdventureGUI.printText("Your health increased by " + addHeart);
-                        } else {
-                            AdventureGUI.printText("You can't use that item");
+                        if (itemToUse instanceof Potions) {
+                            int addHeart = itemToUse.getAddHeart();
+                            if (addHeart != 0) {
+                                player.setHealth(player.getHealth() + addHeart);
+                                AdventureGUI.printText("Your health increased by " + addHeart);
+                            } else {
+                                AdventureGUI.printText("You can't use that item");
+                            }
+                        } else if (itemToUse instanceof Weapon) {
+
+                            Item w = itemToUse;
+
+                            NPC monster = currentRoom.getNPCs().get(0);
+
+                            AdventureGUI.printText("You are using a weapon with an attack of " + player.getAttack());
+                            if (monster.ifDodge()) {
+                                AdventureGUI.printText("The monster has dodged your attack");
+                            } else {
+
+                                if (monster.getHealth() <= w.getAttack()) {
+                                    AdventureGUI.printText("You have defeated the monster");
+                                    return false;
+                                } else {
+
+                                    monster.setHealth(monster.getHealth() - monster.getDamage());
+                                    AdventureGUI.printText("Monster stats: " + monster.stats());
+
+                                }
+
+                            }
+
+                            AdventureGUI.printText("The monster is going to attack you");
+                            AdventureGUI.printText(
+                                    "The monster has used an attack with a damage of " + monster.getDamage());
+
+                            if (player.getHealth() <= monster.getDamage()) {
+                                AdventureGUI.printText("You have been defeated by the monster. Game over.");
+                                return true;
+                            } else {
+                                player.setHealth(player.getHealth() - monster.getDamage());
+
+                                AdventureGUI.printText("Player Stats: " + player.stats());
+                            }
+
+                            return false;
+
                         }
                     } else {
                         AdventureGUI.printText("You don't have that item");

@@ -52,7 +52,7 @@ public class AdventureGUI {
         updateRoomDisplay(false);
     }
 
-    public String getInput() {
+    public static String getInput() {
         String input = inputField.getText().trim();
         inputField.setText("");
         return input;
@@ -83,7 +83,7 @@ public class AdventureGUI {
             printText("UR DED. L");
             inputField.setEditable(false);
             return;
-        } else if (death == true && game.getPlayer().getHealth() > 0){
+        } else if (death == true && game.getPlayer().getHealth() > 0) {
             return;
         }
     }

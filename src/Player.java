@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import items.Item;
+import items.Weapon;
 
 public class Player {
     private String currentRoomId;
@@ -14,10 +15,11 @@ public class Player {
         this.inventory = new ArrayList<>();
         this.health = 100; // hearts
         this.attack = 2; // 2 attack
+        inventory.add(new Weapon(startingRoomId, "fist", "you own fists", "weapon", attack, 0));
     }
 
     public String stats() {
-        return "Health: " + health + "Attack: " + attack;
+        return "Health: " + health + " Attack: " + attack;
     }
 
     public String getCurrentRoomId() {
