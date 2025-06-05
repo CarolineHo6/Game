@@ -230,7 +230,7 @@ public class CommandParser {
                 return false;
             case "help":
                 AdventureGUI.printText(
-                        "Available commands: go [direction], look, take [item], drop [item], use [item], talk to [NPC], inventory, help, use [Item], kill [NPC], quit, read[item], open");
+                        "Available commands: go [direction], look, take [item], drop [item], use [item], talk to [NPC], inventory, help, kill [NPC], quit, read[item], open[room] + with[key]");
                 return false;
             case "quit":
                 confirmingQuit = true;
