@@ -156,8 +156,8 @@
     "exits": {
       "north": "library",
       "south": "gr.11 Common Area",
-      "east": "music room",
-      "west": "drama room"
+      "east": "musicRoom",
+      "west": "dramaRoom"
     },
     "items": [],
     "npc": [],
@@ -165,7 +165,7 @@
     "isLocked": false,
     "keyID": ""
   },
-  "music room": {
+  "musicRoom": {
     "id": "musicRoom",
     "name": "Music Room",
     "description": "There are rows of plastic chairs and music stands. Piles of messy sheet music are stacked on a table to the side. A tuba seems to have angered someone, and is laying destroyed in the corner.",
@@ -178,7 +178,7 @@
     "isLocked": true,
     "keyID": ""
   },
-  "gr.11 common area": {
+  "gr.11CommonArea": {
     "id": "gr.11CommonArea",
     "name": "Gr.11 Common Area",
     "description": "Sofas are arranged against the walls, and there seems to be a back door that was boarded up some time ago. There is a suspicious stain on the ground.",
@@ -191,7 +191,7 @@
     "isLocked": false,
     "keyID": ""
   },
-  "drama room": {
+  "dramaRoom": {
     "id": "dramaRoom",
     "name": "Drama Room",
     "description": "There are overturned tables, chairs, and racks of costumes. Looks like the theater kids just had their production of The Three Musketeers in here.",
@@ -240,7 +240,7 @@
     "description": "Lockers line both walls, one of them seems to be unlocked. There are doors leading both to the north and the south.",
     "exits": {
       "north": "theatre",
-      "south": "drama room"
+      "south": "dramaRoom"
     },
     "items": [
       {
@@ -263,7 +263,7 @@
     "isLocked": false,
     "keyID": ""
   },
-  "1F hallway1": {
+  "1FHallway1": {
     "id": "1FHallway1",
     "name": "1F Hallway 1",
     "description": "The lower level is musty and dank. A staircase leads up, and the dark hallway continues to the east. There are two double doors to the south and west.",
@@ -331,7 +331,7 @@
     "isLocked": true,
     "keyID": "key03"
   },
-  "1F hallway2": {
+  "1FHallway2": {
     "id": "1FHallway2",
     "name": "1F Hallway 2",
     "description": "The hallway continues west. There are doors to the north and south, and an area to the east.",
@@ -347,7 +347,7 @@
     "isLocked": true,
     "keyID": ""
   },
-  "science lab": {
+  "scienceLab": {
     "id": "scienceLab",
     "name": "Science Labratory",
     "description": "You take one look at the flask on the table. So that's where the smell's coming from.",
@@ -388,7 +388,7 @@
     "isLocked": true,
     "keyID": "key01"
   },
-  "gr.12 common area": {
+  "Gr12CommonArea": {
     "id": "Gr12CommonArea",
     "name": "Gr.12 Common Area",
     "description": "There are chairs and tables scattered around the space.",
@@ -451,7 +451,7 @@
     "isLocked": false,
     "keyID": ""
   },
-  "1F staircase": {
+  "1FStaircase": {
     "id": "1FStaircase",
     "name": "1F Staircase",
     "description": "The stairwell is dark without any natural light. A ray of sunlight streams in from above where the stairs continue upwards. A door leads to the lower level to the south.",
@@ -465,7 +465,7 @@
     "isLocked": false,
     "keyID": ""
   },
-  "3F staircase": {
+  "3FStaircase": {
     "id": "3FStaircase",
     "name": "3F Staircase",
     "description": "You are at the top. There's a door that leads to the rest of the 3rd floor, and the staircase winds down.",
@@ -479,7 +479,7 @@
     "isLocked": false,
     "keyID": ""
   },
-  "3F hallway1": {
+  "3FHallway1": {
     "id": "3FHallway1",
     "name": "3F Hallway 1",
     "description": "The hallway continues east, with 2 rooms to the south and west. The staircase is at the north.",
@@ -495,7 +495,7 @@
     "isLocked": false,
     "keyID": ""
   },
-  "3F hallway2": {
+  "3FHallway2": {
     "id": "3FHallway2",
     "name": "3F Hallway 2",
     "description": "The hallway continues west, with rooms in all three other directions.",
@@ -511,7 +511,7 @@
     "isLocked": false,
     "keyID": ""
   },
-  "gr.9 common area": {
+  "Gr9CommonArea": {
     "id": "Gr9CommonArea",
     "name": "gr.9 Common Area",
     "description": "Couches line the walls of the small space. Snacks and garbage cover eavery inch of the carpeted floor.",
@@ -540,7 +540,7 @@
     "isLocked": false,
     "keyID": ""
   },
-  "compsci room": {
+  "compsciRoom": {
     "id": "compsciRoom",
     "name": "Computer Science Classroom",
     "description": "It's just a regular classroom, except on the board there is a lesson on Arraylists. A man sits at the table in front of the board, typing menacingly.",
@@ -573,7 +573,7 @@
     "isLocked": false,
     "keyID": ""
   },
-  "math lab": {
+  "mathLab": {
     "id": "mathLab",
     "name": "Math Lab",
     "description": "Red marks cover the glass walls along with the various math equations, but otherwise everything is surprisingly well kept. A man stands behind a desk.",
@@ -598,7 +598,7 @@
     "isLocked": true,
     "keyID": "key05"
   },
-  "principle's office": {
+  "principleOffice": {
     "id": "principleOffice",
     "name": "Principle's Office",
     "description": "It's dark and scary in here.",
@@ -627,7 +627,7 @@
     "isLocked": true,
     "keyID": "key09"
   },
-  "gr.10 common area": {
+  "Gr10CommonArea": {
     "id": "Gr10CommonArea",
     "name": "Gr.10 Common Area",
     "description": "Couches are arranged around a small Christmas tree in the middle. It looks sad.",
@@ -649,7 +649,7 @@
     "isLocked": false,
     "keyID": ""
   },
-  "exit": {
+  "Exit": {
     "name": "Exit",
     "description": "You pull open the heavy metal door, and with a rush of air and light, you step into freedom—it's over. (づoωo)づᕦ(ᵔoᵔᕦ)",
     "exits": {},
