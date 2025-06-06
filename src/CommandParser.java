@@ -180,50 +180,20 @@ public class CommandParser {
                             String riddleQ = nextRoom.generateRiddle();
                             AdventureGUI.printText("This room has a riddle you must solve to enter:");
                             AdventureGUI.printText(riddleQ);
-                            // String[] rid = nextRoom.generateRiddle().split(";");
-                            // AdventureGUI.printText(rid[0]);
                             AdventureGUI.printText("Respond with: solve [your answer]");
-
-                            // if (response.equalsIgnoreCase("yes")) {
-
-                            // String[] riddle = currentRoom.generateRandomRiddle().split(" ");
-
-                            // AdventureGUI.printText(riddle[0]);
-
-                            // AdventureGUI.printText("Please respond with the right answer");
-                            // AdventureGUI.printText("> ");
-
-                            // String res = gui.getInput(); // response
-
-                            // if (res.equals(riddle[1])) {
-                            // AdventureGUI.printText("congradulations, you may enter the room now");
-                            // currentRoom.removeRiddle(riddle[0]);
-
-                            // } else {
-
-                            // AdventureGUI.printText("Wrong");
-                            // AdventureGUI.printText(riddle[0]);
-                            // AdventureGUI.printText("Would you like to try again? please input");
-                            // res = gui.getInput();
-                            // if (res.equalsIgnoreCase("yes")) {
-                            // return false;
-                            // } else if (res.equalsIgnoreCase("no")) {
-                            // return false;
-                            // }
-                            // }
-
-                            // return false;
-                            // } else {
-                            // AdventureGUI.printText(
-                            // "You have chosen not to solve the riddle. Can't solve it? Try reading more");
-                            // return false;
-                            // }
 
                         } else if (nextRoom.getIsLocked() == true && !(nextRoom.getKeyID().equals(""))) {
                             AdventureGUI.printText(
                                     "The " + nextRoomId + " seems to be locked, but you could open it with a key.");
 
-                        } else {
+                        } else if (!currentRoom.getNPCs().isEmpty()) {
+                            NPC monster = currentRoom.getNPCs().get(0);
+                            if (monster.getHealth() > 0 && (monster.getType().equalsIgnoreCase("boss") || monster.getType().equalsIgnoreCase("miniboss"))) {
+                                AdventureGUI.printText("You shall not pass ~ Gandalf \nYou must defeat the " + monster.getType() + " " + monster.getName());
+                            }
+                        }
+                        
+                        else {
                             player.setCurrentRoomId(nextRoomId);
                             AdventureGUI.printText("You move " + direction + ".");
                             currentRoom = rooms.get(player.getCurrentRoomId());
