@@ -263,8 +263,8 @@
     "isLocked": false,
     "keyID": ""
   },
-  "1F Hallway1": {
-    "id": "1F Hallway1",
+  "1FHallway1": {
+    "id": "1FHallway1",
     "name": "1F Hallway 1",
     "description": "The lower level is musty and dank. A staircase leads up, and the dark hallway continues to the east. There are two double doors to the south and west.",
     "exits": {
@@ -288,7 +288,7 @@
     },
     "items": [
       {
-        "id": "tennis racket",
+        "id": "tennisracket",
         "name": "Tennis Racket",
         "description": "You have any tennis balls to hit?",
         "type": "weapon",
@@ -457,7 +457,7 @@
     "description": "The stairwell is dark without any natural light. A ray of sunlight streams in from above where the stairs continue upwards. A door leads to the lower level to the south.",
     "exits": {
       "south": "1F hallway1",
-      "up": "2F staircase"
+      "up": "2Fstaircase"
     },
     "items": [],
     "npc": [],
@@ -470,7 +470,7 @@
     "name": "3F Staircase",
     "description": "You are at the top. There's a door that leads to the rest of the 3rd floor, and the staircase winds down.",
     "exits": {
-      "down": "2F staircase",
+      "down": "2Fstaircase",
       "south": "3F hallway1"
     },
     "items": [],

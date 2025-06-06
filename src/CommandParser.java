@@ -149,6 +149,8 @@ public class CommandParser {
                     String direction = words[1].toLowerCase();
 
                     Map<String, String> directionAliases = new HashMap<>();
+                    directionAliases.put("Up", "up");
+                    directionAliases.put("Down", "down");
                     directionAliases.put("left", "west");
                     directionAliases.put("right", "east");
                     directionAliases.put("forward", "south");
@@ -157,9 +159,12 @@ public class CommandParser {
                     if (directionAliases.containsKey(direction)) {
                         direction = directionAliases.get(direction);
                     }
-                    
+
                     // Room currentRoom = rooms.get(player.getCurrentRoomId());
                     String nextRoomId = currentRoom.getExits().get(direction);
+                    // debugging stuff
+                    System.out.println("DEBUG: Direction = " + direction);
+                    System.out.println("DEBUG: Exits available = " + currentRoom.getExits().keySet());
 
                     if (nextRoomId == null) {
                         AdventureGUI.printText("You can't go that way.");
@@ -188,11 +193,18 @@ public class CommandParser {
 
                         } else if (!currentRoom.getNPCs().isEmpty()) {
                             NPC monster = currentRoom.getNPCs().get(0);
-                            if (monster.getHealth() > 0 && (monster.getType().equalsIgnoreCase("boss") || monster.getType().equalsIgnoreCase("miniboss"))) {
-                                AdventureGUI.printText("You shall not pass ~ Gandalf \nYou must defeat the " + monster.getType() + " " + monster.getName());
+                            if (monster.getHealth() > 0 && (monster.getType().equalsIgnoreCase("boss")
+                                    || monster.getType().equalsIgnoreCase("miniboss"))) {
+                                AdventureGUI.printText("You shall not pass ~ Gandalf \nYou must defeat the "
+                                        + monster.getType() + " " + monster.getName());
+                            } else {
+                                player.setCurrentRoomId(nextRoomId);
+                                AdventureGUI.printText("You move " + direction + ".");
+                                currentRoom = rooms.get(player.getCurrentRoomId());
+                                AdventureGUI.printText(currentRoom.getLongDescription());
                             }
                         }
-                        
+
                         else {
                             player.setCurrentRoomId(nextRoomId);
                             AdventureGUI.printText("You move " + direction + ".");
