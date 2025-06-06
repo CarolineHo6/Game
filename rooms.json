@@ -263,13 +263,13 @@
     "isLocked": false,
     "keyID": ""
   },
-  "1FHallway1": {
-    "id": "1FHallway1",
+  "1F Hallway1": {
+    "id": "1F Hallway1",
     "name": "1F Hallway 1",
     "description": "The lower level is musty and dank. A staircase leads up, and the dark hallway continues to the east. There are two double doors to the south and west.",
     "exits": {
       "south": "gym",
-      "east": "1F hallway2",
+      "east": "1FHallway2",
       "west": "IT",
       "north": "1F staircase"
     },
@@ -479,8 +479,8 @@
     "isLocked": false,
     "keyID": ""
   },
-  "3FHallway1": {
-    "id": "3FHallway1",
+  "3F hallway1": {
+    "id": "3F hallway1",
     "name": "3F Hallway 1",
     "description": "The hallway continues east, with 2 rooms to the south and west. The staircase is at the north.",
     "exits": {
@@ -578,7 +578,7 @@
     "name": "Math Lab",
     "description": "Red marks cover the glass walls along with the various math equations, but otherwise everything is surprisingly well kept. A man stands behind a desk.",
     "exits": {
-      "south": "3F hallway2"
+      "south": "3FHallway2"
     },
     "items": [],
     "npc": [
@@ -603,7 +603,7 @@
     "name": "Principle's Office",
     "description": "It's dark and scary in here.",
     "exits": {
-      "north": "3F hallway2"
+      "north": "3FHallway2"
     },
     "items": [ {
         "id": "key10",
@@ -632,7 +632,7 @@
     "name": "Gr.10 Common Area",
     "description": "Couches are arranged around a small Christmas tree in the middle. It looks sad.",
     "exits": {
-      "west": "3F hallway2"
+      "west": "3FHallway2"
     },
     "items": [],
     "npc": [
