@@ -149,8 +149,6 @@ public class CommandParser {
                     String direction = words[1].toLowerCase();
 
                     Map<String, String> directionAliases = new HashMap<>();
-                    directionAliases.put("down", "south");
-                    directionAliases.put("up", "north");
                     directionAliases.put("left", "west");
                     directionAliases.put("right", "east");
                     directionAliases.put("forward", "south");
