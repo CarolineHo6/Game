@@ -4,7 +4,7 @@
     "name": "Entrance Hall",
     "description": "You are standing in the main entrance hall, where sunlight spills through tall glass doors and reflects off the smooth tile floor. To the west, a wide doorway leads to the theatre. To the east, a hallway stretches toward the cafeteria and library. Straight ahead, a staircase descends to the lower floor.",
     "exits": {
-      "south": "2Fstaircase",
+      "south": "2FStaircase",
       "west": "theatre",
       "east": "hallway1"
     },
@@ -29,26 +29,28 @@
       "east": "entrance",
       "south": "hallway2"
     },
-    "items": [ {
+    "items": [
+      {
         "id": "key04",
         "name": "key - burger charm",
         "description": "A miniscule key. It has a burger charm.",
         "type": "key",
         "room": "cafeteria",
         "used": false
-      }],
+      }
+    ],
     "npc": [],
     "floor": "2",
     "isLocked": false,
     "keyID": ""
   },
-  "2Fstaircase": {
-    "id": "2Fstaircase",
+  "2FStaircase": {
+    "id": "2FStaircase",
     "name": "Central Staircase",
     "description": "A spiraling staircase winds between floors, enclosed in smooth concrete and metal railings. Your footsteps echo with each turn. Cool air drifts from below, and warm light filters from the floor above. This central stairwell connects all three levels—up to the third floor, down to the lower level, and north back to the entrance hall.",
     "exits": {
-      "up": "3F staircase",
-      "down": "1F staircase",
+      "up": "3FStaircase",
+      "down": "1FStaircase",
       "north": "entrance"
     },
     "items": [],
@@ -124,14 +126,16 @@
       "north": "hallway1",
       "south": "hallway3"
     },
-    "items": [ {
+    "items": [
+      {
         "id": "key01",
         "name": "key - flask keychain",
         "description": "A miniscule key. It seems to have a flask keychain on it.",
         "type": "key",
         "room": "scienceLab",
         "used": false
-      }],
+      }
+    ],
     "npc": [
       {
         "health": 5,
@@ -155,7 +159,7 @@
     "description": "Remains of scavenged food lies on the ground. The library stands queitly to the north. At the far east you could faintly see the rows of music stands in the music room. To the south is the spacious gr. 11 common area, and behind you is the drama room. ",
     "exits": {
       "north": "library",
-      "south": "gr.11 Common Area",
+      "south": "gr.11CommonArea",
       "east": "musicRoom",
       "west": "dramaRoom"
     },
@@ -208,7 +212,7 @@
         "attack": 3,
         "crit": 1
       },
-       {
+      {
         "id": "key03",
         "name": "key - keyboard charm",
         "description": "A miniscule key. It has a little keyboard charm.",
@@ -223,7 +227,7 @@
         "damage": 2,
         "dodgeRange": 0,
         "name": "Mr. Clark",
-        "currentRoom": "drama room",
+        "currentRoom": "dramaRoom",
         "description": "A jolly man that has a booming voice. Do not be decived by his looks for he is fearsome with his writing and dramatic acts",
         "talk": "DID YOU INDENT YOUR PARAGRAPHS? HAHAHAHAHA",
         "id": "teacher7",
@@ -271,7 +275,7 @@
       "south": "gym",
       "east": "1FHallway2",
       "west": "IT",
-      "north": "1F staircase"
+      "north": "1FStaircase"
     },
     "items": [],
     "npc": [],
@@ -284,7 +288,7 @@
     "name": "Gym",
     "description": "A large variety of round objects are strewn across the floor: dodgeballs, basketballs, tennis balls, a human head...",
     "exits": {
-      "north": "1F hallway1"
+      "north": "1FHallway1"
     },
     "items": [
       {
@@ -323,7 +327,7 @@
     "name": "IT Department",
     "description": "You are faced with a pile of smashed computers and a whole bunch of scary looking wires.",
     "exits": {
-      "east": "1F hallway1"
+      "east": "1FHallway1"
     },
     "items": [],
     "npc": [],
@@ -337,9 +341,9 @@
     "description": "The hallway continues west. There are doors to the north and south, and an area to the east.",
     "exits": {
       "north": "classroom",
-      "south": "science lab",
-      "east": "gr.12 Common Area",
-      "west": "1F hallway1"
+      "south": "scienceLab",
+      "east": "gr.12CommonArea",
+      "west": "1FHallway1"
     },
     "items": [],
     "npc": [],
@@ -352,7 +356,7 @@
     "name": "Science Labratory",
     "description": "You take one look at the flask on the table. So that's where the smell's coming from.",
     "exits": {
-      "north": "1F hallway2"
+      "north": "1FHallway2"
     },
     "items": [
       {
@@ -369,7 +373,7 @@
         "damage": 1,
         "dodgeRange": 2,
         "name": "Ms. Landau",
-        "currentRoom": "science lab",
+        "currentRoom": "scienceLab",
         "description": "A scary science teacher. Yet, she has a warming prescence.",
         "talk": "EXTENTION DENIED",
         "id": "teacher4",
@@ -377,7 +381,7 @@
       },
       {
         "name": "Ms. Russell",
-        "currentRoom": "science lab",
+        "currentRoom": "scienceLab",
         "description": "A kind woman who seems to be trying to stop the fearsome Ms. Landau but unfortunately she is too fearsome",
         "talk": "Hi! Hope you are doing well!",
         "id": "teacher9",
@@ -393,16 +397,17 @@
     "name": "Gr.12 Common Area",
     "description": "There are chairs and tables scattered around the space.",
     "exits": {
-      "west": "1F hallway2"
+      "west": "1FHallway2"
     },
-    "items": [{
-       "id": "key08",
+    "items": [
+      {
+        "id": "key08",
         "name": "key - baseball",
         "description": "The key looks old and the charm is distorted, but you could faintly make out the shape of a baseball bat and baseball.",
         "type": "key",
         "room": "compsciRoom",
         "used": false
-    }
+      }
     ],
     "npc": [
       {
@@ -412,10 +417,10 @@
         "talk": "IM BATMAN....",
         "id": "student3",
         "type": "NPC"
-      }, 
+      },
       {
         "name": "Gigi",
-        "currentRoom": "gr. 12 common area",
+        "currentRoom": "gr.12CommonArea",
         "description": "another gr 12, who is friends with 'batman' or so she says",
         "talk": "im friends with batman",
         "id": "student4",
@@ -431,7 +436,7 @@
     "name": "Classroom",
     "description": "It's a classroom. Not much to see here, except for something in the corner. Oh, don't mind the severed hand on that desk over there.",
     "exits": {
-      "south": "1F hallway2"
+      "south": "1FHallway2"
     },
     "items": [],
     "npc": [
@@ -456,8 +461,8 @@
     "name": "1F Staircase",
     "description": "The stairwell is dark without any natural light. A ray of sunlight streams in from above where the stairs continue upwards. A door leads to the lower level to the south.",
     "exits": {
-      "south": "1F hallway1",
-      "up": "2Fstaircase"
+      "south": "1FHallway1",
+      "up": "2FStaircase"
     },
     "items": [],
     "npc": [],
@@ -470,8 +475,8 @@
     "name": "3F Staircase",
     "description": "You are at the top. There's a door that leads to the rest of the 3rd floor, and the staircase winds down.",
     "exits": {
-      "down": "2Fstaircase",
-      "south": "3F hallway1"
+      "down": "2FStaircase",
+      "south": "3FHallway1"
     },
     "items": [],
     "npc": [],
@@ -480,14 +485,14 @@
     "keyID": ""
   },
   "3F hallway1": {
-    "id": "3F hallway1",
+    "id": "3Fhallway1",
     "name": "3F Hallway 1",
     "description": "The hallway continues east, with 2 rooms to the south and west. The staircase is at the north.",
     "exits": {
-      "north": "3F staircase",
-      "south": "compsci room",
-      "east": "3F hallway2",
-      "west": "Gr.9 common area"
+      "north": "3FStaircase",
+      "south": "compsciRoom",
+      "east": "3FHallway2",
+      "west": "Gr.9CommonArea"
     },
     "items": [],
     "npc": [],
@@ -500,8 +505,8 @@
     "name": "3F Hallway 2",
     "description": "The hallway continues west, with rooms in all three other directions.",
     "exits": {
-      "north": "math lab",
-      "south": "principle's office",
+      "north": "mathLab",
+      "south": "principleOffice",
       "east": "gr.10 common area",
       "west": "3F hallway1"
     },
@@ -516,22 +521,24 @@
     "name": "gr.9 Common Area",
     "description": "Couches line the walls of the small space. Snacks and garbage cover eavery inch of the carpeted floor.",
     "exits": {
-      "east": "3F hallway1"
+      "east": "3FHallway1"
     },
-    "items": [ {
+    "items": [
+      {
         "id": "key05",
         "name": "key - addition sign",
         "description": "A miniscule key. It has an addition sign on it.",
         "type": "key",
         "room": "mathLab",
         "used": false
-      }],
+      }
+    ],
     "npc": [
       {
         "name": "Adriana",
         "currentRoom": "gr.9 common area",
-        "description": "",
-        "talk": "",
+        "description": "A person",
+        "talk": "Hi",
         "id": "student2",
         "type": "NPC"
       }
@@ -545,24 +552,26 @@
     "name": "Computer Science Classroom",
     "description": "It's just a regular classroom, except on the board there is a lesson on Arraylists. A man sits at the table in front of the board, typing menacingly.",
     "exits": {
-      "north": "3F hallway1"
+      "north": "3FHallway1"
     },
-    "items": [ {
+    "items": [
+      {
         "id": "key09",
         "name": "key - rusted words",
         "description": "A miniscule key. It has the rusted words h_ad _f sc_ool.",
         "type": "key",
         "room": "principleOffice",
         "used": false
-      }],
+      }
+    ],
     "npc": [
       {
         "health": 300,
         "damage": 20,
         "dodgeRange": 2,
         "stages": 10,
-        "name": "Mr.Delauriers",
-        "currentRoom": "compsci room",
+        "name": "Mr. Delauriers",
+        "currentRoom": "compsciRoom",
         "description": "Average white man turned zombie, he will stop at nothing to eat your brains",
         "talk": "DID YOU COMMIT YOUR CODE TO GITHUB??",
         "id": "final boss",
@@ -587,7 +596,7 @@
         "damage": 15,
         "dodgeRange": 1,
         "name": "Mr.Pape",
-        "currentRoom": "math lab",
+        "currentRoom": "mathLab",
         "description": "A middle-aged math teacher who turned bald a bit too soon. His head gleams brighter than the beaming sun. He seems to have hoarded an array of belongings which he seems very protective of.",
         "talk": "Math lab is closed today MWAHAHAH. I'll give you pity marks because you're too stupid.",
         "id": "teacher1",
@@ -605,18 +614,20 @@
     "exits": {
       "north": "3FHallway2"
     },
-    "items": [ {
+    "items": [
+      {
         "id": "key10",
         "name": "key - the key of all keys",
         "description": "A miniscule key. Being the key of all keys, it gleams a light of glory. ",
         "type": "key",
         "room": "exit",
         "used": false
-      }],
+      }
+    ],
     "npc": [
       {
         "name": "Ms. Fenili",
-        "currentRoom": "principle's office",
+        "currentRoom": "principleOffice",
         "description": "An overwhelming authority figure. Chills run down your spine within 20 meters of her. She greets you with a kind smile, opposite of your first impression of her, and goes on her merry way.",
         "talk": "How are you doing?",
         "id": "teacher3",
@@ -638,7 +649,7 @@
     "npc": [
       {
         "name": "Ms. Bala",
-        "currentRoom": "gr.10 common area",
+        "currentRoom": "gr.10CommonArea",
         "description": "A menacing teacher. She likes jokes a lot.",
         "talk": "You're homework is late. Do you want detention?",
         "id": "teacher6",
@@ -654,7 +665,20 @@
     "description": "You pull open the heavy metal door, and with a rush of air and light, you step into freedom—it's over. (づoωo)づᕦ(ᵔoᵔᕦ)",
     "exits": {},
     "items": [],
-    "npc": [],
+    "npc": [
+      {
+        "health": 3000,
+        "damage": 200,
+        "dodgeRange": 10,
+        "stages": 40,
+        "name": "Catherine",
+        "currentRoom": "exit",
+        "description": "she looms over you as you look up and see her come crashing down on you... as she crushes you, you wonder to yourself if all that effort was truely worth it",
+        "talk": "",
+        "id": "finalFinalBoss",
+        "type": "Boss"
+      }
+    ],
     "floor": "2",
     "isLocked": true,
     "keyID": "key10"
